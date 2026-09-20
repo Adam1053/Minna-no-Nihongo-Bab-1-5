@@ -29,7 +29,11 @@
     --chapter:#8b1a1a;
   }
   *{ box-sizing:border-box; }
-  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+    scroll-padding-top:12px;
+  }
   body{
     margin:0;
     font-family:'Nunito', 'Noto Sans JP', system-ui, sans-serif;
@@ -38,7 +42,13 @@
     color:var(--ink);
     background:#e3d8d8;
     -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    text-rendering:optimizeLegibility;
+    overflow-wrap:break-word;
   }
+  /* Anchor offset agar heading tidak tertutup saat TOC diklik */
+  [id]{ scroll-margin-top:12px; }
+
   mark{ background:#ffe0b0; color:#7a3a10; padding:1px 6px; border-radius:3px; font-weight:700; }
   .hl-em{
     display:inline-block; background:#8b1a1a; color:#fff !important;
@@ -128,12 +138,13 @@
     font-size:1.15em; font-weight:700; color:var(--pen);
     margin:34px 0 12px; padding:0 0 6px;
     border-bottom:1.5px solid var(--pen); line-height:1.4;
+    text-wrap:balance;
   }
   h2.section-title .num{ font-family:'Caveat', cursive; font-size:1.5em; font-weight:700; color:var(--pen); margin-right:10px; display:inline-block; vertical-align:middle; }
-  h3.subsection{ font-size:1em; color:var(--ink); margin:20px 0 8px; font-weight:700; }
-  p{ margin:10px 0; font-size:.96em; }
+  h3.subsection{ font-size:1em; color:var(--ink); margin:20px 0 8px; font-weight:700; text-wrap:balance; }
+  p{ margin:10px 0; font-size:.96em; text-wrap:pretty; }
   ruby{ ruby-align:center; font-family:'Noto Sans JP', sans-serif; }
-  ruby rt{ font-size:.55em; color:var(--ink-soft); font-weight:500; }
+  ruby rt{ font-size:.58em; color:var(--ink-soft); font-weight:500; }
 
   .pola{ background:rgba(255,255,255,0.75); border:1.5px solid var(--pen); border-radius:4px; padding:18px 22px; margin:16px 0; break-inside:avoid; page-break-inside:avoid; }
   .pola-rumus{
@@ -141,6 +152,7 @@
     color:var(--pen); letter-spacing:1px; background:#fffcf8;
     border:1px dashed rgba(139,26,26,0.4); border-radius:3px;
     padding:12px 16px; margin:0 0 10px; line-height:1.9; text-align:center;
+    overflow-wrap:break-word;
   }
   .pola-rumus .p{ color:var(--pen-red); font-weight:900; }
   .pola-arti{ font-size:.92em; color:var(--pen-green); font-style:italic; text-align:center; margin:0 0 12px; font-weight:600; }
@@ -149,7 +161,7 @@
   ul.contoh{ list-style:none; padding:0; margin:10px 0 0; }
   ul.contoh li{ padding:10px 0 10px 22px; border-left:2px solid rgba(139,26,26,0.25); margin-bottom:8px; position:relative; break-inside:avoid; }
   ul.contoh li::before{ content:"▸"; position:absolute; left:6px; top:11px; color:var(--pen); font-size:.9em; }
-  ul.contoh .jp-line{ font-family:'Noto Sans JP', sans-serif; font-size:1.05em; font-weight:600; color:var(--pen); letter-spacing:1px; display:block; line-height:2.1; }
+  ul.contoh .jp-line{ font-family:'Noto Sans JP', sans-serif; font-size:1.05em; font-weight:600; color:var(--pen); letter-spacing:1px; display:block; line-height:2.1; overflow-wrap:break-word; }
   ul.contoh .romaji{ font-size:.85em; color:var(--ink-soft); font-style:italic; display:block; margin-top:2px; }
   ul.contoh .id{ font-size:.92em; color:var(--ink); display:block; margin-top:2px; }
 
@@ -165,7 +177,7 @@
   .note-brown{ background:rgba(122,82,48,0.08); border-left:4px solid var(--brown); }
   .note-brown .label{ color:var(--brown); }
 
-  /* === BARU: Kotak Percakapan (Kaiwa) — Prioritas 3 #8 === */
+  /* === Kotak Percakapan (Kaiwa) === */
   .kaiwa-box{
     background:rgba(106,61,154,0.07);
     border:1px solid rgba(106,61,154,0.35);
@@ -189,7 +201,7 @@
     font-weight:800; color:var(--pen); font-family:'Nunito', sans-serif;
     vertical-align:top;
   }
-  .kaiwa-box .kaiwa-line .jp{ color:var(--pen); font-weight:600; }
+  .kaiwa-box .kaiwa-line .jp{ color:var(--pen); font-weight:600; overflow-wrap:break-word; }
   .kaiwa-box .kaiwa-line .rm{
     display:block; font-family:'Nunito', sans-serif;
     font-size:.82em; color:var(--ink-soft); font-style:italic;
@@ -203,7 +215,7 @@
 
   table{ width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.92em; background:rgba(255,255,255,0.55); }
   th{ background:rgba(139,26,26,0.1); color:var(--pen); text-align:left; font-size:.86em; letter-spacing:.5px; border-bottom:2px solid var(--pen); padding:9px 12px; font-weight:700; }
-  td{ padding:9px 12px; border-bottom:1px dashed rgba(139,26,26,0.25); vertical-align:top; line-height:1.6; }
+  td{ padding:9px 12px; border-bottom:1px dashed rgba(139,26,26,0.25); vertical-align:top; line-height:1.6; word-break:break-word; }
   td .jp-txt, td.jp-txt{ color:var(--pen); font-weight:600; font-family:'Noto Sans JP', sans-serif; }
   td .rm, td.rm{ color:var(--ink-soft); font-style:italic; font-size:.88em; }
 
@@ -234,7 +246,7 @@
 
   .vocab-table{ width:100%; border-collapse:collapse; margin:14px 0 20px; font-size:.88em; background:rgba(255,255,255,0.6); }
   .vocab-table th{ background:rgba(139,26,26,0.11); color:var(--pen); text-align:left; font-size:.82em; letter-spacing:1px; border-bottom:2px solid var(--pen); padding:8px 10px; font-weight:700; text-transform:uppercase; }
-  .vocab-table td{ padding:7px 10px; border-bottom:1px dashed rgba(139,26,26,0.22); line-height:1.5; }
+  .vocab-table td{ padding:7px 10px; border-bottom:1px dashed rgba(139,26,26,0.22); line-height:1.5; word-break:break-word; }
   .vocab-table td .jp-word, .vocab-table td.jp-word{ font-family:'Noto Sans JP', sans-serif; font-weight:600; color:var(--pen); font-size:1.02em; }
   .vocab-table td .rm, .vocab-table td.rm{ color:var(--ink-soft); font-style:italic; font-size:.9em; }
   .vocab-table td .no, .vocab-table td.no{ color:var(--ink-soft); font-weight:600; font-size:.85em; width:26px; }
@@ -263,7 +275,7 @@
 
   .reading-box{ background:rgba(139,26,26,0.05); border:1px dashed rgba(139,26,26,0.35); border-radius:4px; padding:16px 22px; margin:16px 0; break-inside:avoid; }
   .reading-box .reading-label{ font-family:'Caveat', cursive; font-size:1.3em; color:var(--pen); font-weight:700; margin-bottom:8px; }
-  .reading-box .reading-text{ font-family:'Noto Sans JP', sans-serif; font-size:1em; color:var(--pen); line-height:2.2; margin:8px 0; }
+  .reading-box .reading-text{ font-family:'Noto Sans JP', sans-serif; font-size:1em; color:var(--pen); line-height:2.2; margin:8px 0; overflow-wrap:break-word; }
   .reading-box .romaji{ font-size:.85em; color:var(--ink-soft); font-style:italic; display:block; margin:6px 0; }
   .reading-box .id{ font-size:.9em; color:var(--ink); display:block; margin:6px 0 12px; }
   .reading-box ol{ margin:8px 0; padding-left:22px; font-size:.94em; }
@@ -395,44 +407,65 @@
     html, body{ margin: 0 !important; padding: 0 !important; background: #fff !important; font-size: 10.5pt; line-height: 1.55; }
     .book{ margin: 0 !important; padding: 0 !important; box-shadow: none !important; max-width: none !important; width: 100% !important; background: #fff !important; }
     .page{ padding: 12mm 13mm 14mm 13mm !important; margin: 0 !important; background: #fdf8f3 !important; background-image: none !important; min-height: auto !important; border: none !important; }
+
+    /* Cover & back-cover selalu mulai di halaman baru */
     .cover, .back-cover {
       display: block !important; position: static !important; overflow: visible !important;
       min-height: 0 !important; padding: 50mm 15mm 20mm 15mm !important;
       background: #5c1010 !important; background-image: none !important;
       border-radius: 0 !important;
+      break-before: page !important;
+      page-break-before: always !important;
     }
+
     .chapter-divider {
       display: block !important; position: static !important; overflow: visible !important;
       min-height: 0 !important; padding: 30mm 15mm 20mm 15mm !important;
       background-image: none !important; border-radius: 0 !important;
-      /* FIX Prioritas 1 #3: pastikan divider bab selalu mulai di halaman baru DAN
-         diikuti halaman baru setelahnya */
       break-before: page !important;
       page-break-before: always !important;
       break-after: page !important;
       page-break-after: always !important;
+    }
+    /* Safety: jika .chapter-divider adalah anak pertama dari .chapter,
+       hindari double page-break (mencegah halaman kosong) */
+    .chapter > .chapter-divider:first-child{
+      break-before: auto !important;
+      page-break-before: auto !important;
     }
     .chapter-1 .chapter-divider{ background: #8b1a1a !important; }
     .chapter-2 .chapter-divider{ background: #a02c2c !important; }
     .chapter-3 .chapter-divider{ background: #c2540a !important; }
     .chapter-4 .chapter-divider{ background: #7a1a4a !important; }
     .chapter-5 .chapter-divider{ background: #6b1020 !important; }
+
     .cover::before, .back-cover::before, .chapter-divider::before, .chapter-divider::after { display: none !important; }
     .cover::after { display: none !important; }
+
     html, body, * { -webkit-font-smoothing: antialiased !important; text-rendering: geometricPrecision !important; font-synthesis: none !important; font-kerning: normal !important; }
+
     .page-break{ break-before: page !important; page-break-before: always !important; }
     .chapter{ break-before: page !important; page-break-before: always !important; }
-    /* FIX: karena .chapter-divider sekarang punya break-after: page,
-       jangan tambahkan break-before: auto lagi — biarkan aturan utamanya berlaku */
+
     h1, h2, h3, h4{ break-after: avoid !important; page-break-after: avoid !important; }
     h2.section-title{ margin-top: 0 !important; padding-top: 14px !important; padding-bottom: 6px !important; margin-bottom: 12px !important; }
     p, li{ orphans: 3; widows: 3; }
-    .pola, .note, .kunci-block, .quiz-box, .reading-box, .kaiwa-box, .mistake, .kanji-card, .phrase-card, .card, .soal, ul.contoh li, ul.checklist, .cover-stats, .cover-bottom, .bc-recap, .vocab-table tr, table tr, .tgl-full-table tr { break-inside: avoid !important; page-break-inside: avoid !important; }
+
+    .pola, .note, .kunci-block, .quiz-box, .reading-box, .kaiwa-box, .mistake, .kanji-card, .phrase-card, .card, .soal, ul.contoh li, ul.checklist, .cover-stats, .cover-bottom, .bc-recap, .vocab-table tr, table tr, .tgl-full-table tr {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
     table{ width: 100%; border-collapse: collapse !important; }
     thead{ display: table-header-group; }
     tr{ break-inside: avoid; page-break-inside: avoid; }
-    /* FIX Prioritas 3 #14: ukuran furigana di print 0.5em terlalu kecil */
+    td, th{ word-break: break-word; overflow-wrap: anywhere; }
+
     ruby rt{ font-size: 0.6em !important; line-height: 1 !important; }
+
+    /* Glossary: fallback ke single-column jika terlalu panjang untuk 2 kolom */
+    .glossary-grid{ display: block !important; }
+
     .print-fab, .print-modal{ display: none !important; }
     a{ color: var(--ink); text-decoration: none; }
     mark{ background: #ffe0b0 !important; color: #7a3a10 !important; }
@@ -463,7 +496,7 @@
       <div class="stat"><div class="num">01–05</div><div class="lbl">Bab</div></div>
       <div class="stat"><div class="num">N5</div><div class="lbl">Level</div></div>
       <div class="stat"><div class="num">32</div><div class="lbl">Kanji</div></div>
-      <div class="stat"><div class="num">145</div><div class="lbl">Kosakata</div></div>
+      <div class="stat"><div class="num">146</div><div class="lbl">Kosakata</div></div>
       <div class="stat"><div class="num">100+</div><div class="lbl">Latihan</div></div>
     </div>
   </div>
@@ -494,7 +527,7 @@
     <li><strong>Kesalahan Umum</strong> &amp; <strong>Review Kumulatif</strong></li>
     <li><strong>Tabel Referensi</strong> — konjugasi kata kerja &amp; partikel</li>
     <li><strong>Index Kanji</strong> — 32 karakter dasar N5</li>
-    <li><strong>Glossary 145 kata inti</strong> diurutkan secara alfabetis</li>
+    <li><strong>Glossary 146 kata inti</strong> diurutkan secara alfabetis</li>
     <li><strong>Kunci Jawaban</strong> lengkap untuk semua latihan &amp; mini quiz</li>
   </ul>
   <h3 class="subsection" style="text-align:left; margin-top:20px;">Cara Pakai Buku Ini</h3>
@@ -674,7 +707,7 @@
     <li><a href="#referensi"><span class="num">Referensi</span><span class="ttl">Tabel Konjugasi &amp; Partikel</span><span class="jp">参考</span></a></li>
     <li><a href="#kanjindex"><span class="num">Kanji</span><span class="ttl">Index 32 Kanji Dasar N5</span><span class="jp">漢字</span></a></li>
     <li><a href="#frasa"><span class="num">Frasa</span><span class="ttl">Ungkapan Sehari-hari</span><span class="jp">日常会話</span></a></li>
-    <li><a href="#glossary"><span class="num">Glossary</span><span class="ttl">Daftar 145 Kosakata Inti (A–Z)</span><span class="jp">単語帳</span></a></li>
+    <li><a href="#glossary"><span class="num">Glossary</span><span class="ttl">Daftar 146 Kosakata Inti (A–Z)</span><span class="jp">単語帳</span></a></li>
     <li style="border-bottom:none;"><a href="#kunci"><span class="num">Kunci</span><span class="ttl">Kunci Jawaban Lengkap</span><span class="jp">解答</span></a></li>
   </ul>
 </section>
@@ -690,6 +723,8 @@
   <p class="ch-desc">Memperkenalkan diri secara formal, menyatakan identitas "A adalah B", membentuk kalimat negatif, serta menyusun kalimat tanya.</p>
 </div>
 <div class="page">
+
+  <!-- ================= 1 ================= -->
   <h2 class="section-title"><span class="num">1.</span>Kalimat "A adalah B"</h2>
   <p>Pola dasar untuk menyatakan identitas, profesi, atau kebangsaan: <strong>N1 は N2 です。</strong></p>
   <div class="pola">
@@ -703,9 +738,10 @@
     </ul>
   </div>
 
+  <!-- ================= 2 ================= -->
   <h2 class="section-title"><span class="num">2.</span>Menyangkal (Negatif)</h2>
   <div class="pola">
-    <div class="pola-rumus">N1 <span class="p">は</span> N2 じゃ ありません。 （では ありません）</div>
+    <div class="pola-rumus">N1 <span class="p">は</span> N2 じゃ ありません。<br><span style="font-size:.9em; font-weight:500; color:var(--ink-soft);">（bentuk resmi: では ありません）</span></div>
     <p class="pola-arti">N1 bukan N2.</p>
     <p>Dalam percakapan lisan sehari-hari umum memakai <strong>じゃ ありません</strong>. Bentuk <strong>では ありません</strong> digunakan pada situasi resmi atau ragam tulisan.</p>
     <ul class="contoh">
@@ -714,18 +750,24 @@
     </ul>
   </div>
 
+  <!-- ================= 3 ================= -->
   <h2 class="section-title"><span class="num">3.</span>Bertanya dengan Partikel か</h2>
   <div class="pola">
     <div class="pola-rumus">N1 <span class="p">は</span> N2 ですか。</div>
     <p class="pola-arti">Apakah N1 adalah N2?</p>
     <ul class="contoh">
       <li><span class="jp-line">ミラーさんは <ruby>会社員<rt>かいしゃいん</rt></ruby>ですか。</span><span class="romaji">Miraa-san wa kaishain desuka.</span><span class="id">Apakah Pak Miller pegawai perusahaan?</span></li>
-      <li><span class="jp-line">— はい、そうです。（はい、<ruby>会社員<rt>かいしゃいん</rt></ruby>です）</span><span class="romaji">Hai, sou desu. / Hai, kaishain desu.</span><span class="id">— Ya, benar. (Ya, pegawai perusahaan.)</span></li>
-      <li><span class="jp-line">— いいえ、そうじゃ ありません。（いいえ、<ruby>会社員<rt>かいしゃいん</rt></ruby>じゃ ありません）</span><span class="romaji">Iie, sou ja arimasen.</span><span class="id">— Tidak, bukan. (Bukan pegawai perusahaan.)</span></li>
+      <li><span class="jp-line">— はい、そうです。<br>（はい、<ruby>会社員<rt>かいしゃいん</rt></ruby>です）</span><span class="romaji">Hai, sou desu. / Hai, kaishain desu.</span><span class="id">— Ya, benar. (Ya, pegawai perusahaan.)</span></li>
+      <li><span class="jp-line">— いいえ、そうじゃ ありません。<br>（いいえ、<ruby>会社員<rt>かいしゃいん</rt></ruby>じゃ ありません）</span><span class="romaji">Iie, sou ja arimasen.</span><span class="id">— Tidak, bukan. (Bukan pegawai perusahaan.)</span></li>
     </ul>
-    <div class="note note-tip" style="margin-top:10px;"><span class="label">Cara Menjawab Kalimat Tanya Nominal</span><p>Jika benar, gunakan <strong>はい、そうです</strong>. Jika menyangkal identitas/profesi, gunakan <strong>いいえ、そうじゃ ありません</strong>.</p></div>
+    <div class="note note-tip" style="margin-top:10px;">
+      <span class="label">Cara Menjawab Kalimat Tanya Nominal</span>
+      <p>Jika <strong>benar</strong> → jawab dengan <strong>はい、そうです</strong>。</p>
+      <p>Jika <strong>menyangkal</strong> identitas/profesi → jawab dengan <strong>いいえ、そうじゃ ありません</strong>。</p>
+    </div>
   </div>
 
+  <!-- ================= 4 ================= -->
   <h2 class="section-title"><span class="num">4.</span>Partikel も (Juga)</h2>
   <div class="pola">
     <div class="pola-rumus">N <span class="p">も</span> 〜です。</div>
@@ -736,27 +778,35 @@
     </ul>
   </div>
 
+  <!-- ================= 5 ================= -->
   <h2 class="section-title"><span class="num">5.</span>Partikel の (Hubungan Antarkata Benda)</h2>
   <div class="pola">
     <div class="pola-rumus">N1 <span class="p">の</span> N2</div>
-    <p class="pola-arti">N1 menerangkan N2 (afiliasi/asal/organisasi).</p>
+    <p class="pola-arti">N1 menerangkan N2 (afiliasi / asal / organisasi).</p>
     <ul class="contoh">
       <li><span class="jp-line"><ruby>私<rt>わたし</rt></ruby>は <ruby>東京大学<rt>とうきょうだいがく</rt></ruby>の <ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="romaji">Watashi wa Toukyou daigaku no gakusei desu.</span><span class="id">Saya mahasiswa Universitas Tokyo.</span></li>
       <li><span class="jp-line">ミラーさんは IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。</span><span class="romaji">Miraa-san wa IMC no shain desu.</span><span class="id">Pak Miller karyawan perusahaan IMC.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 6 ================= -->
   <h2 class="section-title"><span class="num">6.</span>Akhiran ～さん, ～ちゃん, dan ～じん</h2>
   <div class="pola">
-    <p><strong>～さん</strong> = panggilan hormat untuk orang lain (tuan/nyonya/saudara). Jangan sematkan pada nama sendiri! <strong>～ちゃん</strong> = panggilan sayang/akrab untuk anak-anak. <strong>～じん</strong> = akhiran untuk menyatakan warga negara.</p>
+    <ul class="plain">
+      <li><strong>～さん</strong> — panggilan hormat untuk orang lain (tuan / nyonya / saudara). <mark>Jangan sematkan pada nama sendiri!</mark></li>
+      <li><strong>～ちゃん</strong> — panggilan sayang / akrab, umumnya untuk anak-anak.</li>
+      <li><strong>～じん</strong> — akhiran untuk menyatakan warga negara.</li>
+    </ul>
     <ul class="contoh">
       <li><span class="jp-line">ミラーさんは アメリカ<ruby>人<rt>じん</rt></ruby>です。</span><span class="romaji">Miraa-san wa Amerika-jin desu.</span><span class="id">Pak Miller adalah orang Amerika Serikat.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 7 ================= -->
   <h2 class="section-title"><span class="num">7.</span>Menanyakan Usia (〜さい)</h2>
   <div class="pola">
-    <div class="pola-rumus">[Angka] <span class="p">さい</span> です。 &nbsp;·&nbsp; <span class="p">何歳</span> (なんさい) ／ <span class="p">おいくつ</span> ですか。</div>
+    <div class="pola-rumus">[Angka] <span class="p">さい</span> です。</div>
+    <div class="pola-rumus" style="margin-top:8px;"><span class="p">何歳</span>（なんさい） ／ <span class="p">おいくつ</span> ですか。</div>
     <p class="pola-arti">Berumur [Angka] tahun. &nbsp;·&nbsp; Berapa umurnya?</p>
     <div class="note note-warn" style="margin:10px 0;">
       <span class="label">Pengecualian Umur yang Wajib Dihafal</span>
@@ -767,9 +817,11 @@
     </ul>
   </div>
 
+  <!-- ================= 8 ================= -->
   <h2 class="section-title"><span class="num">8.</span>Menanyakan Nama &amp; Orang Lain</h2>
   <div class="pola">
-    <div class="pola-rumus">あの <ruby>人<rt>ひと</rt></ruby> <span class="p">は</span> だれですか。 ／ あの <ruby>方<rt>かた</rt></ruby> <span class="p">は</span> どなたですか。</div>
+    <div class="pola-rumus">あの <ruby>人<rt>ひと</rt></ruby> <span class="p">は</span> だれですか。</div>
+    <div class="pola-rumus" style="margin-top:8px;">あの <ruby>方<rt>かた</rt></ruby> <span class="p">は</span> どなたですか。</div>
     <p class="pola-arti">Orang itu siapa? (Biasa / Sopan)</p>
     <p>Menanyakan nama secara sopan: <strong>お<ruby>名前<rt>なまえ</rt></ruby>は？</strong> atau <strong>お<ruby>名前<rt>なまえ</rt></ruby>は <ruby>何<rt>なん</rt></ruby>ですか。</strong></p>
     <ul class="contoh">
@@ -777,19 +829,21 @@
     </ul>
   </div>
 
+  <!-- ================= 9 ================= -->
   <h2 class="section-title"><span class="num">9.</span>Kanji Bab Ini</h2>
   <div class="kanji-grid">
-    <div class="kanji-card"><div class="k">私</div><span class="r">わたし・し · watashi</span><span class="a">Saya</span><div class="ex"><span class="ex-jp"><ruby>私<rt>わたし</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Saya pelajar.</span></div></div>
-    <div class="kanji-card"><div class="k">人</div><span class="r">ひと・じん · hito / jin</span><span class="a">Orang</span><div class="ex"><span class="ex-jp">インドネシア<ruby>人<rt>じん</rt></ruby>です。</span><span class="ex-id">Orang Indonesia.</span></div></div>
-    <div class="kanji-card"><div class="k">先</div><span class="r">せん · sen</span><span class="a">Dahulu / depan</span><div class="ex"><span class="ex-jp"><ruby>先生<rt>せんせい</rt></ruby>は あの<ruby>方<rt>かた</rt></ruby>です。</span><span class="ex-id">Guru adalah orang itu.</span></div></div>
-    <div class="kanji-card"><div class="k">生</div><span class="r">せい・い · sei</span><span class="a">Hidup / lahir</span><div class="ex"><span class="ex-jp"><ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Pelajar.</span></div></div>
-    <div class="kanji-card"><div class="k">大</div><span class="r">だい・おお · dai</span><span class="a">Besar</span><div class="ex"><span class="ex-jp"><ruby>大学<rt>だいがく</rt></ruby>の <ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Mahasiswa.</span></div></div>
-    <div class="kanji-card"><div class="k">学</div><span class="r">がく・まな · gaku</span><span class="a">Belajar</span><div class="ex"><span class="ex-jp"><ruby>大学<rt>だいがく</rt></ruby>は どこですか。</span><span class="ex-id">Universitas di mana?</span></div></div>
-    <div class="kanji-card"><div class="k">方</div><span class="r">かた · kata</span><span class="a">Orang (sopan)</span><div class="ex"><span class="ex-jp">あの<ruby>方<rt>かた</rt></ruby>は どなたですか。</span><span class="ex-id">Beliau siapa?</span></div></div>
-    <div class="kanji-card"><div class="k">名</div><span class="r">な・めい · na</span><span class="a">Nama</span><div class="ex"><span class="ex-jp">お<ruby>名前<rt>なまえ</rt></ruby>は？</span><span class="ex-id">Namanya?</span></div></div>
-    <div class="kanji-card"><div class="k">前</div><span class="r">まえ · mae</span><span class="a">Depan / sebelum</span><div class="ex"><span class="ex-jp">お<ruby>名前<rt>なまえ</rt></ruby>は <ruby>何<rt>なん</rt></ruby>ですか。</span><span class="ex-id">Namanya siapa?</span></div></div>
+    <div class="kanji-card"><div class="k">私</div><span class="r">わたし・し — watashi / shi</span><span class="a">Saya</span><div class="ex"><span class="ex-jp"><ruby>私<rt>わたし</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Saya pelajar.</span></div></div>
+    <div class="kanji-card"><div class="k">人</div><span class="r">ひと・じん — hito / jin</span><span class="a">Orang</span><div class="ex"><span class="ex-jp">インドネシア<ruby>人<rt>じん</rt></ruby>です。</span><span class="ex-id">Orang Indonesia.</span></div></div>
+    <div class="kanji-card"><div class="k">先</div><span class="r">せん — sen</span><span class="a">Dahulu / depan</span><div class="ex"><span class="ex-jp"><ruby>先生<rt>せんせい</rt></ruby>は あの<ruby>方<rt>かた</rt></ruby>です。</span><span class="ex-id">Guru adalah orang itu.</span></div></div>
+    <div class="kanji-card"><div class="k">生</div><span class="r">せい・い — sei / i</span><span class="a">Hidup / lahir</span><div class="ex"><span class="ex-jp"><ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Pelajar.</span></div></div>
+    <div class="kanji-card"><div class="k">大</div><span class="r">だい・おお — dai / oo</span><span class="a">Besar</span><div class="ex"><span class="ex-jp"><ruby>大学<rt>だいがく</rt></ruby>の <ruby>学生<rt>がくせい</rt></ruby>です。</span><span class="ex-id">Mahasiswa.</span></div></div>
+    <div class="kanji-card"><div class="k">学</div><span class="r">がく・まな — gaku / mana</span><span class="a">Belajar</span><div class="ex"><span class="ex-jp"><ruby>大学<rt>だいがく</rt></ruby>は どこですか。</span><span class="ex-id">Universitas di mana?</span></div></div>
+    <div class="kanji-card"><div class="k">方</div><span class="r">かた — kata</span><span class="a">Orang (sopan)</span><div class="ex"><span class="ex-jp">あの<ruby>方<rt>かた</rt></ruby>は どなたですか。</span><span class="ex-id">Beliau siapa?</span></div></div>
+    <div class="kanji-card"><div class="k">名</div><span class="r">な・めい — na / mei</span><span class="a">Nama</span><div class="ex"><span class="ex-jp">お<ruby>名前<rt>なまえ</rt></ruby>は？</span><span class="ex-id">Namanya?</span></div></div>
+    <div class="kanji-card"><div class="k">前</div><span class="r">まえ — mae</span><span class="a">Depan / sebelum</span><div class="ex"><span class="ex-jp">お<ruby>名前<rt>なまえ</rt></ruby>は <ruby>何<rt>なん</rt></ruby>ですか。</span><span class="ex-id">Namanya siapa?</span></div></div>
   </div>
 
+  <!-- ================= 10 ================= -->
   <h2 class="section-title"><span class="num">10.</span>Kosakata Inti Bab 1</h2>
   <table class="vocab-table">
     <thead><tr><th style="width:6%">No</th><th style="width:26%">日本語</th><th style="width:24%">Romaji</th><th>Arti</th></tr></thead>
@@ -823,6 +877,7 @@
     </tbody>
   </table>
 
+  <!-- ================= 11 ================= -->
   <h2 class="section-title"><span class="num">11.</span>Ringkasan Partikel Bab 1</h2>
   <table>
     <thead><tr><th style="width:14%">Partikel</th><th style="width:16%">Baca</th><th>Fungsi</th><th style="width:28%">Contoh</th></tr></thead>
@@ -834,6 +889,7 @@
     </tbody>
   </table>
 
+  <!-- ================= 12 ================= -->
   <h2 class="section-title"><span class="num">12.</span>Percakapan: Salam Kenal</h2>
   <div class="kaiwa-box">
     <div class="kaiwa-label">会話 · Kaiwa — Hajimemashite!</div>
@@ -863,13 +919,14 @@
     </div>
   </div>
 
+  <!-- ================= 13 ================= -->
   <h2 class="section-title"><span class="num">13.</span>Pemahaman Bacaan</h2>
   <div class="reading-box">
     <div class="reading-label">Bacaan Singkat</div>
     <p class="reading-text">わたしは マリア・サントスです。ブラジルから <ruby>来<rt>き</rt></ruby>ました。IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。どうぞ よろしく。</p>
     <span class="romaji">Watashi wa Maria Santosu desu. Burajiru kara kimashita. IMC no shain desu. Douzo yoroshiku.</span>
     <span class="id">Saya Maria Santos. Datang dari Brasil. Pegawai IMC. Mohon bantuannya.</span>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>サントスさんは どこから <ruby>来<rt>き</rt></ruby>ましたか。</li>
       <li>サントスさんは なんの <ruby>社員<rt>しゃいん</rt></ruby>ですか。</li>
@@ -877,6 +934,7 @@
     </ol>
   </div>
 
+  <!-- ================= 14 ================= -->
   <h2 class="section-title"><span class="num">14.</span>Latihan</h2>
   <div class="latihan">
     <div class="soal"><span class="tanya"><strong>Isi titik-titik</strong>: <ruby>私<rt>わたし</rt></ruby>＿＿ インドネシア<ruby>人<rt>じん</rt></ruby>です。</span></div>
@@ -897,6 +955,7 @@
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Indonesia: あの かたは ミラーさんです。アメリカ<ruby>人<rt>じん</rt></ruby>です。</span></div>
   </div>
 
+  <!-- ================= 15 ================= -->
   <h2 class="section-title"><span class="num">15.</span>Mini Quiz</h2>
   <div class="quiz-box">
     <div class="quiz-label">✏️ Cek pemahaman Bab 1 (5 soal)</div>
@@ -909,16 +968,18 @@
     </ol>
   </div>
 
+  <!-- ================= 16 ================= -->
   <h2 class="section-title"><span class="num">16.</span>Yang Sudah Dipelajari</h2>
   <ul class="checklist">
-    <li>Bisa membuat kalimat "A adalah B" dengan です.</li>
-    <li>Bisa menyangkal kalimat nominal dengan じゃ ありません.</li>
+    <li>Bisa membuat kalimat "A adalah B" dengan です。</li>
+    <li>Bisa menyangkal kalimat nominal dengan じゃ ありません。</li>
     <li>Bisa bertanya dengan membubuhkan partikel か di akhir.</li>
     <li>Paham perbedaan partikel topik は dan partikel も (juga).</li>
-    <li>Bisa menanyakan dan menyatakan usia dengan 〜さい.</li>
-    <li>Bisa menanyakan nama dengan お名前は 何ですか.</li>
+    <li>Bisa menanyakan dan menyatakan usia dengan 〜さい。</li>
+    <li>Bisa menanyakan nama dengan お名前は 何ですか。</li>
     <li>Hafal 26 kosakata inti Bab 1 dan 9 kanji dasar.</li>
   </ul>
+
 </div>
 </section>
 
@@ -927,12 +988,14 @@
 <div class="chapter-divider">
   <p class="ch-label">BAB 02</p>
   <p class="ch-jp">これ・それ・あれ</p>
-  <p class="ch-romaji">kore · sore · are</p>
+  <p class="ch-romaji">Kore · Sore · Are</p>
   <p class="ch-id">Kata Tunjuk Benda &amp; Kepemilikan</p>
   <div class="rule"></div>
   <p class="ch-desc">Belajar menunjuk benda: "ini", "itu", dan "itu di sana". Juga mempelajari partikel の untuk menyatakan kepemilikan serta pengganti kata benda.</p>
 </div>
 <div class="page">
+
+  <!-- ================= 1 ================= -->
   <h2 class="section-title"><span class="num">1.</span>これ, それ, あれ (Tunjuk Benda Mandiri)</h2>
   <div class="pola">
     <div class="pola-rumus">これ / それ / あれ <span class="p">は</span> [Benda] です。</div>
@@ -947,9 +1010,14 @@
       <li><span class="jp-line">それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。</span><span class="romaji">Sore wa jisho desuka.</span><span class="id">Apakah itu kamus?</span></li>
       <li><span class="jp-line">あれは だれの <ruby>車<rt>くるま</rt></ruby>ですか。</span><span class="romaji">Are wa dare no kuruma desuka.</span><span class="id">Itu mobil milik siapa?</span></li>
     </ul>
-    <div class="note note-warn" style="margin-top:10px;"><span class="label">Sering Salah</span><p>Salah: <em>これ 本 (Kore hon)</em>. Benar: <strong>これは 本です</strong> atau <strong>この 本は…</strong>.</p></div>
+    <div class="note note-warn" style="margin-top:10px;">
+      <span class="label">Sering Salah</span>
+      <p>Salah: <em>これ 本 (Kore hon)</em>。</p>
+      <p>Benar: <strong>これは 本です</strong> atau <strong>この 本は…</strong>。</p>
+    </div>
   </div>
 
+  <!-- ================= 2 ================= -->
   <h2 class="section-title"><span class="num">2.</span>この, その, あの (Tunjuk Menempel Benda)</h2>
   <div class="pola">
     <div class="pola-rumus">この / その / あの [Benda] <span class="p">は</span> 〜です。</div>
@@ -961,10 +1029,11 @@
     </ul>
   </div>
 
+  <!-- ================= 3 ================= -->
   <h2 class="section-title"><span class="num">3.</span>Menjawab Konfirmasi Benda</h2>
   <div class="pola">
-    <div class="pola-rumus">はい、そうです。 ／ いいえ、ちがいます。</div>
-    <p class="pola-arti">Ya, benar. ／ Bukan/Salah.</p>
+    <div class="pola-rumus">はい、そうです。 &nbsp;／&nbsp; いいえ、ちがいます。</div>
+    <p class="pola-arti">Ya, benar. &nbsp;／&nbsp; Bukan / Salah.</p>
     <ul class="contoh">
       <li><span class="jp-line">それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。</span><span class="romaji">Sore wa jisho desuka.</span><span class="id">Apakah itu kamus?</span></li>
       <li><span class="jp-line">— はい、そうです。</span><span class="romaji">Hai, sou desu.</span><span class="id">— Ya, benar.</span></li>
@@ -972,6 +1041,7 @@
     </ul>
   </div>
 
+  <!-- ================= 4 ================= -->
   <h2 class="section-title"><span class="num">4.</span>Pertanyaan Dua Pilihan (~か、~か)</h2>
   <div class="pola">
     <div class="pola-rumus">[Tunjuk] <span class="p">は</span> [A] ですか、[B] ですか。</div>
@@ -983,18 +1053,25 @@
     </ul>
   </div>
 
+  <!-- ================= 5 ================= -->
   <h2 class="section-title"><span class="num">5.</span>Partikel の: Kepemilikan &amp; Pengganti Kata Benda</h2>
   <div class="pola">
-    <div class="pola-rumus">N1 <span class="p">の</span> N2 &nbsp;·&nbsp; [Orang] <span class="p">の</span> (milik ...)</div>
+    <div class="pola-rumus">N1 <span class="p">の</span> N2</div>
+    <div class="pola-rumus" style="margin-top:8px;">[Orang] <span class="p">の</span> （milik ...）</div>
     <p class="pola-arti">N1 menerangkan N2 / menyatakan kepemilikan.</p>
     <ul class="contoh">
       <li><span class="jp-line">コンピューターの <ruby>本<rt>ほん</rt></ruby></span><span class="romaji">Konpyuutaa no hon</span><span class="id">Buku tentang komputer.</span></li>
       <li><span class="jp-line">その かばんは あなたのですか。</span><span class="romaji">Sono kaban wa anata no desuka.</span><span class="id">Tas itu milik Anda?</span></li>
       <li><span class="jp-line">— いいえ、<ruby>私<rt>わたし</rt></ruby>のじゃ ありません。ミラーさんのです。</span><span class="romaji">Iie, watashi no ja arimasen. Miraa-san no desu.</span><span class="id">— Bukan kepunyaan saya. Kepunyaan Pak Miller.</span></li>
     </ul>
-    <div class="note note-warn" style="margin-top:10px;"><span class="label">Catatan Partikel の Pengganti</span><p><strong>の</strong> dapat menggantikan benda yang sudah dipahami dari konteks (<em>watashi no</em> = milik saya). Tetapi tidak boleh menggantikan orang (contoh: pegawai IMC tetap harus ditulis <strong>IMCの社員</strong>, tidak bisa disingkat <em>IMCの</em> saja).</p></div>
+    <div class="note note-warn" style="margin-top:10px;">
+      <span class="label">Catatan Partikel の Pengganti</span>
+      <p><strong>の</strong> dapat menggantikan benda yang sudah dipahami dari konteks (<em>watashi no</em> = milik saya).</p>
+      <p><mark>Tetapi tidak boleh menggantikan orang</mark>. Contoh: pegawai IMC tetap harus ditulis <strong>IMCの社員</strong>, tidak bisa disingkat <em>IMCの</em> saja.</p>
+    </div>
   </div>
 
+  <!-- ================= 6 ================= -->
   <h2 class="section-title"><span class="num">6.</span>Tabel Kosoado Benda</h2>
   <table>
     <thead><tr><th style="width:18%">Jenis</th><th style="width:20%">Ko- (Dekat)</th><th style="width:20%">So- (Lawan)</th><th style="width:21%">A- (Jauh)</th><th style="width:21%">Do- (Tanya)</th></tr></thead>
@@ -1004,6 +1081,7 @@
     </tbody>
   </table>
 
+  <!-- ================= 7 ================= -->
   <h2 class="section-title"><span class="num">7.</span>Kosakata Inti Bab 2</h2>
   <table class="vocab-table">
     <thead><tr><th style="width:6%">No</th><th style="width:26%">日本語</th><th style="width:24%">Romaji</th><th>Arti</th></tr></thead>
@@ -1037,24 +1115,28 @@
     </tbody>
   </table>
 
+  <!-- ================= 8 ================= -->
   <h2 class="section-title"><span class="num">8.</span>Kata Tanya &amp; Ungkapan Penting</h2>
-  <div class="note note-tip"><span class="label">Tiga Bentuk Kata Tanya Bab 2</span>
+  <div class="note note-tip">
+    <span class="label">Tiga Bentuk Kata Tanya Bab 2</span>
     <ul class="plain">
       <li><strong>なんですか</strong> — Apa ini?</li>
-      <li><strong>なんの [Benda] ですか</strong> — [Benda] tentang apa? (contoh: <ruby>何<rt>なん</rt></ruby>の<ruby>雑誌<rt>ざっし</rt></ruby>ですか)</li>
-      <li><strong>だれの [Benda] ですか</strong> — [Benda] milik siapa? (contoh: <ruby>誰<rt>だれ</rt></ruby>の<ruby>傘<rt>かさ</rt></ruby>ですか)</li>
+      <li><strong>なんの [Benda] ですか</strong> — [Benda] tentang apa?<br><span class="rm">Contoh: <ruby>何<rt>なん</rt></ruby>の<ruby>雑誌<rt>ざっし</rt></ruby>ですか。</span></li>
+      <li><strong>だれの [Benda] ですか</strong> — [Benda] milik siapa?<br><span class="rm">Contoh: <ruby>誰<rt>だれ</rt></ruby>の<ruby>傘<rt>かさ</rt></ruby>ですか。</span></li>
     </ul>
   </div>
 
+  <!-- ================= 9 ================= -->
   <h2 class="section-title"><span class="num">9.</span>Kanji Bab Ini</h2>
   <div class="kanji-grid">
-    <div class="kanji-card"><div class="k">本</div><span class="r">ほん · hon</span><span class="a">Buku</span><div class="ex"><span class="ex-jp">これは <ruby>本<rt>ほん</rt></ruby>です。</span><span class="ex-id">Ini buku.</span></div></div>
-    <div class="kanji-card"><div class="k">車</div><span class="r">くるま · kuruma</span><span class="a">Mobil</span><div class="ex"><span class="ex-jp">あれは <ruby>私<rt>わたし</rt></ruby>の <ruby>車<rt>くるま</rt></ruby>です。</span><span class="ex-id">Itu mobil saya.</span></div></div>
-    <div class="kanji-card"><div class="k">何</div><span class="r">なん・なに · nan</span><span class="a">Apa</span><div class="ex"><span class="ex-jp">これは <ruby>何<rt>なん</rt></ruby>ですか。</span><span class="ex-id">Ini apa?</span></div></div>
-    <div class="kanji-card"><div class="k">山</div><span class="r">やま・さん · yama</span><span class="a">Gunung</span><div class="ex"><span class="ex-jp"><ruby>山田<rt>やまだ</rt></ruby>さん / <ruby>富士山<rt>ふじさん</rt></ruby></span><span class="ex-id">Pak Yamada / Gunung Fuji</span></div></div>
-    <div class="kanji-card"><div class="k">田</div><span class="r">た・だ · ta / da</span><span class="a">Sawah</span><div class="ex"><span class="ex-jp"><ruby>山田<rt>やまだ</rt></ruby>さん / <ruby>田中<rt>たなか</rt></ruby>さん</span><span class="ex-id">Pak Yamada / Pak Tanaka</span></div></div>
+    <div class="kanji-card"><div class="k">本</div><span class="r">ほん — hon</span><span class="a">Buku</span><div class="ex"><span class="ex-jp">これは <ruby>本<rt>ほん</rt></ruby>です。</span><span class="ex-id">Ini buku.</span></div></div>
+    <div class="kanji-card"><div class="k">車</div><span class="r">くるま・しゃ — kuruma / sha</span><span class="a">Mobil</span><div class="ex"><span class="ex-jp">あれは <ruby>私<rt>わたし</rt></ruby>の <ruby>車<rt>くるま</rt></ruby>です。</span><span class="ex-id">Itu mobil saya.</span></div></div>
+    <div class="kanji-card"><div class="k">何</div><span class="r">なん・なに — nan / nani</span><span class="a">Apa</span><div class="ex"><span class="ex-jp">これは <ruby>何<rt>なん</rt></ruby>ですか。</span><span class="ex-id">Ini apa?</span></div></div>
+    <div class="kanji-card"><div class="k">山</div><span class="r">やま・さん — yama / san</span><span class="a">Gunung</span><div class="ex"><span class="ex-jp"><ruby>山田<rt>やまだ</rt></ruby>さん ／ <ruby>富士山<rt>ふじさん</rt></ruby></span><span class="ex-id">Pak Yamada / Gunung Fuji</span></div></div>
+    <div class="kanji-card"><div class="k">田</div><span class="r">た・だ — ta / da</span><span class="a">Sawah</span><div class="ex"><span class="ex-jp"><ruby>山田<rt>やまだ</rt></ruby>さん ／ <ruby>田中<rt>たなか</rt></ruby>さん</span><span class="ex-id">Pak Yamada / Pak Tanaka</span></div></div>
   </div>
 
+  <!-- ================= 10 ================= -->
   <h2 class="section-title"><span class="num">10.</span>Percakapan: Mohon Bantuan Anda</h2>
   <div class="kaiwa-box">
     <div class="kaiwa-label">会話 · Kaiwa — Kore kara osewa ni narimasu</div>
@@ -1114,13 +1196,14 @@
     </div>
   </div>
 
+  <!-- ================= 11 ================= -->
   <h2 class="section-title"><span class="num">11.</span>Pemahaman Bacaan</h2>
   <div class="reading-box">
     <div class="reading-label">Bacaan Singkat</div>
     <p class="reading-text">これは <ruby>私<rt>わたし</rt></ruby>の かばんです。これは <ruby>本<rt>ほん</rt></ruby>です。あれは ミラーさんの <ruby>車<rt>くるま</rt></ruby>です。あれは にほんの <ruby>車<rt>くるま</rt></ruby>です。</p>
     <span class="romaji">Kore wa watashi no kaban desu. Kore wa hon desu. Are wa Miraa-san no kuruma desu. Are wa Nihon no kuruma desu.</span>
     <span class="id">Ini tas saya. Ini buku. Itu mobil Pak Miller. Itu mobil buatan Jepang.</span>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>これは だれの かばんですか。</li>
       <li>これは <ruby>何<rt>なん</rt></ruby>ですか。</li>
@@ -1128,6 +1211,7 @@
     </ol>
   </div>
 
+  <!-- ================= 12 ================= -->
   <h2 class="section-title"><span class="num">12.</span>Latihan</h2>
   <div class="latihan">
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Jepang: "Apakah ini majalah komputer? Bukan, ini buku catatan."</span></div>
@@ -1146,6 +1230,7 @@
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Indonesia: この てちょうは だれの ですか。わたしの です。</span></div>
   </div>
 
+  <!-- ================= 13 ================= -->
   <h2 class="section-title"><span class="num">13.</span>Mini Quiz</h2>
   <div class="quiz-box">
     <div class="quiz-label">✏️ Cek pemahaman Bab 2 (5 soal)</div>
@@ -1158,15 +1243,17 @@
     </ol>
   </div>
 
+  <!-- ================= 14 ================= -->
   <h2 class="section-title"><span class="num">14.</span>Yang Sudah Dipelajari</h2>
   <ul class="checklist">
-    <li>Bisa membedakan kata tunjuk これ, それ, あれ dengan この, その, あの.</li>
-    <li>Bisa merespons pertanyaan konfirmasi dengan そうです dan ちがいます.</li>
-    <li>Bisa membuat pertanyaan pilihan (~か、~か).</li>
+    <li>Bisa membedakan kata tunjuk これ, それ, あれ dengan この, その, あの。</li>
+    <li>Bisa merespons pertanyaan konfirmasi dengan そうです dan ちがいます。</li>
+    <li>Bisa membuat pertanyaan pilihan (~か、~か)。</li>
     <li>Paham fungsi partikel の untuk kepemilikan dan pengganti kata benda.</li>
     <li>Hafal 26 kosakata inti Bab 2.</li>
-    <li>Hafal 5 karakter kanji dasar: <ruby>本<rt>ほん</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・<ruby>何<rt>なん</rt></ruby>・<ruby>山<rt>やま</rt></ruby>・<ruby>田<rt>た</rt></ruby>.</li>
+    <li>Hafal 5 karakter kanji dasar: <ruby>本<rt>ほん</rt></ruby>・<ruby>車<rt>くるま</rt></ruby>・<ruby>何<rt>なん</rt></ruby>・<ruby>山<rt>やま</rt></ruby>・<ruby>田<rt>た</rt></ruby>。</li>
   </ul>
+
 </div>
 </section>
 
@@ -1175,12 +1262,14 @@
 <div class="chapter-divider">
   <p class="ch-label">BAB 03</p>
   <p class="ch-jp">ここ・そこ・あそこ</p>
-  <p class="ch-romaji">koko · soko · asoko</p>
+  <p class="ch-romaji">Koko · Soko · Asoko</p>
   <p class="ch-id">Kata Tunjuk Tempat &amp; Asal Produk</p>
   <div class="rule"></div>
   <p class="ch-desc">Belajar menunjuk tempat dan arah, menanyakan lokasi fasilitas, harga barang (ikura), asal produk buatan negara mana, serta bilangan lantai gedung.</p>
 </div>
 <div class="page">
+
+  <!-- ================= 1 ================= -->
   <h2 class="section-title"><span class="num">1.</span>ここ, そこ, あそこ (Tunjuk Tempat)</h2>
   <div class="pola">
     <div class="pola-rumus">ここ / そこ / あそこ <span class="p">は</span> [Tempat] です。</div>
@@ -1196,19 +1285,23 @@
     </ul>
   </div>
 
+  <!-- ================= 2 ================= -->
   <h2 class="section-title"><span class="num">2.</span>こちら, そちら, あちら (Arah &amp; Bentuk Sopan)</h2>
   <div class="pola">
-    <p>Selain menunjukkan <strong>arah</strong> (sebelah sini / situ / sana), kata tunjuk ini juga merupakan <strong>bentuk sopan</strong> dari ここ/そこ/あそこ ketika mempersilakan tamu atau berbicara formal.</p>
+    <div class="pola-rumus">こちら / そちら / あちら <span class="p">は</span> 〜です。</div>
+    <p class="pola-arti">Sebelah sini / situ / sana adalah 〜.</p>
+    <p>Selain menunjukkan <strong>arah</strong> (sebelah sini / situ / sana), kata tunjuk ini juga merupakan <strong>bentuk sopan</strong> dari ここ / そこ / あそこ ketika mempersilakan tamu atau berbicara formal.</p>
     <ul class="contoh">
       <li><span class="jp-line">お<ruby>国<rt>くに</rt></ruby>は どちらですか。</span><span class="romaji">O-kuni wa dochira desuka.</span><span class="id">Negara asal Anda di mana? (Sopan)</span></li>
-      <li><span class="jp-line">エレベーターは どちらですか。— あちらです。</span><span class="romaji">Erebeetaa wa dochira desuka. — Achira desu.</span><span class="id">Lift di sebelah mana? — Di sebelah sana.</span></li>
+      <li><span class="jp-line">エレベーターは どちらですか。<br>— あちらです。</span><span class="romaji">Erebeetaa wa dochira desuka. — Achira desu.</span><span class="id">Lift di sebelah mana? — Di sebelah sana.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 3 ================= -->
   <h2 class="section-title"><span class="num">3.</span>Menyatakan Letak Sesuatu / Seseorang</h2>
   <div class="pola">
-    <div class="pola-rumus">[Benda/Orang] <span class="p">は</span> [Tempat / Tunjuk Tempat] です。</div>
-    <p class="pola-arti">[Benda/Orang] ada di [Tempat].</p>
+    <div class="pola-rumus">[Benda / Orang] <span class="p">は</span> [Tempat / Tunjuk Tempat] です。</div>
+    <p class="pola-arti">[Benda / Orang] ada di [Tempat].</p>
     <ul class="contoh">
       <li><span class="jp-line">おてあらいは あそこです。</span><span class="romaji">Otearai wa asoko desu.</span><span class="id">Toilet ada di sana.</span></li>
       <li><span class="jp-line"><ruby>電話<rt>でんわ</rt></ruby>は 2かいです。</span><span class="romaji">Denwa wa nikai desu.</span><span class="id">Telepon ada di lantai 2.</span></li>
@@ -1216,17 +1309,19 @@
     </ul>
   </div>
 
+  <!-- ================= 4 ================= -->
   <h2 class="section-title"><span class="num">4.</span>Kata Tanya どこ dan どちら</h2>
   <div class="pola">
     <div class="pola-rumus">[Topik] <span class="p">は</span> どこ / どちら ですか。</div>
     <p class="pola-arti">[Topik] ada di mana / sebelah mana?</p>
-    <p>Gunakan <strong>どこ</strong> untuk situasi santai/umum, dan <strong>どちら</strong> untuk situasi sopan, menanyakan arah, atau nama organisasi/sekolah/perusahaan/negara.</p>
+    <p>Gunakan <strong>どこ</strong> untuk situasi santai / umum, dan <strong>どちら</strong> untuk situasi sopan, menanyakan arah, atau nama organisasi / sekolah / perusahaan / negara.</p>
     <ul class="contoh">
       <li><span class="jp-line"><ruby>学校<rt>がっこう</rt></ruby>は どこですか。</span><span class="romaji">Gakkou wa doko desuka.</span><span class="id">Sekolah di mana?</span></li>
       <li><span class="jp-line"><ruby>会社<rt>かいしゃ</rt></ruby>は どちらですか。</span><span class="romaji">Kaisha wa dochira desuka.</span><span class="id">Perusahaan Anda di mana? (Sopan)</span></li>
     </ul>
   </div>
 
+  <!-- ================= 5 ================= -->
   <h2 class="section-title"><span class="num">5.</span>Menanyakan Harga (いくら)</h2>
   <div class="pola">
     <div class="pola-rumus">[Benda] <span class="p">は</span> いくらですか。</div>
@@ -1237,6 +1332,7 @@
     </ul>
   </div>
 
+  <!-- ================= 6 ================= -->
   <h2 class="section-title"><span class="num">6.</span>Partikel の untuk Asal Produk / Perusahaan</h2>
   <div class="pola">
     <div class="pola-rumus">[Negara / Perusahaan] <span class="p">の</span> [Benda]</div>
@@ -1248,11 +1344,20 @@
     </ul>
   </div>
 
+  <!-- ================= 7 ================= -->
   <h2 class="section-title"><span class="num">7.</span>Awalan Penghormatan お～</h2>
   <div class="pola">
-    <p>Awalan <strong>お～</strong> ditambahkan pada kata benda yang berkaitan dengan lawan bicara untuk memperhalus ucapan. Contoh: <strong>お<ruby>国<rt>くに</rt></ruby></strong> (negara Anda), <strong>お<ruby>名前<rt>なまえ</rt></ruby></strong> (nama Anda), <strong>お<ruby>酒<rt>さけ</rt></ruby></strong>.</p>
+    <div class="pola-rumus"><span class="p">お～</span> + [Benda]</div>
+    <p class="pola-arti">Awalan hormat untuk benda milik lawan bicara.</p>
+    <p>Awalan <strong>お～</strong> ditambahkan pada kata benda yang berkaitan dengan lawan bicara untuk memperhalus ucapan.</p>
+    <ul class="plain">
+      <li><strong>お<ruby>国<rt>くに</rt></ruby></strong> — negara Anda</li>
+      <li><strong>お<ruby>名前<rt>なまえ</rt></ruby></strong> — nama Anda</li>
+      <li><strong>お<ruby>酒<rt>さけ</rt></ruby></strong> — sake / minuman keras</li>
+    </ul>
   </div>
 
+  <!-- ================= 8 ================= -->
   <h2 class="section-title"><span class="num">8.</span>Tabel Lengkap Sistem Kosoado</h2>
   <table>
     <thead><tr><th style="width:16%">Kategori</th><th style="width:21%">Ko- (Dekat)</th><th style="width:21%">So- (Lawan)</th><th style="width:21%">A- (Jauh)</th><th style="width:21%">Do- (Tanya)</th></tr></thead>
@@ -1260,16 +1365,17 @@
       <tr><td><strong>Benda Mandiri</strong></td><td>これ <span class="rm">(ini)</span></td><td>それ <span class="rm">(itu)</span></td><td>あれ <span class="rm">(itu jauh)</span></td><td>どれ <span class="rm">(yang mana?)</span></td></tr>
       <tr><td><strong>Menempel Benda</strong></td><td>この + Benda</td><td>その + Benda</td><td>あの + Benda</td><td>どの + Benda</td></tr>
       <tr><td><strong>Tempat</strong></td><td>ここ <span class="rm">(sini)</span></td><td>そこ <span class="rm">(situ)</span></td><td>あそこ <span class="rm">(sana)</span></td><td>どこ <span class="rm">(di mana?)</span></td></tr>
-      <tr><td><strong>Arah / Sopan</strong></td><td>こちら <span class="rm">(sebelah sini)</span></td><td>そちら <span class="rm">(sebelah situ)</span></td><td>あちら <span class="rm">(sebelah sana)</span></td><td>どちら <span class="rm">(mana / sebelah mana?)</span></td></tr>
+      <tr><td><strong>Arah / Sopan</strong></td><td>こちら <span class="rm">(sebelah sini)</span></td><td>そちら <span class="rm">(sebelah situ)</span></td><td>あちら <span class="rm">(sebelah sana)</span></td><td>どちら <span class="rm">(sebelah mana?)</span></td></tr>
     </tbody>
   </table>
 
+  <!-- ================= 9 ================= -->
   <h2 class="section-title"><span class="num">9.</span>Bilangan Lantai Gedung (〜かい／がい)</h2>
-  <p>Perhatikan perubahan bunyi pada lantai 1, 3, 6, 8, 10, serta kata tanyanya (<strong>なんがい</strong>):</p>
+  <p>Perhatikan perubahan bunyi pada lantai <strong>1, 3, 6, 8, 10</strong>, serta kata tanyanya (<strong>なんがい</strong>):</p>
   <div class="card-grid">
     <div class="card special"><div class="angka">1</div><div class="kata">いっかい</div><div class="romaji">ikkai</div></div>
     <div class="card"><div class="angka">2</div><div class="kata">にかい</div><div class="romaji">nikai</div></div>
-    <div class="card special"><div class="angka">3</div><div class="kata">さんがい</div><div class="romaji">sangai (gai!)</div></div>
+    <div class="card special"><div class="angka">3</div><div class="kata">さんがい</div><div class="romaji">sangai</div></div>
     <div class="card"><div class="angka">4</div><div class="kata">よんかい</div><div class="romaji">yonkai</div></div>
     <div class="card"><div class="angka">5</div><div class="kata">ごかい</div><div class="romaji">gokai</div></div>
     <div class="card special"><div class="angka">6</div><div class="kata">ろっかい</div><div class="romaji">rokkai</div></div>
@@ -1277,10 +1383,11 @@
     <div class="card special"><div class="angka">8</div><div class="kata">はっかい</div><div class="romaji">hakkai</div></div>
     <div class="card"><div class="angka">9</div><div class="kata">きゅうかい</div><div class="romaji">kyuukai</div></div>
     <div class="card special"><div class="angka">10</div><div class="kata">じゅっかい</div><div class="romaji">jukkai / jikkai</div></div>
-    <div class="card special"><div class="angka">Basement</div><div class="kata">ちか1かい</div><div class="romaji">chika ikkai (B1)</div></div>
+    <div class="card special"><div class="angka">B1</div><div class="kata">ちか1かい</div><div class="romaji">chika ikkai</div></div>
     <div class="card special"><div class="angka">?</div><div class="kata">なんがい</div><div class="romaji">lantai berapa?</div></div>
   </div>
 
+  <!-- ================= 10 ================= -->
   <h2 class="section-title"><span class="num">10.</span>Kosakata Inti Bab 3</h2>
   <table class="vocab-table">
     <thead><tr><th style="width:6%">No</th><th style="width:26%">日本語</th><th style="width:24%">Romaji</th><th>Arti</th></tr></thead>
@@ -1313,16 +1420,18 @@
     </tbody>
   </table>
 
+  <!-- ================= 11 ================= -->
   <h2 class="section-title"><span class="num">11.</span>Kanji Bab Ini</h2>
   <div class="kanji-grid">
-    <div class="kanji-card"><div class="k">電</div><span class="r">でん · den</span><span class="a">Listrik</span><div class="ex"><span class="ex-jp"><ruby>電話<rt>でんわ</rt></ruby>は どこですか。</span><span class="ex-id">Telepon di mana?</span></div></div>
-    <div class="kanji-card"><div class="k">話</div><span class="r">わ・はなす · wa / hana</span><span class="a">Bicara</span><div class="ex"><span class="ex-jp"><ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>します。</span><span class="ex-id">Bicara bahasa Jepang.</span></div></div>
-    <div class="kanji-card"><div class="k">国</div><span class="r">くに・こく · kuni</span><span class="a">Negara</span><div class="ex"><span class="ex-jp">お<ruby>国<rt>くに</rt></ruby>は どちらですか。</span><span class="ex-id">Negara Anda mana?</span></div></div>
-    <div class="kanji-card"><div class="k">会</div><span class="r">かい・あう · kai</span><span class="a">Bertemu</span><div class="ex"><span class="ex-jp"><ruby>会社<rt>かいしゃ</rt></ruby>は どこですか。</span><span class="ex-id">Perusahaan di mana?</span></div></div>
-    <div class="kanji-card"><div class="k">社</div><span class="r">しゃ · sha</span><span class="a">Perusahaan / kuil</span><div class="ex"><span class="ex-jp">IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。</span><span class="ex-id">Pegawai IMC.</span></div></div>
-    <div class="kanji-card"><div class="k">階</div><span class="r">かい・がい · kai / gai</span><span class="a">Lantai gedung</span><div class="ex"><span class="ex-jp"><ruby>食堂<rt>しょくどう</rt></ruby>は 3<ruby>階<rt>がい</rt></ruby>です。</span><span class="ex-id">Kantin di lantai 3.</span></div></div>
+    <div class="kanji-card"><div class="k">電</div><span class="r">でん — den</span><span class="a">Listrik</span><div class="ex"><span class="ex-jp"><ruby>電話<rt>でんわ</rt></ruby>は どこですか。</span><span class="ex-id">Telepon di mana?</span></div></div>
+    <div class="kanji-card"><div class="k">話</div><span class="r">わ・はなす — wa / hanasu</span><span class="a">Bicara</span><div class="ex"><span class="ex-jp"><ruby>日本語<rt>にほんご</rt></ruby>を <ruby>話<rt>はな</rt></ruby>します。</span><span class="ex-id">Bicara bahasa Jepang.</span></div></div>
+    <div class="kanji-card"><div class="k">国</div><span class="r">くに・こく — kuni / koku</span><span class="a">Negara</span><div class="ex"><span class="ex-jp">お<ruby>国<rt>くに</rt></ruby>は どちらですか。</span><span class="ex-id">Negara Anda mana?</span></div></div>
+    <div class="kanji-card"><div class="k">会</div><span class="r">かい・あう — kai / au</span><span class="a">Bertemu</span><div class="ex"><span class="ex-jp"><ruby>会社<rt>かいしゃ</rt></ruby>は どこですか。</span><span class="ex-id">Perusahaan di mana?</span></div></div>
+    <div class="kanji-card"><div class="k">社</div><span class="r">しゃ — sha</span><span class="a">Perusahaan / kuil</span><div class="ex"><span class="ex-jp">IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。</span><span class="ex-id">Pegawai IMC.</span></div></div>
+    <div class="kanji-card"><div class="k">階</div><span class="r">かい・がい — kai / gai</span><span class="a">Lantai gedung</span><div class="ex"><span class="ex-jp"><ruby>食堂<rt>しょくどう</rt></ruby>は 3<ruby>階<rt>がい</rt></ruby>です。</span><span class="ex-id">Kantin di lantai 3.</span></div></div>
   </div>
 
+  <!-- ================= 12 ================= -->
   <h2 class="section-title"><span class="num">12.</span>Percakapan: Minta Ini!</h2>
   <div class="kaiwa-box">
     <div class="kaiwa-label">会話 · Kaiwa — Kore o kudasai!</div>
@@ -1394,13 +1503,14 @@
     </div>
   </div>
 
+  <!-- ================= 13 ================= -->
   <h2 class="section-title"><span class="num">13.</span>Pemahaman Bacaan</h2>
   <div class="reading-box">
     <div class="reading-label">Bacaan Singkat</div>
     <p class="reading-text">IMCは <ruby>東京<rt>とうきょう</rt></ruby>です。1<ruby>階<rt>かい</rt></ruby>は <ruby>事務所<rt>じむしょ</rt></ruby>です。2<ruby>階<rt>かい</rt></ruby>は <ruby>食堂<rt>しょくどう</rt></ruby>です。3<ruby>階<rt>がい</rt></ruby>は <ruby>会議室<rt>かいぎしつ</rt></ruby>です。エレベーターは あそこです。</p>
     <span class="romaji">IMC wa Toukyou desu. Ikkai wa jimusho desu. Nikai wa shokudou desu. Sangai wa kaigishitsu desu. Erebeetaa wa asoko desu.</span>
     <span class="id">IMC berada di Tokyo. Lantai 1 adalah kantor. Lantai 2 adalah kantin. Lantai 3 adalah ruang rapat. Lift ada di sebelah sana.</span>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>しょくどうは なんがいですか。</li>
       <li>かいぎしつは なんがいですか。</li>
@@ -1408,6 +1518,7 @@
     </ol>
   </div>
 
+  <!-- ================= 14 ================= -->
   <h2 class="section-title"><span class="num">14.</span>Latihan</h2>
   <div class="latihan">
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Jepang: "Toilet ada di lantai dua."</span></div>
@@ -1426,6 +1537,7 @@
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Indonesia: この ほんは いくらですか。2800えんです。</span></div>
   </div>
 
+  <!-- ================= 15 ================= -->
   <h2 class="section-title"><span class="num">15.</span>Mini Quiz</h2>
   <div class="quiz-box">
     <div class="quiz-label">✏️ Cek pemahaman Bab 3 (5 soal)</div>
@@ -1438,15 +1550,17 @@
     </ol>
   </div>
 
+  <!-- ================= 16 ================= -->
   <h2 class="section-title"><span class="num">16.</span>Yang Sudah Dipelajari</h2>
   <ul class="checklist">
     <li>Bisa membedakan ここ, そこ, あそこ dengan baik.</li>
-    <li>Paham kapan memakai どこ dan どちら (sopan/arah).</li>
-    <li>Bisa menanyakan dan menjawab harga barang dengan いくら.</li>
+    <li>Paham kapan memakai どこ dan どちら (sopan / arah).</li>
+    <li>Bisa menanyakan dan menjawab harga barang dengan いくら。</li>
     <li>Hafal pelafalan lantai 1–10 termasuk pengecualian (いっかい, さんがい, dll).</li>
     <li>Paham pemakaian partikel の untuk menyatakan asal produk atau perusahaan pembuat.</li>
-    <li>Hafal 25 kosakata inti Bab 3 dan 6 kanji dasar: <ruby>電<rt>でん</rt></ruby>・<ruby>話<rt>わ</rt></ruby>・<ruby>国<rt>くに</rt></ruby>・<ruby>会<rt>かい</rt></ruby>・<ruby>社<rt>しゃ</rt></ruby>・<ruby>階<rt>かい</rt></ruby>.</li>
+    <li>Hafal 25 kosakata inti Bab 3 dan 6 kanji dasar: <ruby>電<rt>でん</rt></ruby>・<ruby>話<rt>わ</rt></ruby>・<ruby>国<rt>くに</rt></ruby>・<ruby>会<rt>かい</rt></ruby>・<ruby>社<rt>しゃ</rt></ruby>・<ruby>階<rt>かい</rt></ruby>。</li>
   </ul>
+
 </div>
 </section>
 
@@ -1455,22 +1569,25 @@
 <div class="chapter-divider">
   <p class="ch-label">BAB 04</p>
   <p class="ch-jp">いま なんじですか</p>
-  <p class="ch-romaji">ima nanji desuka</p>
+  <p class="ch-romaji">Ima nanji desuka</p>
   <p class="ch-id">Waktu, Hari &amp; Kata Kerja Dasar</p>
   <div class="rule"></div>
   <p class="ch-desc">Perkenalan kata kerja pertama. Belajar konjugasi ます ke 4 bentuk, partikel penanda waktu に, から〜まで, dan pembacaan jam, menit, serta hari.</p>
 </div>
 <div class="page">
+
+  <!-- ================= 1 ================= -->
   <h2 class="section-title"><span class="num">1.</span>Menyatakan Waktu (Jam dan Menit)</h2>
   <div class="pola">
     <div class="pola-rumus">いま [Jam] じ [Menit] ふん / ぷん です。</div>
     <p class="pola-arti">Sekarang jam [Jam] lewat [Menit].</p>
     <ul class="contoh">
       <li><span class="jp-line">いま 4じ 5ふんです。</span><span class="romaji">Ima yo-ji go-fun desu.</span><span class="id">Sekarang jam 4 lewat 5 menit.</span></li>
-      <li><span class="jp-line">いま なんじですか。— 7じ 10ぷんです。</span><span class="romaji">Ima nanji desuka. — Shichi-ji juppun desu.</span><span class="id">Sekarang jam berapa? — Jam 7 lewat 10 menit.</span></li>
+      <li><span class="jp-line">いま なんじですか。<br>— 7じ 10ぷんです。</span><span class="romaji">Ima nanji desuka. — Shichi-ji juppun desu.</span><span class="id">Sekarang jam berapa? — Jam 7 lewat 10 menit.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 2 ================= -->
   <h2 class="section-title"><span class="num">2.</span>Konjugasi Kata Kerja Bentuk ます (4 Bentuk)</h2>
   <div class="pola">
     <table>
@@ -1488,10 +1605,11 @@
     </ul>
     <div class="note note-tip" style="margin-top:10px;">
       <span class="label">Penting Saat Menjawab Pertanyaan Kata Kerja</span>
-      <p>Jangan menjawab kalimat tanya kata kerja dengan <em>hai, sou desu</em> atau <em>iie, chigaimasu</em>! Jawablah dengan mengulang kata kerjanya: <strong>はい、勉強しました</strong> atau <strong>いいえ、勉強しませんでした</strong>.</p>
+      <p>Jangan menjawab kalimat tanya kata kerja dengan <em>hai, sou desu</em> atau <em>iie, chigaimasu</em>! Jawablah dengan mengulang kata kerjanya: <strong>はい、勉強しました</strong> atau <strong>いいえ、勉強しませんでした</strong>。</p>
     </div>
   </div>
 
+  <!-- ================= 3 ================= -->
   <h2 class="section-title"><span class="num">3.</span>Partikel に — Menandai Titik Waktu</h2>
   <div class="pola">
     <div class="pola-rumus">[Titik Waktu] <span class="p">に</span> [Kata Kerja]</div>
@@ -1502,12 +1620,26 @@
     </ul>
   </div>
 
+  <!-- ================= 4 ================= -->
   <h2 class="section-title"><span class="num">4.</span>Aturan Kapan Pakai に, Kapan Tidak</h2>
-  <div class="note note-tip"><span class="label">1. Wajib pakai に</span><p>Waktu yang ditunjukkan oleh angka/titik pasti: jam, menit, tanggal, bulan, tahun (contoh: <strong>7時に</strong>, <strong>6時半に</strong>, <strong>2026年に</strong>).</p></div>
-  <div class="note note-info"><span class="label">2. Boleh pakai / Boleh tidak</span><p>Hari dalam seminggu dan pembagian hari umum: <strong>日曜日（に）</strong>, <strong>朝（に）</strong>, <strong>晩（に）</strong>.</p></div>
-  <div class="note note-warn"><span class="label">3. DILARANG pakai に</span><p>Waktu relatif yang berpatokan dengan saat ini: <strong>きのう</strong>, <strong>きょう</strong>, <strong>あした</strong>, <strong>まいにち</strong>, <strong>いま</strong>, <strong>けさ</strong>, <strong>こんばん</strong>, <strong>こんしゅう</strong>, <strong>らいしゅう</strong>, <strong>いつ</strong>.</p></div>
-  <div class="note note-brown"><span class="label">Gabung dua keterangan waktu</span><p>Gunakan partikel <strong>の</strong>: <strong>来週の日曜日</strong> (hari Minggu minggu depan).</p></div>
+  <div class="note note-tip">
+    <span class="label">1. Wajib pakai に</span>
+    <p>Waktu yang ditunjukkan oleh angka / titik pasti: jam, menit, tanggal, bulan, tahun (contoh: <strong>7時に</strong>, <strong>6時半に</strong>, <strong>2026年に</strong>)。</p>
+  </div>
+  <div class="note note-info">
+    <span class="label">2. Boleh pakai / Boleh tidak</span>
+    <p>Hari dalam seminggu dan pembagian hari umum: <strong>日曜日（に）</strong>, <strong>朝（に）</strong>, <strong>晩（に）</strong>。</p>
+  </div>
+  <div class="note note-warn">
+    <span class="label">3. DILARANG pakai に</span>
+    <p>Waktu relatif yang berpatokan dengan saat ini: <strong>きのう</strong>, <strong>きょう</strong>, <strong>あした</strong>, <strong>まいにち</strong>, <strong>いま</strong>, <strong>けさ</strong>, <strong>こんばん</strong>, <strong>こんしゅう</strong>, <strong>らいしゅう</strong>, <strong>いつ</strong>。</p>
+  </div>
+  <div class="note note-brown">
+    <span class="label">Gabung dua keterangan waktu</span>
+    <p>Gunakan partikel <strong>の</strong>: <strong>来週の日曜日</strong> (hari Minggu minggu depan)。</p>
+  </div>
 
+  <!-- ================= 5 ================= -->
   <h2 class="section-title"><span class="num">5.</span>Partikel から dan まで</h2>
   <div class="pola">
     <div class="pola-rumus">[Titik Awal] <span class="p">から</span> [Titik Akhir] <span class="p">まで</span> [Aktivitas / です]</div>
@@ -1518,33 +1650,39 @@
     </ul>
   </div>
 
+  <!-- ================= 6 ================= -->
   <h2 class="section-title"><span class="num">6.</span>Partikel と dan Akhiran ね</h2>
   <div class="pola">
-    <p><strong>と</strong> menghubungkan dua kata benda secara setara ("dan"). <strong>ね</strong> diletakkan di akhir kalimat untuk konfirmasi atau mengharapkan empati/persetujuan ("ya / kan").</p>
+    <div class="pola-rumus">[Benda A] <span class="p">と</span> [Benda B]</div>
+    <div class="pola-rumus" style="margin-top:8px;">[Kalimat] <span class="p">ね</span>。</div>
+    <p class="pola-arti">A dan B &nbsp;·&nbsp; ...ya / ...kan</p>
+    <p><strong>と</strong> menghubungkan dua kata benda secara setara ("dan"). <strong>ね</strong> diletakkan di akhir kalimat untuk konfirmasi atau mengharapkan empati / persetujuan ("ya / kan").</p>
     <ul class="contoh">
       <li><span class="jp-line"><ruby>銀行<rt>ぎんこう</rt></ruby>の やすみは どようびと にちようびです。</span><span class="romaji">Ginkou no yasumi wa doyoubi to nichiyoubi desu.</span><span class="id">Hari libur bank adalah Sabtu dan Minggu.</span></li>
       <li><span class="jp-line">まいにち 10じまで <ruby>勉強<rt>べんきょう</rt></ruby>します。たいへんですね。</span><span class="romaji">Mainichi juu-ji made benkyou shimasu. Taihen desu ne.</span><span class="id">Setiap hari belajar sampai jam 10. Berat ya.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 7 ================= -->
   <h2 class="section-title"><span class="num">7.</span>Cara Membaca Jam (〜じ)</h2>
   <p>Perhatikan pembacaan khusus pada jam 4 (<strong>よじ</strong>), jam 7 (<strong>しちじ</strong>), dan jam 9 (<strong>くじ</strong>):</p>
   <div class="card-grid">
     <div class="card"><div class="angka">1</div><div class="kata">いちじ</div><div class="romaji">ichi-ji</div></div>
     <div class="card"><div class="angka">2</div><div class="kata">にじ</div><div class="romaji">ni-ji</div></div>
     <div class="card"><div class="angka">3</div><div class="kata">さんじ</div><div class="romaji">san-ji</div></div>
-    <div class="card special"><div class="angka">4</div><div class="kata">よじ</div><div class="romaji">yo-ji (bukan yonji!)</div></div>
+    <div class="card special"><div class="angka">4</div><div class="kata">よじ</div><div class="romaji">yo-ji (bukan yon-ji)</div></div>
     <div class="card"><div class="angka">5</div><div class="kata">ごじ</div><div class="romaji">go-ji</div></div>
     <div class="card"><div class="angka">6</div><div class="kata">ろくじ</div><div class="romaji">roku-ji</div></div>
-    <div class="card special"><div class="angka">7</div><div class="kata">しちじ</div><div class="romaji">shichi-ji (bukan nanaji!)</div></div>
+    <div class="card special"><div class="angka">7</div><div class="kata">しちじ</div><div class="romaji">shichi-ji (bukan nana-ji)</div></div>
     <div class="card"><div class="angka">8</div><div class="kata">はちじ</div><div class="romaji">hachi-ji</div></div>
-    <div class="card special"><div class="angka">9</div><div class="kata">くじ</div><div class="romaji">ku-ji (bukan kyuuji!)</div></div>
+    <div class="card special"><div class="angka">9</div><div class="kata">くじ</div><div class="romaji">ku-ji (bukan kyuu-ji)</div></div>
     <div class="card"><div class="angka">10</div><div class="kata">じゅうじ</div><div class="romaji">juu-ji</div></div>
     <div class="card"><div class="angka">11</div><div class="kata">じゅういちじ</div><div class="romaji">juuichi-ji</div></div>
     <div class="card"><div class="angka">12</div><div class="kata">じゅうにじ</div><div class="romaji">juuni-ji</div></div>
     <div class="card special"><div class="angka">?</div><div class="kata">なんじ</div><div class="romaji">jam berapa?</div></div>
   </div>
 
+  <!-- ================= 8 ================= -->
   <h2 class="section-title"><span class="num">8.</span>Cara Membaca Menit (〜ふん／ぷん)</h2>
   <table>
     <thead><tr><th style="width:50%">Berakhiran ぷん (pun)</th><th style="width:50%">Berakhiran ふん (fun)</th></tr></thead>
@@ -1554,18 +1692,20 @@
     </tr></tbody>
   </table>
 
+  <!-- ================= 9 ================= -->
   <h2 class="section-title"><span class="num">9.</span>Tujuh Hari dalam Seminggu (〜ようび)</h2>
   <div class="card-grid">
-    <div class="card"><div class="angka">Senin</div><div class="kata">げつようび</div><div class="romaji">月曜日 getsuyoubi</div></div>
-    <div class="card"><div class="angka">Selasa</div><div class="kata">かようび</div><div class="romaji">火曜日 kayoubi</div></div>
-    <div class="card"><div class="angka">Rabu</div><div class="kata">すいようび</div><div class="romaji">水曜日 suiyoubi</div></div>
-    <div class="card"><div class="angka">Kamis</div><div class="kata">もくようび</div><div class="romaji">木曜日 mokuyoubi</div></div>
-    <div class="card"><div class="angka">Jumat</div><div class="kata">きんようび</div><div class="romaji">金曜日 kin'youbi</div></div>
-    <div class="card"><div class="angka">Sabtu</div><div class="kata">どようび</div><div class="romaji">土曜日 doyoubi</div></div>
-    <div class="card"><div class="angka">Minggu</div><div class="kata">にちようび</div><div class="romaji">日曜日 nichiyoubi</div></div>
-    <div class="card special"><div class="angka">Tanya</div><div class="kata">なんようび</div><div class="romaji">何曜日 hari apa?</div></div>
+    <div class="card"><div class="angka">Senin</div><div class="kata">げつようび</div><div class="romaji">月曜日 · getsuyoubi</div></div>
+    <div class="card"><div class="angka">Selasa</div><div class="kata">かようび</div><div class="romaji">火曜日 · kayoubi</div></div>
+    <div class="card"><div class="angka">Rabu</div><div class="kata">すいようび</div><div class="romaji">水曜日 · suiyoubi</div></div>
+    <div class="card"><div class="angka">Kamis</div><div class="kata">もくようび</div><div class="romaji">木曜日 · mokuyoubi</div></div>
+    <div class="card"><div class="angka">Jumat</div><div class="kata">きんようび</div><div class="romaji">金曜日 · kin'youbi</div></div>
+    <div class="card"><div class="angka">Sabtu</div><div class="kata">どようび</div><div class="romaji">土曜日 · doyoubi</div></div>
+    <div class="card"><div class="angka">Minggu</div><div class="kata">にちようび</div><div class="romaji">日曜日 · nichiyoubi</div></div>
+    <div class="card special"><div class="angka">Tanya</div><div class="kata">なんようび</div><div class="romaji">何曜日 · hari apa?</div></div>
   </div>
 
+  <!-- ================= 10 ================= -->
   <h2 class="section-title"><span class="num">10.</span>Kosakata Inti Bab 4</h2>
   <table class="vocab-table">
     <thead><tr><th style="width:6%">No</th><th style="width:26%">日本語</th><th style="width:24%">Romaji</th><th>Arti</th></tr></thead>
@@ -1593,22 +1733,24 @@
       <tr><td class="no">21</td><td><span class="jp-word">やすみ</span></td><td class="rm">yasumi</td><td>Libur / istirahat</td></tr>
       <tr><td class="no">22</td><td><span class="jp-word">ひるやすみ</span></td><td class="rm">hiruyasumi</td><td>Istirahat siang</td></tr>
       <tr><td class="no">23</td><td><span class="jp-word">〜じ</span></td><td class="rm">~ji</td><td>Jam ~ / pukul ~</td></tr>
-      <tr><td class="no">24</td><td><span class="jp-word">〜ふん/ぷん</span></td><td class="rm">~fun/pun</td><td>Menit ~</td></tr>
+      <tr><td class="no">24</td><td><span class="jp-word">〜ふん / ぷん</span></td><td class="rm">~fun / pun</td><td>Menit ~</td></tr>
       <tr><td class="no">25</td><td><span class="jp-word">はん</span></td><td class="rm">han</td><td>Setengah (jam)</td></tr>
       <tr><td class="no">26</td><td><span class="jp-word">たいへんですね</span></td><td class="rm">taihen desu ne</td><td>Berat ya / capek ya</td></tr>
     </tbody>
   </table>
 
+  <!-- ================= 11 ================= -->
   <h2 class="section-title"><span class="num">11.</span>Kanji Bab Ini</h2>
   <div class="kanji-grid">
-    <div class="kanji-card"><div class="k">今</div><span class="r">いま・こん · ima</span><span class="a">Sekarang</span><div class="ex"><span class="ex-jp"><ruby>今<rt>いま</rt></ruby> 4<ruby>時<rt>じ</rt></ruby>です。</span><span class="ex-id">Sekarang pukul 4.</span></div></div>
-    <div class="kanji-card"><div class="k">時</div><span class="r">とき・じ · ji</span><span class="a">Waktu / Jam</span><div class="ex"><span class="ex-jp">7<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 7.</span></div></div>
-    <div class="kanji-card"><div class="k">分</div><span class="r">ふん・ぷん · fun / pun</span><span class="a">Menit / bagi</span><div class="ex"><span class="ex-jp">いま 7<ruby>時<rt>じ</rt></ruby>10<ruby>分<rt>ぷん</rt></ruby>です。</span><span class="ex-id">Pukul 7 lewat 10 menit.</span></div></div>
-    <div class="kanji-card"><div class="k">半</div><span class="r">はん · han</span><span class="a">Setengah</span><div class="ex"><span class="ex-jp">6<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 6.30.</span></div></div>
-    <div class="kanji-card"><div class="k">毎</div><span class="r">まい · mai</span><span class="a">Setiap</span><div class="ex"><span class="ex-jp"><ruby>毎日<rt>まいにち</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>します。</span><span class="ex-id">Belajar setiap hari.</span></div></div>
-    <div class="kanji-card"><div class="k">朝</div><span class="r">あさ · asa</span><span class="a">Pagi</span><div class="ex"><span class="ex-jp"><ruby>毎朝<rt>まいあさ</rt></ruby> 6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 6 setiap pagi.</span></div></div>
+    <div class="kanji-card"><div class="k">今</div><span class="r">いま・こん — ima / kon</span><span class="a">Sekarang</span><div class="ex"><span class="ex-jp"><ruby>今<rt>いま</rt></ruby> 4<ruby>時<rt>じ</rt></ruby>です。</span><span class="ex-id">Sekarang pukul 4.</span></div></div>
+    <div class="kanji-card"><div class="k">時</div><span class="r">とき・じ — toki / ji</span><span class="a">Waktu / Jam</span><div class="ex"><span class="ex-jp">7<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 7.</span></div></div>
+    <div class="kanji-card"><div class="k">分</div><span class="r">ふん・ぷん — fun / pun</span><span class="a">Menit / bagi</span><div class="ex"><span class="ex-jp">いま 7<ruby>時<rt>じ</rt></ruby>10<ruby>分<rt>ぷん</rt></ruby>です。</span><span class="ex-id">Pukul 7 lewat 10 menit.</span></div></div>
+    <div class="kanji-card"><div class="k">半</div><span class="r">はん — han</span><span class="a">Setengah</span><div class="ex"><span class="ex-jp">6<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 6.30.</span></div></div>
+    <div class="kanji-card"><div class="k">毎</div><span class="r">まい — mai</span><span class="a">Setiap</span><div class="ex"><span class="ex-jp"><ruby>毎日<rt>まいにち</rt></ruby> <ruby>勉強<rt>べんきょう</rt></ruby>します。</span><span class="ex-id">Belajar setiap hari.</span></div></div>
+    <div class="kanji-card"><div class="k">朝</div><span class="r">あさ — asa</span><span class="a">Pagi</span><div class="ex"><span class="ex-jp"><ruby>毎朝<rt>まいあさ</rt></ruby> 6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span><span class="ex-id">Bangun pukul 6 setiap pagi.</span></div></div>
   </div>
 
+  <!-- ================= 12 ================= -->
   <h2 class="section-title"><span class="num">12.</span>Percakapan: Di Situ Sampai Pukul Berapa?</h2>
   <div class="kaiwa-box">
     <div class="kaiwa-label">会話 · Kaiwa — Soko wa nanji made desuka?</div>
@@ -1668,13 +1810,14 @@
     </div>
   </div>
 
+  <!-- ================= 13 ================= -->
   <h2 class="section-title"><span class="num">13.</span>Pemahaman Bacaan</h2>
   <div class="reading-box">
     <div class="reading-label">Bacaan Singkat</div>
     <p class="reading-text">わたしは まいにち 6<ruby>時<rt>じ</rt></ruby>に おきます。9<ruby>時<rt>じ</rt></ruby>から 5<ruby>時<rt>じ</rt></ruby>まで はたらきます。ひるやすみは 12<ruby>時<rt>じ</rt></ruby>から 1<ruby>時<rt>じ</rt></ruby>までです。よる 11<ruby>時<rt>じ</rt></ruby>に ねます。</p>
     <span class="romaji">Watashi wa mainichi roku-ji ni okimasu. Kyuu-ji kara go-ji made hatarakimasu. Hiruyasumi wa juuni-ji kara ichi-ji made desu. Yoru juuichi-ji ni nemasu.</span>
     <span class="id">Saya setiap hari bangun pukul 6. Bekerja dari pukul 9 sampai pukul 5. Istirahat siang dari pukul 12 sampai pukul 1. Malam hari tidur pukul 11.</span>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>なんじに おきますか。</li>
       <li>なんじから なんじまで はたらきますか。</li>
@@ -1682,6 +1825,7 @@
     </ol>
   </div>
 
+  <!-- ================= 14 ================= -->
   <h2 class="section-title"><span class="num">14.</span>Latihan</h2>
   <div class="latihan">
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Jepang: "Saya bangun pukul 6 setiap pagi."</span></div>
@@ -1702,6 +1846,7 @@
     <div class="soal"><span class="tanya"><strong>Jelaskan</strong>: Apa fungsi から dan まで pada kalimat waktu?</span></div>
   </div>
 
+  <!-- ================= 15 ================= -->
   <h2 class="section-title"><span class="num">15.</span>Mini Quiz</h2>
   <div class="quiz-box">
     <div class="quiz-label">✏️ Cek pemahaman Bab 4 (5 soal)</div>
@@ -1714,16 +1859,18 @@
     </ol>
   </div>
 
+  <!-- ================= 16 ================= -->
   <h2 class="section-title"><span class="num">16.</span>Yang Sudah Dipelajari</h2>
   <ul class="checklist">
-    <li>Hafal pembacaan jam 1–12 termasuk bentuk khusus (<ruby>四時<rt>よじ</rt></ruby>, <ruby>七時<rt>しちじ</rt></ruby>, <ruby>九時<rt>くじ</rt></ruby>).</li>
-    <li>Paham aturan pembacaan menit ぷん dan ふん serta なんぷん.</li>
-    <li>Bisa mengonjugasikan kata kerja ke 4 bentuk ます (ます, ません, ました, ませんでした).</li>
+    <li>Hafal pembacaan jam 1–12 termasuk bentuk khusus (<ruby>四時<rt>よじ</rt></ruby>, <ruby>七時<rt>しちじ</rt></ruby>, <ruby>九時<rt>くじ</rt></ruby>)。</li>
+    <li>Paham aturan pembacaan menit ぷん dan ふん serta なんぷん。</li>
+    <li>Bisa mengonjugasikan kata kerja ke 4 bentuk ます (ます, ません, ました, ませんでした)。</li>
     <li>Paham aturan ketat kapan wajib memakai partikel に dan kapan dilarang.</li>
-    <li>Bisa memakai partikel から〜まで untuk durasi waktu dan tempat.</li>
+    <li>Bisa memakai partikel から〜まで untuk menyatakan rentang waktu dan tempat.</li>
     <li>Hafal nama-nama 7 hari dalam seminggu.</li>
-    <li>Hafal 26 kosakata inti Bab 4 dan 6 kanji dasar: <ruby>今<rt>いま</rt></ruby>・<ruby>時<rt>じ</rt></ruby>・<ruby>分<rt>ふん</rt></ruby>・<ruby>半<rt>はん</rt></ruby>・<ruby>毎<rt>まい</rt></ruby>・<ruby>朝<rt>あさ</rt></ruby>.</li>
+    <li>Hafal 26 kosakata inti Bab 4 dan 6 kanji dasar: <ruby>今<rt>いま</rt></ruby>・<ruby>時<rt>じ</rt></ruby>・<ruby>分<rt>ふん</rt></ruby>・<ruby>半<rt>はん</rt></ruby>・<ruby>毎<rt>まい</rt></ruby>・<ruby>朝<rt>あさ</rt></ruby>。</li>
   </ul>
+
 </div>
 </section>
 
@@ -1738,15 +1885,17 @@
   <p class="ch-desc">Menguasai 3 kata kerja perpindahan, partikel arah へ, sarana kendaraan で, rekan と, serta sistem tanggal dan bulan Jepang.</p>
 </div>
 <div class="page">
+
+  <!-- ================= 1 ================= -->
   <h2 class="section-title"><span class="num">1.</span>Partikel へ — Arah Tujuan</h2>
   <div class="pola">
     <div class="pola-rumus">[Tempat Tujuan] <span class="p">へ</span> いきます / きます / かえります</div>
     <p class="pola-arti">Pergi / Datang / Pulang ke [Tujuan].</p>
     <p>Partikel <strong>へ</strong> ditulis dengan huruf <em>he</em> tetapi <strong>wajib dilafalkan <em>e</em></strong>.</p>
     <ul class="plain">
-      <li><strong>いきます</strong> (<ruby>行<rt>い</rt></ruby>きます) — pergi (menjauh dari pembicara).</li>
-      <li><strong>きます</strong> (<ruby>来<rt>き</rt></ruby>ます) — datang (menuju ke arah pembicara).</li>
-      <li><strong>かえります</strong> (<ruby>帰<rt>かえ</rt></ruby>ります) — pulang / kembali (ke rumah atau tanah air).</li>
+      <li><strong>いきます</strong>（<ruby>行<rt>い</rt></ruby>きます） — pergi (menjauh dari pembicara).</li>
+      <li><strong>きます</strong>（<ruby>来<rt>き</rt></ruby>ます） — datang (menuju ke arah pembicara).</li>
+      <li><strong>かえります</strong>（<ruby>帰<rt>かえ</rt></ruby>ります） — pulang / kembali (ke rumah atau tanah air).</li>
     </ul>
     <ul class="contoh">
       <li><span class="jp-line"><ruby>京都<rt>きょうと</rt></ruby>へ いきます。</span><span class="romaji">Kyouto e ikimasu.</span><span class="id">Pergi ke Kyoto.</span></li>
@@ -1755,6 +1904,7 @@
     </ul>
   </div>
 
+  <!-- ================= 2 ================= -->
   <h2 class="section-title"><span class="num">2.</span>Penyangkalan Total (どこ「へ」も)</h2>
   <div class="pola">
     <div class="pola-rumus">どこ [へ] も いきません / いきませんでした</div>
@@ -1767,6 +1917,7 @@
     </ul>
   </div>
 
+  <!-- ================= 3 ================= -->
   <h2 class="section-title"><span class="num">3.</span>Partikel で — Sarana Transportasi</h2>
   <div class="pola">
     <div class="pola-rumus">[Kendaraan] <span class="p">で</span> いきます / きます / かえります</div>
@@ -1775,9 +1926,13 @@
       <li><span class="jp-line"><ruby>電車<rt>でんしゃ</rt></ruby>で いきます。</span><span class="romaji">Densha de ikimasu.</span><span class="id">Pergi naik kereta listrik.</span></li>
       <li><span class="jp-line">タクシーで きました。</span><span class="romaji">Takushii de kimashita.</span><span class="id">Datang naik taksi.</span></li>
     </ul>
-    <div class="note note-warn" style="margin-top:10px;"><span class="label">Jalan Kaki (Penting!)</span><p>Jika berjalan kaki, gunakan <strong>あるいて</strong> <strong>tanpa partikel で</strong>. Contoh: <strong><ruby>駅<rt>えき</rt></ruby>から <ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります</strong>.</p></div>
+    <div class="note note-warn" style="margin-top:10px;">
+      <span class="label">Jalan Kaki (Penting!)</span>
+      <p>Jika berjalan kaki, gunakan <strong>あるいて</strong> tanpa partikel で. Contoh: <strong><ruby>駅<rt>えき</rt></ruby>から <ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります</strong>。</p>
+    </div>
   </div>
 
+  <!-- ================= 4 ================= -->
   <h2 class="section-title"><span class="num">4.</span>Partikel と — Rekan Melakukan Aksi</h2>
   <div class="pola">
     <div class="pola-rumus">[Orang / Hewan] <span class="p">と</span> [Kata Kerja]</div>
@@ -1785,19 +1940,24 @@
     <ul class="contoh">
       <li><span class="jp-line"><ruby>家族<rt>かぞく</rt></ruby>と <ruby>日本<rt>にほん</rt></ruby>へ きました。</span><span class="romaji">Kazoku to Nihon e kimashita.</span><span class="id">Datang ke Jepang bersama keluarga.</span></li>
     </ul>
-    <div class="note note-info" style="margin-top:10px;"><span class="label">Melakukan Sendirian</span><p>Jika bepergian sendiri, gunakan <strong>ひとりで</strong> (<em>hitori de</em>) <strong>tanpa partikel と</strong>. Contoh: <strong><ruby>一人<rt>ひとり</rt></ruby>で <ruby>東京<rt>とうきょう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます</strong>.</p></div>
+    <div class="note note-info" style="margin-top:10px;">
+      <span class="label">Melakukan Sendirian</span>
+      <p>Jika bepergian sendiri, gunakan <strong>ひとりで</strong> (<em>hitori de</em>) tanpa partikel と. Contoh: <strong><ruby>一人<rt>ひとり</rt></ruby>で <ruby>東京<rt>とうきょう</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます</strong>。</p>
+    </div>
   </div>
 
+  <!-- ================= 5 ================= -->
   <h2 class="section-title"><span class="num">5.</span>Kata Tanya いつ (Kapan)</h2>
   <div class="pola">
     <div class="pola-rumus">いつ [Kata Kerja] ますか / ましたか。</div>
     <p class="pola-arti">Kapan [Aktivitas]?</p>
-    <p>Kata tanya <strong>いつ</strong> <strong>tidak pernah diikuti partikel に</strong>.</p>
+    <p>Kata tanya <strong>いつ</strong> tidak pernah diikuti partikel <strong>に</strong>.</p>
     <ul class="contoh">
-      <li><span class="jp-line">いつ <ruby>日本<rt>にほん</rt></ruby>へ きましたか。— 3がつ 25にちに きました。</span><span class="romaji">Itsu Nihon e kimashitaka. — Sangatsu nijuugonichi ni kimashita.</span><span class="id">Kapan datang ke Jepang? — Datang pada tanggal 25 Maret.</span></li>
+      <li><span class="jp-line">いつ <ruby>日本<rt>にほん</rt></ruby>へ きましたか。<br>— 3がつ 25にちに きました。</span><span class="romaji">Itsu Nihon e kimashitaka. — Sangatsu nijuugonichi ni kimashita.</span><span class="id">Kapan datang ke Jepang? — Datang pada tanggal 25 Maret.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 6 ================= -->
   <h2 class="section-title"><span class="num">6.</span>Partikel Akhir よ (Pemberitahuan / Penegasan)</h2>
   <div class="pola">
     <div class="pola-rumus">[Kalimat] <span class="p">よ</span>。</div>
@@ -1807,7 +1967,7 @@
     </ul>
   </div>
 
-  <!-- ===== SECTION BARU: そうですね (PRIORITAS 1 #1) ===== -->
+  <!-- ================= 7 ================= -->
   <h2 class="section-title"><span class="num">7.</span>Ungkapan そうですね (Menyetujui)</h2>
   <div class="pola">
     <div class="pola-rumus">[Kalimat] <span class="p">ね</span>。 → <span class="p">そうですね</span>。</div>
@@ -1815,33 +1975,18 @@
     <p>Dipakai untuk <strong>menyatakan persetujuan</strong> atau <strong>sependapat</strong> dengan lawan bicara atas hal yang sudah sama-sama diketahui. Berbeda dengan <strong>そうですか</strong> yang dipakai untuk menerima <em>informasi baru</em> yang belum diketahui.</p>
     <div class="note note-warn" style="margin:10px 0;">
       <span class="label">Jangan Tertukar!</span>
-      <p><strong>そうですね</strong> → menyetujui (sudah tahu, sependapat). <br>
-         <strong>そうですか</strong> → menerima informasi baru ("oh, begitu").</p>
+      <p><strong>そうですね</strong> → menyetujui (sudah tahu, sependapat)。<br>
+         <strong>そうですか</strong> → menerima informasi baru ("oh, begitu")。</p>
     </div>
     <ul class="contoh">
-      <li>
-        <span class="jp-line">あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。</span>
-        <span class="romaji">Ashita wa nichiyoubi desu ne.</span>
-        <span class="id">Besok hari Minggu, ya.</span>
-      </li>
-      <li>
-        <span class="jp-line">— あ、そうですね。</span>
-        <span class="romaji">A, sou desu ne.</span>
-        <span class="id">— Ah, benar juga ya (saya setuju).</span>
-      </li>
-      <li>
-        <span class="jp-line">この お<ruby>茶<rt>ちゃ</rt></ruby>は <ruby>熱<rt>あつ</rt></ruby>いですね。</span>
-        <span class="romaji">Kono ocha wa atsui desu ne.</span>
-        <span class="id">Teh ini panas ya.</span>
-      </li>
-      <li>
-        <span class="jp-line">— そうですね。ちょっと <ruby>待<rt>ま</rt></ruby>ちましょう。</span>
-        <span class="romaji">Sou desu ne. Chotto machimashou.</span>
-        <span class="id">— Ya memang. Ayo tunggu sebentar.</span>
-      </li>
+      <li><span class="jp-line">あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。</span><span class="romaji">Ashita wa nichiyoubi desu ne.</span><span class="id">Besok hari Minggu, ya.</span></li>
+      <li><span class="jp-line">— あ、そうですね。</span><span class="romaji">A, sou desu ne.</span><span class="id">— Ah, benar juga ya (saya setuju).</span></li>
+      <li><span class="jp-line">この お<ruby>茶<rt>ちゃ</rt></ruby>は <ruby>熱<rt>あつ</rt></ruby>いですね。</span><span class="romaji">Kono ocha wa atsui desu ne.</span><span class="id">Teh ini panas ya.</span></li>
+      <li><span class="jp-line">— そうですね。ちょっと <ruby>待<rt>ま</rt></ruby>ちましょう。</span><span class="romaji">Sou desu ne. Chotto machimashou.</span><span class="id">— Ya memang. Ayo tunggu sebentar.</span></li>
     </ul>
   </div>
 
+  <!-- ================= 8 ================= -->
   <h2 class="section-title"><span class="num">8.</span>Sistem Penanggalan Jepang (Tanggal 1–31)</h2>
   <p>Tanggal 1 sampai 10, 14, 20, dan 24 memiliki pembacaan khusus yang wajib dihafalkan:</p>
   <div class="card-grid">
@@ -1918,31 +2063,48 @@
 
   <h3 class="subsection">Nama-Nama Bulan (〜がつ)</h3>
   <div class="card-grid">
-    <div class="card"><div class="angka">1</div><div class="kata">いちがつ</div><div class="romaji">ichigatsu</div></div>
-    <div class="card"><div class="angka">2</div><div class="kata">にがつ</div><div class="romaji">nigatsu</div></div>
-    <div class="card"><div class="angka">3</div><div class="kata">さんがつ</div><div class="romaji">sangatsu</div></div>
-    <div class="card special"><div class="angka">4</div><div class="kata">しがつ</div><div class="romaji">shigatsu (bukan yongatsu!)</div></div>
-    <div class="card"><div class="angka">5</div><div class="kata">ごがつ</div><div class="romaji">gogatsu</div></div>
-    <div class="card"><div class="angka">6</div><div class="kata">ろくがつ</div><div class="romaji">rokugatsu</div></div>
-    <div class="card special"><div class="angka">7</div><div class="kata">しちがつ</div><div class="romaji">shichigatsu (bukan nanagatsu!)</div></div>
-    <div class="card"><div class="angka">8</div><div class="kata">はちがつ</div><div class="romaji">hachigatsu</div></div>
-    <div class="card special"><div class="angka">9</div><div class="kata">くがつ</div><div class="romaji">kugatsu (bukan kyuugatsu!)</div></div>
-    <div class="card"><div class="angka">10</div><div class="kata">じゅうがつ</div><div class="romaji">juugatsu</div></div>
-    <div class="card"><div class="angka">11</div><div class="kata">じゅういちがつ</div><div class="romaji">juuichigatsu</div></div>
-    <div class="card"><div class="angka">12</div><div class="kata">じゅうにがつ</div><div class="romaji">juunigatsu</div></div>
+    <div class="card"><div class="angka">1</div><div class="kata">いちがつ</div><div class="romaji">ichi-gatsu</div></div>
+    <div class="card"><div class="angka">2</div><div class="kata">にがつ</div><div class="romaji">ni-gatsu</div></div>
+    <div class="card"><div class="angka">3</div><div class="kata">さんがつ</div><div class="romaji">san-gatsu</div></div>
+    <div class="card special"><div class="angka">4</div><div class="kata">しがつ</div><div class="romaji">shi-gatsu (bukan yon-gatsu)</div></div>
+    <div class="card"><div class="angka">5</div><div class="kata">ごがつ</div><div class="romaji">go-gatsu</div></div>
+    <div class="card"><div class="angka">6</div><div class="kata">ろくがつ</div><div class="romaji">roku-gatsu</div></div>
+    <div class="card special"><div class="angka">7</div><div class="kata">しちがつ</div><div class="romaji">shichi-gatsu (bukan nana-gatsu)</div></div>
+    <div class="card"><div class="angka">8</div><div class="kata">はちがつ</div><div class="romaji">hachi-gatsu</div></div>
+    <div class="card special"><div class="angka">9</div><div class="kata">くがつ</div><div class="romaji">ku-gatsu (bukan kyuu-gatsu)</div></div>
+    <div class="card"><div class="angka">10</div><div class="kata">じゅうがつ</div><div class="romaji">juu-gatsu</div></div>
+    <div class="card"><div class="angka">11</div><div class="kata">じゅういちがつ</div><div class="romaji">juuichi-gatsu</div></div>
+    <div class="card"><div class="angka">12</div><div class="kata">じゅうにがつ</div><div class="romaji">juuni-gatsu</div></div>
     <div class="card special"><div class="angka">?</div><div class="kata">なんがつ</div><div class="romaji">bulan apa?</div></div>
   </div>
 
+  <!-- ================= 9 ================= -->
   <h2 class="section-title"><span class="num">9.</span>Waktu Relatif (Pekan, Bulan, Tahun)</h2>
   <table>
     <thead><tr><th style="width:22%">Kategori</th><th>Waktu Lalu</th><th>Waktu Ini</th><th>Waktu Depan</th></tr></thead>
     <tbody>
-      <tr><td><strong>Pekan</strong></td><td>せんしゅう <span class="rm"><ruby>先週<rt>せんしゅう</rt></ruby> (minggu lalu)</span></td><td>こんしゅう <span class="rm"><ruby>今週<rt>こんしゅう</rt></ruby> (minggu ini)</span></td><td>らいしゅう <span class="rm"><ruby>来週<rt>らいしゅう</rt></ruby> (minggu depan)</span></td></tr>
-      <tr><td><strong>Bulan</strong></td><td>せんげつ <span class="rm"><ruby>先月<rt>せんげつ</rt></ruby> (bulan lalu)</span></td><td>こんげつ <span class="rm"><ruby>今月<rt>こんげつ</rt></ruby> (bulan ini)</span></td><td>らいげつ <span class="rm"><ruby>来月<rt>らいげつ</rt></ruby> (bulan depan)</span></td></tr>
-      <tr><td><strong>Tahun</strong></td><td>きょねん <span class="rm"><ruby>去年<rt>きょねん</rt></ruby> (tahun lalu)</span></td><td>ことし <span class="rm"><ruby>今年<rt>ことし</rt></ruby> (tahun ini)</span></td><td>らいねん <span class="rm"><ruby>来年<rt>らいねん</rt></ruby> (tahun depan)</span></td></tr>
+      <tr>
+        <td><strong>Pekan</strong></td>
+        <td><ruby>先週<rt>せんしゅう</rt></ruby> <span class="rm">(minggu lalu)</span></td>
+        <td><ruby>今週<rt>こんしゅう</rt></ruby> <span class="rm">(minggu ini)</span></td>
+        <td><ruby>来週<rt>らいしゅう</rt></ruby> <span class="rm">(minggu depan)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Bulan</strong></td>
+        <td><ruby>先月<rt>せんげつ</rt></ruby> <span class="rm">(bulan lalu)</span></td>
+        <td><ruby>今月<rt>こんげつ</rt></ruby> <span class="rm">(bulan ini)</span></td>
+        <td><ruby>来月<rt>らいげつ</rt></ruby> <span class="rm">(bulan depan)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tahun</strong></td>
+        <td><ruby>去年<rt>きょねん</rt></ruby> <span class="rm">(tahun lalu)</span></td>
+        <td><ruby>今年<rt>ことし</rt></ruby> <span class="rm">(tahun ini)</span></td>
+        <td><ruby>来年<rt>らいねん</rt></ruby> <span class="rm">(tahun depan)</span></td>
+      </tr>
     </tbody>
   </table>
 
+  <!-- ================= 10 ================= -->
   <h2 class="section-title"><span class="num">10.</span>Kosakata Inti Bab 5</h2>
   <table class="vocab-table">
     <thead><tr><th style="width:6%">No</th><th style="width:26%">日本語</th><th style="width:24%">Romaji</th><th>Arti</th></tr></thead>
@@ -1977,16 +2139,18 @@
     </tbody>
   </table>
 
+  <!-- ================= 11 ================= -->
   <h2 class="section-title"><span class="num">11.</span>Kanji Bab Ini</h2>
   <div class="kanji-grid">
-    <div class="kanji-card"><div class="k">行</div><span class="r">いく・こう · i</span><span class="a">Pergi</span><div class="ex"><span class="ex-jp"><ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Pergi ke Kyoto.</span></div></div>
-    <div class="kanji-card"><div class="k">来</div><span class="r">くる・らい · ki / rai</span><span class="a">Datang</span><div class="ex"><span class="ex-jp"><ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。</span><span class="ex-id">Datang ke Jepang.</span></div></div>
-    <div class="kanji-card"><div class="k">帰</div><span class="r">かえる・き · kae</span><span class="a">Pulang</span><div class="ex"><span class="ex-jp">うちへ <ruby>帰<rt>かえ</rt></ruby>ります。</span><span class="ex-id">Pulang ke rumah.</span></div></div>
-    <div class="kanji-card"><div class="k">年</div><span class="r">とし・ねん · toshi / nen</span><span class="a">Tahun</span><div class="ex"><span class="ex-jp"><ruby>今年<rt>ことし</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Tahun ini ke Jepang.</span></div></div>
-    <div class="kanji-card"><div class="k">友</div><span class="r">とも · tomo</span><span class="a">Teman</span><div class="ex"><span class="ex-jp"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Pergi bersama teman.</span></div></div>
-    <div class="kanji-card"><div class="k">達</div><span class="r">たち · tachi</span><span class="a">Jamak (rekan)</span><div class="ex"><span class="ex-jp"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>会<rt>あ</rt></ruby>います。</span><span class="ex-id">Bertemu teman-teman.</span></div></div>
+    <div class="kanji-card"><div class="k">行</div><span class="r">いく・こう — iku / kou</span><span class="a">Pergi</span><div class="ex"><span class="ex-jp"><ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Pergi ke Kyoto.</span></div></div>
+    <div class="kanji-card"><div class="k">来</div><span class="r">くる・らい — kuru / rai</span><span class="a">Datang</span><div class="ex"><span class="ex-jp"><ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。</span><span class="ex-id">Datang ke Jepang.</span></div></div>
+    <div class="kanji-card"><div class="k">帰</div><span class="r">かえる・き — kaeru / ki</span><span class="a">Pulang</span><div class="ex"><span class="ex-jp">うちへ <ruby>帰<rt>かえ</rt></ruby>ります。</span><span class="ex-id">Pulang ke rumah.</span></div></div>
+    <div class="kanji-card"><div class="k">年</div><span class="r">とし・ねん — toshi / nen</span><span class="a">Tahun</span><div class="ex"><span class="ex-jp"><ruby>今年<rt>ことし</rt></ruby> <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Tahun ini ke Jepang.</span></div></div>
+    <div class="kanji-card"><div class="k">友</div><span class="r">とも — tomo</span><span class="a">Teman</span><div class="ex"><span class="ex-jp"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Pergi bersama teman.</span></div></div>
+    <div class="kanji-card"><div class="k">達</div><span class="r">たち — tachi</span><span class="a">Jamak (rekan)</span><div class="ex"><span class="ex-jp"><ruby>友達<rt>ともだち</rt></ruby>と <ruby>日本<rt>にほん</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span><span class="ex-id">Pergi ke Jepang bersama teman.</span></div></div>
   </div>
 
+  <!-- ================= 12 ================= -->
   <h2 class="section-title"><span class="num">12.</span>Percakapan: Apakah Kereta Ini Menuju Koshien?</h2>
   <div class="kaiwa-box">
     <div class="kaiwa-label">会話 · Kaiwa — Kono densha wa Koushien e ikimasuka?</div>
@@ -2046,13 +2210,14 @@
     </div>
   </div>
 
+  <!-- ================= 13 ================= -->
   <h2 class="section-title"><span class="num">13.</span>Pemahaman Bacaan</h2>
   <div class="reading-box">
     <div class="reading-label">Bacaan Singkat</div>
     <p class="reading-text">せんしゅう ともだちと しんかんせんで <ruby>京都<rt>きょうと</rt></ruby>へ いきました。らいしゅう ひとりで <ruby>大阪<rt>おおさか</rt></ruby>へ いきます。<ruby>電車<rt>でんしゃ</rt></ruby>で いきます。</p>
     <span class="romaji">Senshuu tomodachi to shinkansen de Kyouto e ikimashita. Raishuu hitori de Oosaka e ikimasu. Densha de ikimasu.</span>
     <span class="id">Minggu lalu pergi ke Kyoto naik Shinkansen bersama teman. Minggu depan akan pergi ke Osaka sendirian. Naik kereta listrik.</span>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>せんしゅう どこへ いきましたか。</li>
       <li>なにで きょうとへ いきましたか。</li>
@@ -2060,6 +2225,7 @@
     </ol>
   </div>
 
+  <!-- ================= 14 ================= -->
   <h2 class="section-title"><span class="num">14.</span>Latihan</h2>
   <div class="latihan">
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Jepang: "Saya pergi ke Kyoto bersama teman naik shinkansen."</span></div>
@@ -2083,6 +2249,7 @@
     <div class="soal"><span class="tanya"><strong>Terjemahkan</strong> ke bahasa Jepang dengan そうですね: "Besok hari Minggu, ya. — Ah, benar juga ya."</span></div>
   </div>
 
+  <!-- ================= 15 ================= -->
   <h2 class="section-title"><span class="num">15.</span>Mini Quiz</h2>
   <div class="quiz-box">
     <div class="quiz-label">✏️ Cek pemahaman Bab 5 (6 soal)</div>
@@ -2096,18 +2263,20 @@
     </ol>
   </div>
 
+  <!-- ================= 16 ================= -->
   <h2 class="section-title"><span class="num">16.</span>Yang Sudah Dipelajari</h2>
   <ul class="checklist">
-    <li>Hafal nama bulan 1–12, khususnya bentuk khusus (<ruby>四月<rt>しがつ</rt></ruby>, <ruby>七月<rt>しちがつ</rt></ruby>, <ruby>九月<rt>くがつ</rt></ruby>).</li>
-    <li>Paham tiga kata kerja perpindahan: <ruby>行<rt>い</rt></ruby>きます, <ruby>来<rt>き</rt></ruby>ます, <ruby>帰<rt>かえ</rt></ruby>ります.</li>
+    <li>Hafal nama bulan 1–12, khususnya bentuk khusus（<ruby>四月<rt>しがつ</rt></ruby>, <ruby>七月<rt>しちがつ</rt></ruby>, <ruby>九月<rt>くがつ</rt></ruby>）。</li>
+    <li>Paham tiga kata kerja perpindahan: <ruby>行<rt>い</rt></ruby>きます, <ruby>来<rt>き</rt></ruby>ます, <ruby>帰<rt>かえ</rt></ruby>ります。</li>
     <li>Bisa memakai partikel へ untuk arah tujuan.</li>
     <li>Bisa memakai partikel で untuk sarana transportasi.</li>
     <li>Bisa memakai partikel と untuk rekan melakukan kegiatan.</li>
     <li>Paham bentuk penyangkalan total どこ「へ」も + kata kerja negatif.</li>
     <li>Hafal tanggal 1–10, 14, 20, 24 (pengecualian penanggalan).</li>
-    <li>Paham perbedaan <strong>そうですね</strong> (menyetujui) dan <strong>そうですか</strong> (menerima info baru).</li>
-    <li>Hafal 27 kosakata inti Bab 5 dan 6 kanji dasar: <ruby>行<rt>い</rt></ruby>・<ruby>来<rt>き</rt></ruby>・<ruby>帰<rt>かえ</rt></ruby>・<ruby>年<rt>ねん</rt></ruby>・<ruby>友<rt>とも</rt></ruby>・<ruby>達<rt>たち</rt></ruby>.</li>
+    <li>Paham perbedaan <strong>そうですね</strong> (menyetujui) dan <strong>そうですか</strong> (menerima info baru)。</li>
+    <li>Hafal 27 kosakata inti Bab 5 dan 6 kanji dasar: <ruby>行<rt>い</rt></ruby>・<ruby>来<rt>き</rt></ruby>・<ruby>帰<rt>かえ</rt></ruby>・<ruby>年<rt>ねん</rt></ruby>・<ruby>友<rt>とも</rt></ruby>・<ruby>達<rt>たち</rt></ruby>。</li>
   </ul>
+
 </div>
 </section>
 
@@ -2125,7 +2294,7 @@
     <div class="soal"><span class="tanya">「これは ＿＿ の カメラですか。— にほんの カメラです。」</span>
       <div class="pilihan"><span>a. だれ</span><span>b. どこ</span><span>c. いつ</span></div>
     </div>
-    <div class="soal"><span class="tanya">Kalimat pola sopan yang benar?</span>
+    <div class="soal"><span class="tanya">「＿＿ の 文が 正しいですか。」Kalimat pola sopan yang benar?</span>
       <div class="pilihan"><span>a. まいにち 7じに おきます。</span><span>b. まいにち 7じに おきるです。</span><span>c. まいにちに 7じ おきます。</span></div>
     </div>
     <div class="soal"><span class="tanya">「きのう ＿＿ <ruby>勉強<rt>べんきょう</rt></ruby>しましたか。」(Kemarin pukul berapa belajar?)</span>
@@ -2158,9 +2327,9 @@
   <div class="reading-box">
     <div class="reading-label">Bacaan</div>
     <p class="reading-text">わたしは ミラーです。アメリカから <ruby>来<rt>き</rt></ruby>ました。IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。まいにち 9じから 5じまで <ruby>働<rt>はたら</rt></ruby>きます。にちようびは どこへも いきません。</p>
-    <em style="color:var(--ink-soft); font-size:.86em; display:block; margin-top:6px;">Watashi wa Miraa desu. Amerika kara kimashita. IMC no shain desu. Mainichi kyuu-ji kara go-ji made hatarakimasu. Nichiyoubi wa doko e mo ikimasen.</em>
-    <em style="color:var(--ink-soft); font-size:.88em;">Saya Miller. Datang dari Amerika Serikat. Karyawan IMC. Setiap hari bekerja dari pukul 9 sampai pukul 5. Hari Minggu tidak pergi ke mana pun.</em>
-    <p style="font-weight:600; margin-top:10px;">Pertanyaan:</p>
+    <span class="romaji">Watashi wa Miraa desu. Amerika kara kimashita. IMC no shain desu. Mainichi kyuu-ji kara go-ji made hatarakimasu. Nichiyoubi wa doko e mo ikimasen.</span>
+    <span class="id">Saya Miller. Datang dari Amerika Serikat. Karyawan IMC. Setiap hari bekerja dari pukul 9 sampai pukul 5. Hari Minggu tidak pergi ke mana pun.</span>
+    <p style="font-weight:600; margin-top:14px; color:var(--pen);">Pertanyaan:</p>
     <ol>
       <li>ミラーさんは どこから <ruby>来<rt>き</rt></ruby>ましたか。</li>
       <li>ミラーさんは どこの かいしゃの <ruby>社員<rt>しゃいん</rt></ruby>ですか。</li>
@@ -2185,8 +2354,8 @@
   </div>
   <div class="mistake">
     <span class="mistake-title">2. Salah melafalkan partikel は</span>
-    <span class="wrong">❌ <ruby>私<rt>わたし</rt></ruby>ha <ruby>学生<rt>がくせい</rt></ruby>desu.</span>
-    <span class="right">✅ <ruby>私<rt>わたし</rt></ruby>wa <ruby>学生<rt>がくせい</rt></ruby>desu.</span>
+    <span class="wrong">❌ <ruby>私<rt>わたし</rt></ruby> ha <ruby>学生<rt>がくせい</rt></ruby> desu.</span>
+    <span class="right">✅ <ruby>私<rt>わたし</rt></ruby> wa <ruby>学生<rt>がくせい</rt></ruby> desu.</span>
     <span class="why">Partikel は selalu dibaca <em>wa</em> ketika berfungsi sebagai penanda topik.</span>
   </div>
 
@@ -2199,7 +2368,7 @@
   </div>
   <div class="mistake">
     <span class="mistake-title">2. Partikel の pengganti dipakai untuk orang</span>
-    <span class="wrong">❌ IMCの (maksud: karyawan IMC)</span>
+    <span class="wrong">❌ IMCの （maksud: karyawan IMC）</span>
     <span class="right">✅ IMCの <ruby>社員<rt>しゃいん</rt></ruby>です。</span>
     <span class="why">Partikel の hanya boleh menggantikan kata benda non-orang yang sudah jelas dari konteks.</span>
   </div>
@@ -2207,7 +2376,7 @@
     <span class="mistake-title">3. Menjawab pertanyaan konfirmasi benda dengan そうじゃ ありません</span>
     <span class="wrong">❌ それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— いいえ、そうじゃ ありません。</span>
     <span class="right">✅ それは <ruby>辞書<rt>じしょ</rt></ruby>ですか。— いいえ、ちがいます。</span>
-    <span class="why">Untuk mengoreksi nama benda yang salah, gunakan ちがいます (bukan そうじゃ ありません).</span>
+    <span class="why">Untuk mengoreksi nama benda yang salah, gunakan ちがいます (bukan そうじゃ ありません)。</span>
   </div>
 
   <h3 class="subsection">Bab 3</h3>
@@ -2215,64 +2384,64 @@
     <span class="mistake-title">1. Menanyakan nama negara/organisasi dengan なん</span>
     <span class="wrong">❌ お<ruby>国<rt>くに</rt></ruby>は なんですか。</span>
     <span class="right">✅ お<ruby>国<rt>くに</rt></ruby>は どちらですか。（どこですか）</span>
-    <span class="why">Untuk menanyakan tempat asal, sekolah, perusahaan, gunakan どこ atau どちら (sopan), bukan なん.</span>
+    <span class="why">Untuk menanyakan tempat asal, sekolah, perusahaan, gunakan どこ atau どちら (sopan), bukan なん。</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">2. Salah membaca lantai 3</span>
-    <span class="wrong">❌ さんかい</span>
-    <span class="right">✅ さんがい (sangai)</span>
-    <span class="why">Lantai 3 mengalami pelunakan konsonan (dakuten) menjadi -gai.</span>
+    <span class="wrong">❌ <strong>さんかい</strong></span>
+    <span class="right">✅ <strong>さんがい</strong> (sangai)</span>
+    <span class="why">Lantai 3 mengalami pelunakan konsonan (dakuten) menjadi <em>-gai</em>。</span>
   </div>
 
   <h3 class="subsection">Bab 4</h3>
   <div class="mistake">
     <span class="mistake-title">1. Menempelkan partikel に pada waktu relatif</span>
-    <span class="wrong">❌ きのうに <ruby>勉強<rt>べんきょう</rt></ruby>しました。</span>
-    <span class="right">✅ きのう <ruby>勉強<rt>べんきょう</rt></ruby>しました。</span>
-    <span class="why">Waktu relatif (きのう, きょう, あした, まいにち) tidak boleh diikuti partikel に.</span>
+    <span class="wrong">❌ <strong>きのうに</strong> <ruby>勉強<rt>べんきょう</rt></ruby>しました。</span>
+    <span class="right">✅ <strong>きのう</strong> <ruby>勉強<rt>べんきょう</rt></ruby>しました。</span>
+    <span class="why">Waktu relatif (きのう, きょう, あした, まいにち) tidak boleh diikuti partikel に。</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">2. Salah melafalkan jam 4, 7, dan 9</span>
-    <span class="wrong">❌ よんじ, ななじ, きゅうじ</span>
-    <span class="right">✅ よじ (4時), しちじ (7時), くじ (9時)</span>
+    <span class="wrong">❌ <strong>よんじ, ななじ, きゅうじ</strong></span>
+    <span class="right">✅ <strong>よじ</strong> (4時), <strong>しちじ</strong> (7時), <strong>くじ</strong> (9時)</span>
     <span class="why">Ketiga jam ini mempunyai pembacaan khusus yang tidak boleh ditukar dengan angka biasa.</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">3. Menjawab pertanyaan kata kerja dengan そうです</span>
     <span class="wrong">❌ きのう <ruby>勉強<rt>べんきょう</rt></ruby>しましたか。— はい、そうです。</span>
     <span class="right">✅ きのう <ruby>勉強<rt>べんきょう</rt></ruby>しましたか。— はい、<ruby>勉強<rt>べんきょう</rt></ruby>しました。</span>
-    <span class="why">Pertanyaan kata kerja dijawab dengan mengulang kata kerjanya, bukan dengan そうです.</span>
+    <span class="why">Pertanyaan kata kerja dijawab dengan mengulang kata kerjanya, bukan dengan そうです。</span>
   </div>
 
   <h3 class="subsection">Bab 5</h3>
   <div class="mistake">
     <span class="mistake-title">1. Menempelkan partikel で pada あるいて</span>
-    <span class="wrong">❌ <ruby>駅<rt>えき</rt></ruby>から あるいてで <ruby>帰<rt>かえ</rt></ruby>ります。</span>
+    <span class="wrong">❌ <ruby>駅<rt>えき</rt></ruby>から あるいて<strong>で</strong> <ruby>帰<rt>かえ</rt></ruby>ります。</span>
     <span class="right">✅ <ruby>駅<rt>えき</rt></ruby>から あるいて <ruby>帰<rt>かえ</rt></ruby>ります。</span>
     <span class="why">あるいて sudah berarti "dengan berjalan kaki" sehingga tidak memerlukan partikel で lagi.</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">2. Menempelkan partikel と pada ひとりで</span>
-    <span class="wrong">❌ ひとりと いきます。</span>
-    <span class="right">✅ ひとりで いきます。</span>
-    <span class="why">Untuk melakukan sesuatu sendirian, gunakan keterangan ひとりで tanpa partikel と.</span>
+    <span class="wrong">❌ ひとり<strong>と</strong> いきます。</span>
+    <span class="right">✅ ひとり<strong>で</strong> いきます。</span>
+    <span class="why">Untuk melakukan sesuatu sendirian, gunakan keterangan ひとりで tanpa partikel と。</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">3. Salah baca tanggal 20 dan 24</span>
-    <span class="wrong">❌ にじゅうにち, にじゅうよんにち</span>
-    <span class="right">✅ はつか (20日), にじゅうよっか (24日)</span>
+    <span class="wrong">❌ <strong>にじゅうにち, にじゅうよんにち</strong></span>
+    <span class="right">✅ <strong>はつか</strong> (20日), <strong>にじゅうよっか</strong> (24日)</span>
     <span class="why">Tanggal 20 dan 24 merupakan pembacaan tradisi Jepang khusus.</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">4. Salah menyebut bulan April, Juli, dan September</span>
-    <span class="wrong">❌ よんがつ, なながつ, きゅうがつ</span>
-    <span class="right">✅ しがつ (4月), しちがつ (7月), くがつ (9月)</span>
+    <span class="wrong">❌ <strong>よんがつ, なながつ, きゅうがつ</strong></span>
+    <span class="right">✅ <strong>しがつ</strong> (4月), <strong>しちがつ</strong> (7月), <strong>くがつ</strong> (9月)</span>
     <span class="why">Ketiga bulan ini memiliki aturan nama mutlak dalam bahasa Jepang.</span>
   </div>
   <div class="mistake">
     <span class="mistake-title">5. Menukar そうですね dan そうですか</span>
-    <span class="wrong">❌ あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。— あ、そうですか。(salah konteks)</span>
-    <span class="right">✅ あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。— あ、そうですね。(menyetujui)</span>
+    <span class="wrong">❌ あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。— あ、そうですか。<em>(salah konteks)</em></span>
+    <span class="right">✅ あしたは <ruby>日曜日<rt>にちようび</rt></ruby>ですね。— あ、そうですね。<em>(menyetujui)</em></span>
     <span class="why">そうですね = menyetujui hal yang sudah sama-sama diketahui. そうですか = menerima informasi baru.</span>
   </div>
 </section>
@@ -2288,12 +2457,12 @@
     <tbody>
       <tr>
         <td><strong>Golongan I</strong><br><span class="rm">Godan doushi</span></td>
-        <td>Berakhiran bunyi kolom い: <em>i, ki, shi, chi, ni, mi, ri, gi, bi</em></td>
+        <td>Berakhiran bunyi kolom <em>i</em>: <em>i, ki, shi, chi, ni, mi, ri, gi, bi</em></td>
         <td class="jp-txt"><ruby>書<rt>か</rt></ruby>きます · <ruby>飲<rt>の</rt></ruby>みます · <ruby>帰<rt>かえ</rt></ruby>ります · <ruby>話<rt>はな</rt></ruby>します</td>
       </tr>
       <tr>
         <td><strong>Golongan II</strong><br><span class="rm">Ichidan doushi</span></td>
-        <td>Berakhiran bunyi kolom え (<em>e</em>) atau <em>i</em> sebelum ます, dan hanya terdiri dari 1–2 suku kata sebelum ます</td>
+        <td>Berakhiran bunyi kolom <em>e</em> atau <em>i</em> sebelum ます, dan hanya terdiri dari 1–2 suku kata sebelum ます</td>
         <td class="jp-txt"><ruby>食<rt>た</rt></ruby>べます · <ruby>見<rt>み</rt></ruby>ます · <ruby>起<rt>お</rt></ruby>きます · ねます</td>
       </tr>
       <tr>
@@ -2344,16 +2513,24 @@
   </table>
 
   <h3 class="subsection">3. Catatan Penting Pelafalan Bahasa Jepang</h3>
-  <div class="note note-tip"><span class="label">1. Panjang Pendek Vokal (Chouon)</span>
-    <p>おばさん (bibi/tante) vs おばあさん (nenek).<br>おじさん (paman/om) vs おじいさん (kakek).<br>へや (kamar) vs へいや (dataran rendah).</p>
+  <div class="note note-tip">
+    <span class="label">1. Panjang Pendek Vokal (Chouon)</span>
+    <p>おばさん (bibi / tante) vs おばあさん (nenek)。</p>
+    <p>おじさん (paman / om) vs おじいさん (kakek)。</p>
+    <p>へや (kamar) vs へいや (dataran rendah)。</p>
   </div>
-  <div class="note note-warn"><span class="label">2. Konsonan Ganda / Sokuon (っ)</span>
-    <p>きて (datanglah) vs きって (perangko).<br>おと (bunyi/suara) vs おっと (suami).<br>ぶか (bawahan) vs ぶっか (harga barang).</p>
+  <div class="note note-warn">
+    <span class="label">2. Konsonan Ganda / Sokuon (っ)</span>
+    <p>きて (datanglah) vs きって (perangko)。</p>
+    <p>おと (bunyi / suara) vs おっと (suami)。</p>
+    <p>ぶか (bawahan) vs ぶっか (harga barang)。</p>
   </div>
-  <div class="note note-brown"><span class="label">3. Bunyi Huruf ん (Nasal)</span>
-    <p>Jika bertemu baris m/b/p, diucapkan seperti 'm': <ruby>新聞<rt>しんぶん</rt></ruby> = <em>shimbun</em>, <ruby>鉛筆<rt>えんぴつ</rt></ruby> = <em>empitsu</em>.</p>
+  <div class="note note-brown">
+    <span class="label">3. Bunyi Huruf ん (Nasal)</span>
+    <p>Jika bertemu baris m / b / p, huruf ん <strong>dilafalkan</strong> seperti 'm': <ruby>新聞<rt>しんぶん</rt></ruby> → <em>shimbun</em>, <ruby>鉛筆<rt>えんぴつ</rt></ruby> → <em>empitsu</em>。 (Penulisan romaji tetap <em>shinbun</em> / <em>enpitsu</em>.)</p>
   </div>
-  <div class="note note-info"><span class="label">4. Partikel dengan Bunyi Khusus</span>
+  <div class="note note-info">
+    <span class="label">4. Partikel dengan Bunyi Khusus</span>
     <p>Partikel <strong>は</strong> dibaca <em>wa</em> · Partikel <strong>へ</strong> dibaca <em>e</em> · Partikel <strong>を</strong> dibaca <em>o</em>.</p>
   </div>
 </section>
@@ -2362,41 +2539,45 @@
 <section class="page page-break" id="kanjindex">
   <h2 class="section-title"><span class="num">~</span>Index Kanji (32 Karakter N5)</h2>
   <p>Daftar lengkap 32 huruf kanji tingkat dasar yang dipelajari pada Bab 1 sampai 5 beserta cara baca dan contoh kosakatanya.</p>
+  <div class="note note-tip">
+    <span class="label">Cara Baca Notasi</span>
+    <p><strong>Kun</strong> (baca Jepang asli) ditulis lebih dulu, diikuti <strong>On</strong> (baca serapan Tionghoa), dipisahkan dengan <strong>·</strong>. Contoh: <em>わたし・し</em> = Kun <em>わたし</em>, On <em>し</em>.</p>
+  </div>
   <table class="vocab-table">
-    <thead><tr><th style="width:8%">Kanji</th><th style="width:22%">Cara Baca</th><th style="width:22%">Arti</th><th>Contoh Kosakata</th><th style="width:8%">Bab</th></tr></thead>
+    <thead><tr><th style="width:8%">Kanji</th><th style="width:22%">Bacaan (Kun · On)</th><th style="width:22%">Arti</th><th>Contoh Kosakata</th><th style="width:8%">Bab</th></tr></thead>
     <tbody>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">私</span></td><td class="rm">わたし・し</td><td>Saya</td><td class="jp-word"><ruby>私<rt>わたし</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>です。</td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">人</span></td><td class="rm">ひと・じん</td><td>Orang</td><td class="jp-word">インドネシア<ruby>人<rt>じん</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">先</span></td><td class="rm">せん</td><td>Dahulu / depan</td><td class="jp-word"><ruby>先生<rt>せんせい</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">生</span></td><td class="rm">せい・い</td><td>Hidup / lahir</td><td class="jp-word"><ruby>学生<rt>がくせい</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">大</span></td><td class="rm">だい・おお</td><td>Besar</td><td class="jp-word"><ruby>大学<rt>だいがく</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">学</span></td><td class="rm">がく・まな</td><td>Belajar</td><td class="jp-word"><ruby>大学<rt>だいがく</rt></ruby> / <ruby>学生<rt>がくせい</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">方</span></td><td class="rm">かた</td><td>Orang (sopan) / arah</td><td class="jp-word">あの<ruby>方<rt>かた</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">名</span></td><td class="rm">な・めい</td><td>Nama</td><td class="jp-word"><ruby>名前<rt>なまえ</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">前</span></td><td class="rm">まえ</td><td>Depan / sebelum</td><td class="jp-word"><ruby>名前<rt>なまえ</rt></ruby> / <ruby>駅前<rt>えきまえ</rt></ruby></td><td>1</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">本</span></td><td class="rm">ほん</td><td>Buku / asal</td><td class="jp-word"><ruby>本<rt>ほん</rt></ruby> / <ruby>日本<rt>にほん</rt></ruby></td><td>2</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">車</span></td><td class="rm">くるま・しゃ</td><td>Mobil / roda</td><td class="jp-word"><ruby>車<rt>くるま</rt></ruby> / <ruby>電車<rt>でんしゃ</rt></ruby></td><td>2</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">何</span></td><td class="rm">なん・なに</td><td>Apa</td><td class="jp-word"><ruby>何時<rt>なんじ</rt></ruby> / <ruby>何<rt>なん</rt></ruby>ですか</td><td>2</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">山</span></td><td class="rm">やま・さん</td><td>Gunung</td><td class="jp-word"><ruby>山田<rt>やまだ</rt></ruby>さん / <ruby>富士山<rt>ふじさん</rt></ruby></td><td>2</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">田</span></td><td class="rm">た・だ</td><td>Sawah</td><td class="jp-word"><ruby>山田<rt>やまだ</rt></ruby>さん / <ruby>田中<rt>たなか</rt></ruby>さん</td><td>2</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">電</span></td><td class="rm">でん</td><td>Listrik</td><td class="jp-word"><ruby>電話<rt>でんわ</rt></ruby> / <ruby>電車<rt>でんしゃ</rt></ruby></td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">話</span></td><td class="rm">わ・はなす</td><td>Bicara / cerita</td><td class="jp-word"><ruby>電話<rt>でんわ</rt></ruby> / <ruby>話<rt>はな</rt></ruby>します</td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">国</span></td><td class="rm">くに・こく</td><td>Negara</td><td class="jp-word">お<ruby>国<rt>くに</rt></ruby> / <ruby>外国<rt>がいこく</rt></ruby></td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">会</span></td><td class="rm">かい・あう</td><td>Bertemu / perkumpulan</td><td class="jp-word"><ruby>会社<rt>かいしゃ</rt></ruby> / <ruby>会議室<rt>かいぎしつ</rt></ruby></td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">社</span></td><td class="rm">しゃ</td><td>Perusahaan / kuil</td><td class="jp-word"><ruby>会社<rt>かいしゃ</rt></ruby> / <ruby>社員<rt>しゃいん</rt></ruby></td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">階</span></td><td class="rm">かい・がい</td><td>Lantai / tingkat</td><td class="jp-word">2<ruby>階<rt>かい</rt></ruby> / <ruby>何階<rt>なんがい</rt></ruby></td><td>3</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">今</span></td><td class="rm">いま・こん</td><td>Sekarang</td><td class="jp-word"><ruby>今<rt>いま</rt></ruby> / <ruby>今週<rt>こんしゅう</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">時</span></td><td class="rm">とき・じ</td><td>Jam / waktu</td><td class="jp-word">7<ruby>時<rt>じ</rt></ruby> / <ruby>時間<rt>じかん</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">分</span></td><td class="rm">ふん・ぷん</td><td>Menit / bagian</td><td class="jp-word">5<ruby>分<rt>ふん</rt></ruby> / 10<ruby>分<rt>ぷん</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">半</span></td><td class="rm">はん</td><td>Setengah</td><td class="jp-word">6<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">毎</span></td><td class="rm">まい</td><td>Setiap</td><td class="jp-word"><ruby>毎日<rt>まいにち</rt></ruby> / <ruby>毎朝<rt>まいあさ</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">朝</span></td><td class="rm">あさ</td><td>Pagi</td><td class="jp-word"><ruby>朝<rt>あさ</rt></ruby> / <ruby>毎朝<rt>まいあさ</rt></ruby></td><td>4</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">行</span></td><td class="rm">いく・こう</td><td>Pergi</td><td class="jp-word"><ruby>行<rt>い</rt></ruby>きます</td><td>5</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">来</span></td><td class="rm">くる・らい</td><td>Datang / mendatang</td><td class="jp-word"><ruby>来<rt>き</rt></ruby>ます / <ruby>来週<rt>らいしゅう</rt></ruby></td><td>5</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">帰</span></td><td class="rm">かえる・き</td><td>Pulang / kembali</td><td class="jp-word"><ruby>帰<rt>かえ</rt></ruby>ります</td><td>5</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">年</span></td><td class="rm">とし・ねん</td><td>Tahun</td><td class="jp-word"><ruby>今年<rt>ことし</rt></ruby> / <ruby>来年<rt>らいねん</rt></ruby></td><td>5</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">友</span></td><td class="rm">とも</td><td>Teman</td><td class="jp-word"><ruby>友達<rt>ともだち</rt></ruby></td><td>5</td></tr>
-      <tr><td><span class="jp-word" style="font-size:1.4em;">達</span></td><td class="rm">たち</td><td>(Penanda jamak rekan)</td><td class="jp-word"><ruby>友達<rt>ともだち</rt></ruby></td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">私</span></td><td class="jp-word">わたし・し</td><td>Saya</td><td class="jp-word"><ruby>私<rt>わたし</rt></ruby>は <ruby>学生<rt>がくせい</rt></ruby>です。</td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">人</span></td><td class="jp-word">ひと・じん</td><td>Orang</td><td class="jp-word">インドネシア<ruby>人<rt>じん</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">先</span></td><td class="jp-word">せん</td><td>Dahulu / depan</td><td class="jp-word"><ruby>先生<rt>せんせい</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">生</span></td><td class="jp-word">い・せい</td><td>Hidup / lahir</td><td class="jp-word"><ruby>学生<rt>がくせい</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">大</span></td><td class="jp-word">おお・だい</td><td>Besar</td><td class="jp-word"><ruby>大学<rt>だいがく</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">学</span></td><td class="jp-word">まな・がく</td><td>Belajar</td><td class="jp-word"><ruby>大学<rt>だいがく</rt></ruby> ／ <ruby>学生<rt>がくせい</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">方</span></td><td class="jp-word">かた</td><td>Orang (sopan) / arah</td><td class="jp-word">あの<ruby>方<rt>かた</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">名</span></td><td class="jp-word">な・めい</td><td>Nama</td><td class="jp-word"><ruby>名前<rt>なまえ</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">前</span></td><td class="jp-word">まえ</td><td>Depan / sebelum</td><td class="jp-word"><ruby>名前<rt>なまえ</rt></ruby> ／ <ruby>駅前<rt>えきまえ</rt></ruby></td><td>1</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">本</span></td><td class="jp-word">もと・ほん</td><td>Buku / asal</td><td class="jp-word"><ruby>本<rt>ほん</rt></ruby> ／ <ruby>日本<rt>にほん</rt></ruby></td><td>2</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">車</span></td><td class="jp-word">くるま・しゃ</td><td>Mobil / roda</td><td class="jp-word"><ruby>車<rt>くるま</rt></ruby> ／ <ruby>電車<rt>でんしゃ</rt></ruby></td><td>2</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">何</span></td><td class="jp-word">なに・なん</td><td>Apa</td><td class="jp-word"><ruby>何時<rt>なんじ</rt></ruby> ／ <ruby>何<rt>なん</rt></ruby>ですか</td><td>2</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">山</span></td><td class="jp-word">やま・さん</td><td>Gunung</td><td class="jp-word"><ruby>山田<rt>やまだ</rt></ruby>さん ／ <ruby>富士山<rt>ふじさん</rt></ruby></td><td>2</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">田</span></td><td class="jp-word">た・だ</td><td>Sawah</td><td class="jp-word"><ruby>山田<rt>やまだ</rt></ruby>さん ／ <ruby>田中<rt>たなか</rt></ruby>さん</td><td>2</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">電</span></td><td class="jp-word">でん</td><td>Listrik</td><td class="jp-word"><ruby>電話<rt>でんわ</rt></ruby> ／ <ruby>電車<rt>でんしゃ</rt></ruby></td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">話</span></td><td class="jp-word">はなす・わ</td><td>Bicara / cerita</td><td class="jp-word"><ruby>電話<rt>でんわ</rt></ruby> ／ <ruby>話<rt>はな</rt></ruby>します</td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">国</span></td><td class="jp-word">くに・こく</td><td>Negara</td><td class="jp-word">お<ruby>国<rt>くに</rt></ruby> ／ <ruby>外国<rt>がいこく</rt></ruby></td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">会</span></td><td class="jp-word">あう・かい</td><td>Bertemu / perkumpulan</td><td class="jp-word"><ruby>会社<rt>かいしゃ</rt></ruby> ／ <ruby>会議室<rt>かいぎしつ</rt></ruby></td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">社</span></td><td class="jp-word">しゃ</td><td>Perusahaan / kuil</td><td class="jp-word"><ruby>会社<rt>かいしゃ</rt></ruby> ／ <ruby>社員<rt>しゃいん</rt></ruby></td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">階</span></td><td class="jp-word">かい・がい</td><td>Lantai / tingkat</td><td class="jp-word">2<ruby>階<rt>かい</rt></ruby> ／ <ruby>何階<rt>なんがい</rt></ruby></td><td>3</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">今</span></td><td class="jp-word">いま・こん</td><td>Sekarang</td><td class="jp-word"><ruby>今<rt>いま</rt></ruby> ／ <ruby>今週<rt>こんしゅう</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">時</span></td><td class="jp-word">とき・じ</td><td>Jam / waktu</td><td class="jp-word">7<ruby>時<rt>じ</rt></ruby> ／ <ruby>時間<rt>じかん</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">分</span></td><td class="jp-word">ふん・ぷん</td><td>Menit / bagian</td><td class="jp-word">5<ruby>分<rt>ふん</rt></ruby> ／ 10<ruby>分<rt>ぷん</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">半</span></td><td class="jp-word">はん</td><td>Setengah</td><td class="jp-word">6<ruby>時<rt>じ</rt></ruby><ruby>半<rt>はん</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">毎</span></td><td class="jp-word">まい</td><td>Setiap</td><td class="jp-word"><ruby>毎日<rt>まいにち</rt></ruby> ／ <ruby>毎朝<rt>まいあさ</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">朝</span></td><td class="jp-word">あさ</td><td>Pagi</td><td class="jp-word"><ruby>朝<rt>あさ</rt></ruby> ／ <ruby>毎朝<rt>まいあさ</rt></ruby></td><td>4</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">行</span></td><td class="jp-word">いく・こう</td><td>Pergi</td><td class="jp-word"><ruby>行<rt>い</rt></ruby>きます</td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">来</span></td><td class="jp-word">くる・らい</td><td>Datang / mendatang</td><td class="jp-word"><ruby>来<rt>き</rt></ruby>ます ／ <ruby>来週<rt>らいしゅう</rt></ruby></td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">帰</span></td><td class="jp-word">かえる・き</td><td>Pulang / kembali</td><td class="jp-word"><ruby>帰<rt>かえ</rt></ruby>ります</td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">年</span></td><td class="jp-word">とし・ねん</td><td>Tahun</td><td class="jp-word"><ruby>今年<rt>ことし</rt></ruby> ／ <ruby>来年<rt>らいねん</rt></ruby></td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">友</span></td><td class="jp-word">とも</td><td>Teman</td><td class="jp-word"><ruby>友達<rt>ともだち</rt></ruby></td><td>5</td></tr>
+      <tr><td><span class="jp-word" style="font-size:1.4em;">達</span></td><td class="jp-word">たち</td><td>Jamak / rekan</td><td class="jp-word"><ruby>友達<rt>ともだち</rt></ruby></td><td>5</td></tr>
     </tbody>
   </table>
 </section>
@@ -2419,7 +2600,7 @@
     <div class="phrase-card"><div class="jp">ありがとう ございます</div><div class="rm">Arigatou gozaimasu</div><div class="id">Terima kasih banyak</div></div>
     <div class="phrase-card"><div class="jp">どういたしまして</div><div class="rm">Dou itashimashite</div><div class="id">Sama-sama / terima kasih kembali</div></div>
     <div class="phrase-card"><div class="jp">すみません</div><div class="rm">Sumimasen</div><div class="id">Permisi / maaf</div></div>
-    <div class="phrase-card"><div class="jp">しつれいします</div><div class="rm">Shitsurei shimasu</div><div class="id">Permisi (saat masuk/pamit)</div></div>
+    <div class="phrase-card"><div class="jp">しつれいします</div><div class="rm">Shitsurei shimasu</div><div class="id">Permisi (saat masuk / pamit)</div></div>
   </div>
 
   <h3 class="subsection">Ungkapan di Dalam Kelas</h3>
@@ -2427,7 +2608,7 @@
     <div class="phrase-card"><div class="jp">はじめましょう</div><div class="rm">Hajimemashou</div><div class="id">Mari kita mulai</div></div>
     <div class="phrase-card"><div class="jp">おわりましょう</div><div class="rm">Owarimashou</div><div class="id">Mari kita akhiri</div></div>
     <div class="phrase-card"><div class="jp">やすみましょう</div><div class="rm">Yasumimashou</div><div class="id">Mari kita beristirahat</div></div>
-    <div class="phrase-card"><div class="jp">わかりますか。</div><div class="rm">Wakarimasuka</div><div class="id">Apakah Anda mengerti?</div></div>
+    <div class="phrase-card"><div class="jp">わかりますか。</div><div class="rm">Wakarimasuka.</div><div class="id">Apakah Anda mengerti?</div></div>
     <div class="phrase-card"><div class="jp">もう いちど おねがいします</div><div class="rm">Mou ichido onegaishimasu</div><div class="id">Tolong sekali lagi</div></div>
   </div>
 
@@ -2450,10 +2631,11 @@
 
 <!-- ============= GLOSSARY ============= -->
 <section class="page page-break" id="glossary">
-  <h2 class="section-title"><span class="num">~</span>Glossary — 145 Kosakata Inti</h2>
-  <p>Daftar seluruh 145 kosakata inti dari Bab 1 sampai 5, tersusun alfabetis berdasarkan romaji (A → Z).</p>
+  <h2 class="section-title"><span class="num">~</span>Glossary — 146 Kosakata Inti</h2>
+  <p>Daftar seluruh 146 kosakata inti dari Bab 1 sampai 5, tersusun alfabetis berdasarkan romaji (A → Z).</p>
 
   <div class="glossary-grid">
+    <!-- ============ KOLOM KIRI — 73 entri ============ -->
     <div>
       <table class="vocab-table">
         <thead><tr><th style="width:40%">Romaji</th><th style="width:32%">日本語</th><th>Arti</th></tr></thead>
@@ -2531,6 +2713,15 @@
           <tr><td class="rm">kenkyuusha</td><td class="jp-word">研究者</td><td>Peneliti</td></tr>
           <tr><td class="rm">kesa</td><td class="jp-word">今朝</td><td>Tadi pagi</td></tr>
           <tr><td class="rm">kimasu</td><td class="jp-word">来ます</td><td>Datang</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ============ KOLOM KANAN — 73 entri ============ -->
+    <div>
+      <table class="vocab-table">
+        <thead><tr><th style="width:40%">Romaji</th><th style="width:32%">日本語</th><th>Arti</th></tr></thead>
+        <tbody>
           <tr><td class="rm">kin'youbi</td><td class="jp-word">金曜日</td><td>Hari Jumat</td></tr>
           <tr><td class="rm">kinou</td><td class="jp-word">きのう</td><td>Kemarin</td></tr>
           <tr><td class="rm">kochira</td><td class="jp-word">こちら</td><td>Sebelah sini / sini (sopan)</td></tr>
@@ -2539,13 +2730,6 @@
           <tr><td class="rm">kono</td><td class="jp-word">この</td><td>~ ini (menempel benda)</td></tr>
           <tr><td class="rm">konpyuutaa</td><td class="jp-word">コンピューター</td><td>Komputer</td></tr>
           <tr><td class="rm">konshuu</td><td class="jp-word">今週</td><td>Minggu ini</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <table class="vocab-table">
-        <thead><tr><th style="width:40%">Romaji</th><th style="width:32%">日本語</th><th>Arti</th></tr></thead>
-        <tbody>
           <tr><td class="rm">kore</td><td class="jp-word">これ</td><td>Ini (mandiri)</td></tr>
           <tr><td class="rm">kuni</td><td class="jp-word">国</td><td>Negara</td></tr>
           <tr><td class="rm">kuruma</td><td class="jp-word">車</td><td>Mobil</td></tr>
@@ -2626,7 +2810,7 @@
     <div class="bab-label">Bab 1 — Latihan (10 soal)</div>
     <ol>
       <li><span class="jp">は</span></li>
-      <li><span class="jp">じゃ (boleh juga では)</span></li>
+      <li><span class="jp">じゃ ありません</span> (boleh juga <span class="jp">では ありません</span>)</li>
       <li><span class="jp">か</span></li>
       <li><span class="jp">も</span></li>
       <li>a. <span class="jp">わたしは <ruby>学生<rt>がくせい</rt></ruby>です。</span></li>
@@ -2642,10 +2826,10 @@
     <div class="bab-label">Bab 1 — Mini Quiz (5 soal)</div>
     <ol>
       <li>Partikel <span class="jp">は</span> dibaca <strong>wa</strong> (bukan "ha").</li>
-      <li><span class="jp">わたしは <ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。</span> (boleh juga では ありません)</li>
-      <li><span class="jp">だれ</span> = siapa (biasa). <span class="jp">どなた</span> = siapa (sopan, untuk atasan/orang yang dihormati).</li>
+      <li><span class="jp">わたしは <ruby>先生<rt>せんせい</rt></ruby>じゃ ありません。</span> (boleh juga <span class="jp">では ありません</span>)</li>
+      <li><span class="jp">だれ</span> = siapa (biasa). <span class="jp">どなた</span> = siapa (sopan, untuk atasan / orang yang dihormati).</li>
       <li>Partikel <span class="jp">も</span>.</li>
-      <li>Umur 20 tahun dibaca <span class="jp">はたち</span> (bukan にじゅっさい).</li>
+      <li>Umur 20 tahun dibaca <span class="jp">はたち</span> (bukan <span class="jp">にじゅっさい</span>).</li>
     </ol>
   </div>
 
@@ -2661,8 +2845,8 @@
   <div class="kunci-block">
     <div class="bab-label">Bab 2 — Latihan (8 soal)</div>
     <ol>
-      <li><span class="jp">これは コンピューターの <ruby>雑誌<rt>ざっし</rt></ruby>ですか。— いいえ、<ruby>違<rt>ちが</rt></ruby>います。ノートです。</span></li>
-      <li><span class="jp">この <ruby>手帳<rt>てちょう</rt></ruby>は だれの ですか。— わたしの です。</span></li>
+      <li><span class="jp">これは コンピューターの <ruby>雑誌<rt>ざっし</rt></ruby>ですか。— いいえ、ちがいます。ノートです。</span></li>
+      <li><span class="jp">この てちょうは だれの ですか。— わたしの です。</span></li>
       <li>a. <span class="jp">これは わたしの <ruby>本<rt>ほん</rt></ruby>です。</span></li>
       <li>a. <span class="jp">これは にほんの <ruby>車<rt>くるま</rt></ruby>です。</span></li>
       <li><span class="jp">その かばんは あなたの ですか。</span></li>
@@ -2675,9 +2859,9 @@
   <div class="kunci-block">
     <div class="bab-label">Bab 2 — Mini Quiz (5 soal)</div>
     <ol>
-      <li><span class="jp">これ</span> berdiri sendiri sebagai subjek/topik. <span class="jp">この</span> wajib langsung diikuti kata benda (この<ruby>本<rt>ほん</rt></ruby>).</li>
-      <li>Gunakan <span class="jp"><ruby>違<rt>ちが</rt></ruby>います</span> untuk mengoreksi nama benda. <span class="jp">そうじゃ ありません</span> untuk menyangkal identitas/profesi.</li>
-      <li>(a) Menyatakan kepemilikan (わたしの<ruby>本<rt>ほん</rt></ruby>); (b) Menggantikan kata benda yang sudah jelas (わたしのです).</li>
+      <li><span class="jp">これ</span> berdiri sendiri sebagai subjek / topik. <span class="jp">この</span> wajib langsung diikuti kata benda (<span class="jp">この<ruby>本<rt>ほん</rt></ruby></span>).</li>
+      <li>Gunakan <span class="jp">ちがいます</span> untuk mengoreksi nama benda. <span class="jp">そうじゃ ありません</span> untuk menyangkal identitas / profesi.</li>
+      <li>(a) Menyatakan kepemilikan (<span class="jp">わたしの<ruby>本<rt>ほん</rt></ruby></span>); (b) Menggantikan kata benda yang sudah jelas (<span class="jp">わたしのです</span>).</li>
       <li><span class="jp">これは わたしの かばんです。</span></li>
       <li><span class="jp">これは だれの <ruby>本<rt>ほん</rt></ruby>ですか。</span></li>
     </ol>
@@ -2701,7 +2885,7 @@
       <li>b. <span class="jp">さんがい</span></li>
       <li><span class="jp">これは どこの <ruby>車<rt>くるま</rt></ruby>ですか。</span></li>
       <li><span class="jp">の</span></li>
-      <li><span class="jp">どちら</span> (bentuk sopan dari どこ)</li>
+      <li><span class="jp">どちら</span> (bentuk sopan dari <span class="jp">どこ</span>)</li>
       <li>Buku ini berapa harganya? 2800 yen.</li>
     </ol>
   </div>
@@ -2709,7 +2893,7 @@
   <div class="kunci-block">
     <div class="bab-label">Bab 3 — Mini Quiz (5 soal)</div>
     <ol>
-      <li><span class="jp">ここ</span> menunjukkan tempat (di sini). <span class="jp">こちら</span> menunjukkan arah/sopan (sebelah sini, bisa juga merujuk orang).</li>
+      <li><span class="jp">ここ</span> menunjukkan tempat (di sini). <span class="jp">こちら</span> menunjukkan arah / sopan (sebelah sini, bisa juga merujuk orang).</li>
       <li>Lantai dengan perubahan bunyi: 1<ruby>階<rt>かい</rt></ruby> (いっかい), 3<ruby>階<rt>がい</rt></ruby> (さんがい), 6<ruby>階<rt>かい</rt></ruby> (ろっかい), 8<ruby>階<rt>かい</rt></ruby> (はっかい), 10<ruby>階<rt>かい</rt></ruby> (じゅっかい). Kata tanya: <span class="jp">なんがい</span>.</li>
       <li><span class="jp">いくらですか。</span></li>
       <li><span class="jp">これは ドイツの <ruby>車<rt>くるま</rt></ruby>です。</span></li>
@@ -2731,10 +2915,10 @@
     <ol>
       <li><span class="jp"><ruby>毎朝<rt>まいあさ</rt></ruby> 6<ruby>時<rt>じ</rt></ruby>に <ruby>起<rt>お</rt></ruby>きます。</span></li>
       <li><span class="jp">きのう <ruby>勉強<rt>べんきょう</rt></ruby>しましたか。— いいえ、<ruby>勉強<rt>べんきょう</rt></ruby>しませんでした。</span></li>
-      <li>a. <span class="jp">いま 3<ruby>時<rt>じ</rt></ruby>8<ruby>分<rt>ぷん</rt></ruby>です (さんじ はっぷん)。</span></li>
-      <li>b. <span class="jp">きのう <ruby>勉強<rt>べんきょう</rt></ruby>しました</span> (tanpa partikel に).</li>
+      <li>a. <span class="jp">いま 3<ruby>時<rt>じ</rt></ruby>8<ruby>分<rt>ぷん</rt></ruby>です。</span> (さんじ はっぷん)</li>
+      <li>b. <span class="jp">きのう <ruby>勉強<rt>べんきょう</rt></ruby>しました。</span> (tanpa partikel に)</li>
       <li><span class="jp">9<ruby>時<rt>じ</rt></ruby>から 5<ruby>時<rt>じ</rt></ruby>まで <ruby>働<rt>はたら</rt></ruby>きます。</span></li>
-      <li>Tanpa partikel に: <span class="jp">あした にほんへ いきます。</span> (あした = waktu relatif)</li>
+      <li>Tanpa partikel に: <span class="jp">あした にほんへ いきます。</span> (<span class="jp">あした</span> = waktu relatif)</li>
       <li><span class="jp">に</span> (7<ruby>時<rt>じ</rt></ruby> = titik waktu pasti)</li>
       <li>Hari libur bank adalah Sabtu dan Minggu.</li>
       <li><span class="jp">まいにち 10<ruby>時<rt>じ</rt></ruby>まで <ruby>勉強<rt>べんきょう</rt></ruby>します。たいへんですね。</span></li>
@@ -2746,8 +2930,8 @@
     <div class="bab-label">Bab 4 — Mini Quiz (5 soal)</div>
     <ol>
       <li>Pembacaan jam tidak beraturan: 4<ruby>時<rt>じ</rt></ruby> (よじ), 7<ruby>時<rt>じ</rt></ruby> (しちじ), 9<ruby>時<rt>じ</rt></ruby> (くじ).</li>
-      <li>Menit yang dibaca ぷん (pun): 1, 3, 4, 6, 8, 10, dan kata tanya なんぷん.</li>
-      <li><span class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>しませんでした</span></li>
+      <li>Menit yang dibaca ぷん (pun): 1, 3, 4, 6, 8, 10, dan kata tanya <span class="jp">なんぷん</span>.</li>
+      <li><span class="jp"><ruby>勉強<rt>べんきょう</rt></ruby>しませんでした。</span></li>
       <li><span class="jp">から</span> = titik permulaan, <span class="jp">まで</span> = titik batas akhir.</li>
       <li><ruby>月曜日<rt>げつようび</rt></ruby>・<ruby>火曜日<rt>かようび</rt></ruby>・<ruby>水曜日<rt>すいようび</rt></ruby>・<ruby>木曜日<rt>もくようび</rt></ruby>・<ruby>金曜日<rt>きんようび</rt></ruby>・<ruby>土曜日<rt>どようび</rt></ruby>・<ruby>日曜日<rt>にちようび</rt></ruby></li>
     </ol>
@@ -2767,9 +2951,9 @@
     <ol>
       <li><span class="jp">わたしは <ruby>友達<rt>ともだち</rt></ruby>と <ruby>新幹線<rt>しんかんせん</rt></ruby>で <ruby>京都<rt>きょうと</rt></ruby>へ <ruby>行<rt>い</rt></ruby>きます。</span></li>
       <li><span class="jp"><ruby>先月<rt>せんげつ</rt></ruby> <ruby>一人<rt>ひとり</rt></ruby>で <ruby>日本<rt>にほん</rt></ruby>へ <ruby>来<rt>き</rt></ruby>ました。<ruby>飛行機<rt>ひこうき</rt></ruby>で <ruby>来<rt>き</rt></ruby>ました。</span></li>
-      <li>b. <span class="jp"><ruby>駅<rt>えき</rt></ruby>から <ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります</span> (tanpa で).</li>
-      <li>b. <span class="jp">はつか (20日)</span></li>
-      <li>b. <span class="jp">じゅうしちにち (17日)</span></li>
+      <li>b. <span class="jp"><ruby>駅<rt>えき</rt></ruby>から <ruby>歩<rt>ある</rt></ruby>いて <ruby>帰<rt>かえ</rt></ruby>ります。</span> (tanpa で)</li>
+      <li>b. <span class="jp">はつか</span> (20日)</li>
+      <li>b. <span class="jp">じゅうしちにち</span> (17日)</li>
       <li><span class="jp"><ruby>日曜日<rt>にちようび</rt></ruby>は どこ[へ]も <ruby>行<rt>い</rt></ruby>きませんでした。</span></li>
       <li><span class="jp">と / へ</span> → <span class="jp">かぞく と にほん へ きました。</span></li>
       <li><span class="jp">で / へ</span> → <span class="jp">でんしゃ で きょうと へ いきます。</span></li>
@@ -2782,9 +2966,9 @@
   <div class="kunci-block">
     <div class="bab-label">Bab 5 — Mini Quiz (6 soal)</div>
     <ol>
-      <li><span class="jp"><ruby>行<rt>い</rt></ruby>きます</span> = pergi; <span class="jp"><ruby>来<rt>き</rt></ruby>ます</span> = datang; <span class="jp"><ruby>帰<rt>かえ</rt></ruby>ります</span> = pulang/kembali.</li>
+      <li><span class="jp"><ruby>行<rt>い</rt></ruby>きます</span> = pergi; <span class="jp"><ruby>来<rt>き</rt></ruby>ます</span> = datang; <span class="jp"><ruby>帰<rt>かえ</rt></ruby>ります</span> = pulang / kembali.</li>
       <li>Gunakan <span class="jp">あるいて</span> tanpa partikel で.</li>
-      <li>Contoh tanggal khusus: ついたち (1), ふつか (2), みっか (3), よっか (4), いつか (5), むいか (6), なのか (7), ようか (8), ここのか (9), とおか (10), はつか (20).</li>
+      <li>Contoh tanggal khusus: <span class="jp">ついたち</span> (1), <span class="jp">ふつか</span> (2), <span class="jp">みっか</span> (3), <span class="jp">よっか</span> (4), <span class="jp">いつか</span> (5), <span class="jp">むいか</span> (6), <span class="jp">なのか</span> (7), <span class="jp">ようか</span> (8), <span class="jp">ここのか</span> (9), <span class="jp">とおか</span> (10), <span class="jp">はつか</span> (20).</li>
       <li><span class="jp"><ruby>一人<rt>ひとり</rt></ruby>で <ruby>行<rt>い</rt></ruby>きます。</span> (tanpa partikel と)</li>
       <li><span class="jp"><ruby>日曜日<rt>にちようび</rt></ruby>は どこへも <ruby>行<rt>い</rt></ruby>きません。</span></li>
       <li><span class="jp">そうですね</span> = menyetujui hal yang sudah sama-sama diketahui. <span class="jp">そうですか</span> = menerima informasi baru ("oh, begitu").</li>
@@ -2855,14 +3039,14 @@
       <div class="bc-line"></div>
     </div>
     <div class="bc-body">
-      <p>Kamu telah menyelesaikan fondasi utama tata bahasa Jepang tingkat dasar. Tiga puluh dua karakter kanji, seratus empat puluh lima kosakata inti, dan pola kalimat dasar Bab 1–5 kini sudah siap kamu gunakan.</p>
-      <p class="bc-quote">“Belajar bahasa bukan tentang seberapa cepat,<br>tetapi seberapa sering diulang secara konsisten.”</p>
+      <p>Kamu telah menyelesaikan fondasi utama tata bahasa Jepang tingkat dasar. Tiga puluh dua karakter kanji, seratus empat puluh enam kosakata inti, dan pola kalimat dasar Bab 1–5 kini sudah siap kamu gunakan.</p>
+      <p class="bc-quote">"Belajar bahasa bukan tentang seberapa cepat,<br>tetapi seberapa sering diulang secara konsisten."</p>
       <p>Ulangi membaca contoh kalimat dengan bersuara, latih penulisan kanji secara berkala, dan praktikkan percakapan sehari-hari.</p>
     </div>
     <div class="bc-recap">
       <div class="item"><div class="num">5</div><div class="lbl">Bab</div></div>
       <div class="item"><div class="num">32</div><div class="lbl">Kanji</div></div>
-      <div class="item"><div class="num">145</div><div class="lbl">Kosakata</div></div>
+      <div class="item"><div class="num">146</div><div class="lbl">Kosakata</div></div>
       <div class="item"><div class="num">100+</div><div class="lbl">Latihan</div></div>
       <div class="item"><div class="num">26</div><div class="lbl">Soal Quiz</div></div>
     </div>
@@ -2874,10 +3058,10 @@
   </div>
 </section>
 
-</div>
+</div><!-- /.book -->
 
 <!-- TOMBOL CETAK PDF -->
-<button class="print-fab" onclick="openPrintModal()" aria-label="Buka dialog cetak PDF">
+<button type="button" class="print-fab" id="printFab" aria-label="Buka dialog cetak PDF" aria-haspopup="dialog" aria-controls="printModal">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M6 9V2h12v7"/>
     <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
@@ -2886,10 +3070,11 @@
   Cetak ke PDF
 </button>
 
-<div class="print-modal" id="printModal" role="presentation">
-  <div class="print-modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<!-- MODAL CETAK -->
+<div class="print-modal" id="printModal" aria-hidden="true">
+  <div class="print-modal-inner" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <h2 id="modalTitle">📄 Cetak ke PDF</h2>
-    <p class="sub">Ikuti panduan berikut agar hasil cetak dokumen A4 pas dan tidak terpotong tepi:</p>
+    <p class="sub" id="modalDesc">Ikuti panduan berikut agar hasil cetak dokumen A4 pas dan tidak terpotong tepi:</p>
     <ol>
       <li>Klik tombol <strong>Cetak Sekarang</strong> di bawah.</li>
       <li>Pada jendela pratinjau cetak browser, atur opsi berikut:
@@ -2903,42 +3088,97 @@
       </li>
       <li>Klik tombol <strong>Save</strong> dan simpan dokumen.</li>
     </ol>
-    <p style="font-size: 0.86em; color: #888; margin-top: 10px; line-height: 1.6;">
+    <p class="print-modal-note">
       Direkomendasikan menggunakan peramban Google Chrome atau Microsoft Edge dengan koneksi internet aktif agar font Noto Sans JP dan Caveat termuat sempurna.
     </p>
     <div class="print-modal-actions">
-      <button class="btn-cancel" onclick="closePrintModal()">Batal</button>
-      <button class="btn-print" onclick="doPrint()" id="btnPrintNow">Cetak Sekarang</button>
+      <button type="button" class="btn-cancel" id="btnCancel">Batal</button>
+      <button type="button" class="btn-print" id="btnPrintNow">Cetak Sekarang</button>
     </div>
   </div>
 </div>
 
 <script>
-  const printModal = document.getElementById('printModal');
-  const btnPrintNow = document.getElementById('btnPrintNow');
-  let lastFocused = null;
+(function () {
+  'use strict';
+
+  var printModal   = document.getElementById('printModal');
+  var printFab     = document.getElementById('printFab');
+  var btnPrintNow  = document.getElementById('btnPrintNow');
+  var btnCancel    = document.getElementById('btnCancel');
+  var lastFocused  = null;
+
+  if (!printModal || !printFab || !btnPrintNow || !btnCancel) return;
+
+  var FOCUSABLE = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   function openPrintModal() {
     lastFocused = document.activeElement;
     printModal.classList.add('open');
-    setTimeout(() => btnPrintNow && btnPrintNow.focus(), 60);
+    printModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Fokuskan tombol "Cetak Sekarang"
+    setTimeout(function () {
+      if (btnPrintNow) btnPrintNow.focus();
+    }, 60);
   }
+
   function closePrintModal() {
     printModal.classList.remove('open');
+    printModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Kembalikan fokus ke elemen sebelumnya
     if (lastFocused && typeof lastFocused.focus === 'function') {
       lastFocused.focus();
     }
   }
+
   function doPrint() {
     closePrintModal();
-    setTimeout(() => window.print(), 180);
+    setTimeout(function () { window.print(); }, 180);
   }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && printModal.classList.contains('open')) closePrintModal();
+
+  // ==== Event Listeners ====
+  printFab.addEventListener('click', openPrintModal);
+  btnPrintNow.addEventListener('click', doPrint);
+  btnCancel.addEventListener('click', closePrintModal);
+
+  // Escape untuk menutup modal
+  document.addEventListener('keydown', function (e) {
+    if (!printModal.classList.contains('open')) return;
+
+    // Tutup dengan Escape
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      closePrintModal();
+      return;
+    }
+
+    // Focus trap — Tab tetap di dalam modal
+    if (e.key === 'Tab') {
+      var focusables = printModal.querySelectorAll(FOCUSABLE);
+      if (focusables.length === 0) return;
+
+      var first = focusables[0];
+      var last  = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
-  printModal.addEventListener('click', e => {
-    if (e.target.id === 'printModal') closePrintModal();
+
+  // Klik backdrop untuk menutup
+  printModal.addEventListener('click', function (e) {
+    if (e.target === printModal) closePrintModal();
   });
+})();
 </script>
 
 </body>
