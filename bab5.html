@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#d94f4f">
+<title>Catatan Belajar: Minna no Nihongo — Bab 5</title>
+<style>
+  :root {
+    --primary: #d94f4f;
+    --primary-dark: #b83838;
+    --accent: #2c7a7b;
+    --bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b6b6b;
+    --border: #eee2d3;
+    --highlight: #fff7e6;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    width: 100%;
+  }
+
+  header.title {
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header.title h1 {
+    font-size: 1.9em;
+    line-height: 1.3;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+    letter-spacing: 0.3px;
+  }
+  header.title .subtitle {
+    color: var(--muted);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    border-left: 6px solid var(--primary);
+    padding-left: 14px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  h3 {
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 1em;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .theme-box {
+    background: var(--highlight);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .theme-box ol { margin: 8px 0 0; padding-left: 22px; }
+  .theme-box ol li { margin-bottom: 6px; }
+
+  ul.vocab { list-style: none; padding: 0; margin: 0; }
+  ul.vocab li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 1.55;
+  }
+  ul.vocab li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 8px rgba(217, 79, 79, 0.08);
+  }
+
+  .jp {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.02em;
+    overflow-wrap: anywhere;
+  }
+  .romaji {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .meaning { color: var(--text); }
+  .eq { color: var(--muted); margin: 0 4px; }
+
+  .grammar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grammar-card h4 {
+    margin-top: 0;
+    font-size: 1.08em;
+    color: var(--primary-dark);
+  }
+
+  .formula {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meaning-line { margin: 6px 0; }
+  .meaning-line strong { color: var(--accent); }
+
+  .example-block {
+    background: #f6f8fa;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+    overflow-wrap: anywhere;
+  }
+  .example-block .jp-line {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  .example-block .romaji-line {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+  }
+  .example-block .translate {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .example-block .translate::before {
+    content: "👉 ";
+    display: inline;
+  }
+
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #f5d9b8;
+    border-left: 5px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .warning-box h4 { margin-top: 0; color: var(--danger); }
+  .warning-box .wrong { color: var(--danger); font-weight: 600; }
+  .warning-box .right { color: var(--success); font-weight: 600; }
+
+  .tip-list { padding-left: 20px; margin: 10px 0; }
+  .tip-list li { margin-bottom: 8px; }
+  .tip-list ul { margin-top: 6px; margin-bottom: 6px; }
+
+  .sub-q {
+    background: #f0f7f7;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+  .sub-q .label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+  .emoji-section { font-size: 1.2em; margin-right: 6px; }
+
+  .rule-box {
+    background: #eef7f7;
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .rule-box .rule-title {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+  .num-table, .conj-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.94em;
+  }
+  .num-table th, .num-table td,
+  .conj-table th, .conj-table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .num-table th, .conj-table thead th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .conj-table thead th {
+    background: linear-gradient(135deg, #d94f4f, #b83838);
+    color: white;
+    text-align: center;
+  }
+  .conj-table tbody th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: left;
+  }
+  .num-table tr:nth-child(even) td { background: #fafafa; }
+  .conj-table td .form-item {
+    font-family: "Courier New", monospace;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conj-table td .ex-item {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+
+  /* Date grid */
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .date-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .date-item .num {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 40px;
+  }
+  .date-item .jp { font-size: 1em; }
+  .date-item .romaji { font-size: 0.9em; }
+
+  /* Time group */
+  .time-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .time-group .tg-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .time-group .tg-item .label {
+    display: block;
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .time-group .tg-item .jp { display: block; font-size: 1.05em; }
+  .time-group .tg-item .romaji { display: block; font-size: 0.88em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    header.title h1 { font-size: 1.45em; }
+    header.title .subtitle { font-size: 0.88em; }
+    h2 { font-size: 1.18em; padding-left: 12px; }
+    h3 { font-size: 1.05em; }
+    .grammar-card { padding: 14px 14px; border-radius: 8px; }
+    .theme-box { padding: 14px 16px; }
+    ul.vocab li { padding: 9px 12px; font-size: 0.96em; }
+    .example-block { padding: 10px 12px; }
+    .formula { font-size: 0.92em; padding: 8px 12px; }
+    .num-table, .conj-table { font-size: 0.88em; min-width: 380px; }
+    .num-table th, .num-table td,
+    .conj-table th, .conj-table td { padding: 6px 8px; }
+    .date-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .time-group { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .container { padding: 18px 12px 50px; }
+    header.title h1 { font-size: 1.25em; }
+    h2 { font-size: 1.08em; }
+    ul.vocab li { font-size: 0.92em; }
+    .num-table, .conj-table { min-width: 320px; font-size: 0.82em; }
+    .date-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    ul.vocab li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="title">
+    <h1>📚 Catatan Belajar: Minna no Nihongo — Bab 5</h1>
+    <div class="subtitle">Perpindahan · Partikel へ · で · と · Waktu (Tanggal, Bulan, Tahun)</div>
+  </header>
+
+  <!-- TEMA & FOKUS -->
+  <section>
+    <h2><span class="emoji-section">📌</span> Tema &amp; Fokus Bab</h2>
+    <div class="theme-box">
+      <strong>Fokus Utama:</strong>
+      <ol>
+        <li>Mengungkapkan perpindahan tempat (pergi, datang, pulang) beserta tujuannya.</li>
+        <li>Menyebutkan sarana transportasi yang dipakai untuk bepergian.</li>
+        <li>Menyebutkan rekan/partner saat bepergian (pergi bersama siapa).</li>
+        <li>Menanyakan dan menyatakan waktu kejadian secara lebih luas (kapan, tanggal, bulan, tahun, hari ulang tahun).</li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KOSAKATA -->
+  <section>
+    <h2><span class="emoji-section">📝</span> Kosakata Penting</h2>
+
+    <h3>1. Kata Kerja Gerak / Perpindahan (<em>Idou Doushi</em>)</h3>
+    <ul class="vocab">
+      <li><span class="jp">行きます / いきます</span><span class="eq">=</span><span class="romaji">ikimasu</span><span class="eq">=</span><span class="meaning">Pergi</span></li>
+      <li><span class="jp">来ます / きます</span><span class="eq">=</span><span class="romaji">kimasu</span><span class="eq">=</span><span class="meaning">Datang</span></li>
+      <li><span class="jp">帰ります / かえります</span><span class="eq">=</span><span class="romaji">kaerimasu</span><span class="eq">=</span><span class="meaning">Pulang / kembali</span></li>
+    </ul>
+
+    <h3>2. Tempat &amp; Fasilitas</h3>
+    <ul class="vocab">
+      <li><span class="jp">学校 / がっこう</span><span class="eq">=</span><span class="romaji">gakkou</span><span class="eq">=</span><span class="meaning">Sekolah</span></li>
+      <li><span class="jp">駅 / えき</span><span class="eq">=</span><span class="romaji">eki</span><span class="eq">=</span><span class="meaning">Stasiun</span></li>
+      <li><span class="jp">スーパー</span><span class="eq">=</span><span class="romaji">suupaa</span><span class="eq">=</span><span class="meaning">Supermarket / pasar swalayan</span></li>
+    </ul>
+
+    <h3>3. Kendaraan &amp; Cara Bepergian</h3>
+    <ul class="vocab">
+      <li><span class="jp">飛行機 / ひこうき</span><span class="eq">=</span><span class="romaji">hikouki</span><span class="eq">=</span><span class="meaning">Pesawat terbang</span></li>
+      <li><span class="jp">船 / ふね</span><span class="eq">=</span><span class="romaji">fune</span><span class="eq">=</span><span class="meaning">Kapal laut</span></li>
+      <li><span class="jp">電車 / でんしゃ</span><span class="eq">=</span><span class="romaji">densha</span><span class="eq">=</span><span class="meaning">Kereta listrik / KRL</span></li>
+      <li><span class="jp">地下鉄 / ちかてつ</span><span class="eq">=</span><span class="romaji">chikatetsu</span><span class="eq">=</span><span class="meaning">Kereta bawah tanah (<em>subway</em>)</span></li>
+      <li><span class="jp">新幹線 / しんかんせん</span><span class="eq">=</span><span class="romaji">shinkansen</span><span class="eq">=</span><span class="meaning">Kereta cepat Shinkansen</span></li>
+      <li><span class="jp">バス</span><span class="eq">=</span><span class="romaji">basu</span><span class="eq">=</span><span class="meaning">Bus</span></li>
+      <li><span class="jp">タクシー</span><span class="eq">=</span><span class="romaji">takushii</span><span class="eq">=</span><span class="meaning">Taksi</span></li>
+      <li><span class="jp">自転車 / じてんしゃ</span><span class="eq">=</span><span class="romaji">jitensha</span><span class="eq">=</span><span class="meaning">Sepeda</span></li>
+      <li><span class="jp">歩いて / あるいて</span><span class="eq">=</span><span class="romaji">aruite</span><span class="eq">=</span><span class="meaning">Berjalan kaki</span></li>
+    </ul>
+
+    <h3>4. Orang &amp; Rekan Bepergian</h3>
+    <ul class="vocab">
+      <li><span class="jp">人 / ひと</span><span class="eq">=</span><span class="romaji">hito</span><span class="eq">=</span><span class="meaning">Orang</span></li>
+      <li><span class="jp">友達 / ともだち</span><span class="eq">=</span><span class="romaji">tomodachi</span><span class="eq">=</span><span class="meaning">Teman / sahabat</span></li>
+      <li><span class="jp">彼 / かれ</span><span class="eq">=</span><span class="romaji">kare</span><span class="eq">=</span><span class="meaning">Dia (laki-laki) / pacar laki-laki</span></li>
+      <li><span class="jp">彼女 / かのじょ</span><span class="eq">=</span><span class="romaji">kanojo</span><span class="eq">=</span><span class="meaning">Dia (perempuan) / pacar perempuan</span></li>
+      <li><span class="jp">家族 / かぞく</span><span class="eq">=</span><span class="romaji">kazoku</span><span class="eq">=</span><span class="meaning">Keluarga</span></li>
+      <li><span class="jp">一人で / ひとりで</span><span class="eq">=</span><span class="romaji">hitori de</span><span class="eq">=</span><span class="meaning">Sendirian / seorang diri</span></li>
+    </ul>
+
+    <h3>5. Keterangan Waktu: Minggu, Bulan, &amp; Tahun</h3>
+
+    <p style="margin: 12px 0 6px; font-weight: 600; color: var(--accent);">📅 Minggu</p>
+    <div class="time-group">
+      <div class="tg-item">
+        <span class="label">Minggu Lalu</span>
+        <span class="jp">先週</span>
+        <span class="romaji">senshuu</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Minggu Ini</span>
+        <span class="jp">今週</span>
+        <span class="romaji">konshuu</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Minggu Depan</span>
+        <span class="jp">来週</span>
+        <span class="romaji">raishuu</span>
+      </div>
+    </div>
+
+    <p style="margin: 12px 0 6px; font-weight: 600; color: var(--accent);">🗓️ Bulan</p>
+    <div class="time-group">
+      <div class="tg-item">
+        <span class="label">Bulan Lalu</span>
+        <span class="jp">先月</span>
+        <span class="romaji">sengetsu</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Bulan Ini</span>
+        <span class="jp">今月</span>
+        <span class="romaji">kongetsu</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Bulan Depan</span>
+        <span class="jp">来月</span>
+        <span class="romaji">raigetsu</span>
+      </div>
+    </div>
+
+    <p style="margin: 12px 0 6px; font-weight: 600; color: var(--accent);">📆 Tahun</p>
+    <div class="time-group">
+      <div class="tg-item">
+        <span class="label">Tahun Lalu</span>
+        <span class="jp">去年</span>
+        <span class="romaji">kyonen</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Tahun Ini</span>
+        <span class="jp">今年</span>
+        <span class="romaji">kotoshi</span>
+      </div>
+      <div class="tg-item">
+        <span class="label">Tahun Depan</span>
+        <span class="jp">来年</span>
+        <span class="romaji">rainen</span>
+      </div>
+    </div>
+
+    <div class="rule-box" style="margin-top: 16px;">
+      <div class="rule-title">🌙 Nama Bulan: [Angka 1–12] + 月 (がつ / <em>~gatsu</em>)</div>
+      <ul class="vocab">
+        <li><span class="jp">1月</span> <span class="romaji">(ichi-gatsu = Januari)</span> · <span class="jp">4月</span> <span class="romaji">(shi-gatsu = April)</span></li>
+        <li><span class="jp">7月</span> <span class="romaji">(shichi-gatsu = Juli)</span> · <span class="jp">9月</span> <span class="romaji">(ku-gatsu = September)</span></li>
+      </ul>
+      <p style="margin: 8px 0 0; font-size: 0.95em;"><strong>Tanya:</strong> <span class="jp">何月 / なんがつ</span> (<span class="romaji">nangatsu</span> = bulan apa).</p>
+    </div>
+
+    <h3>6. Penanggalan / Tanggal (日 / <em>Hito / Nichi</em>) — Hafalan Khusus!</h3>
+
+    <div class="date-grid">
+      <div class="date-item"><span class="num">1日</span><span class="jp">ついたち</span><span class="romaji">tsuitachi</span></div>
+      <div class="date-item"><span class="num">2日</span><span class="jp">ふつか</span><span class="romaji">futsuka</span></div>
+      <div class="date-item"><span class="num">3日</span><span class="jp">みっか</span><span class="romaji">mikka</span></div>
+      <div class="date-item"><span class="num">4日</span><span class="jp">よっか</span><span class="romaji">yokka</span></div>
+      <div class="date-item"><span class="num">5日</span><span class="jp">いつか</span><span class="romaji">itsuka</span></div>
+      <div class="date-item"><span class="num">6日</span><span class="jp">むいか</span><span class="romaji">muika</span></div>
+      <div class="date-item"><span class="num">7日</span><span class="jp">なのか</span><span class="romaji">nanoka</span></div>
+      <div class="date-item"><span class="num">8日</span><span class="jp">ようか</span><span class="romaji">youka</span></div>
+      <div class="date-item"><span class="num">9日</span><span class="jp">ここのか</span><span class="romaji">kokonoka</span></div>
+      <div class="date-item"><span class="num">10日</span><span class="jp">とおか</span><span class="romaji">tooka</span></div>
+      <div class="date-item"><span class="num">14日</span><span class="jp">じゅうよっか</span><span class="romaji">juuyokka</span></div>
+      <div class="date-item"><span class="num">20日</span><span class="jp">はつか</span><span class="romaji">hatsuka</span></div>
+      <div class="date-item"><span class="num">24日</span><span class="jp">にじゅうよっか</span><span class="romaji">nijuuyokka</span></div>
+    </div>
+
+    <p style="margin: 12px 0 6px; font-size: 0.95em;"><strong>Tanggal biasa lainnya:</strong> [Angka] + にち (<em>~nichi</em>), contoh: <span class="jp">15日</span> (<em>juugo-nichi</em>), <span class="jp">25日</span> (<em>nijuugo-nichi</em>).</p>
+    <p style="margin: 6px 0; font-size: 0.95em;"><strong>Tanya:</strong> <span class="jp">何日 / なんにち</span> (<em>nannichi</em> = tanggal berapa / berapa hari).</p>
+
+    <h3>7. Kata Tanya &amp; Ungkapan Percakapan</h3>
+    <ul class="vocab">
+      <li><span class="jp">いつ</span><span class="eq">=</span><span class="romaji">itsu</span><span class="eq">=</span><span class="meaning">Kapan</span></li>
+      <li><span class="jp">誕生日 / たんじょうび</span><span class="eq">=</span><span class="romaji">tanjoubi</span><span class="eq">=</span><span class="meaning">Hari ulang tahun</span></li>
+      <li><span class="jp">どういたしまして</span><span class="eq">=</span><span class="romaji">dou itashimashite</span><span class="eq">=</span><span class="meaning">Sama-sama / terima kasih kembali</span></li>
+      <li><span class="jp">～番線 / ～ばんせん</span><span class="eq">=</span><span class="romaji">~bansen</span><span class="eq">=</span><span class="meaning">Peron jalur nomor...</span></li>
+      <li><span class="jp">次の / つぎの</span><span class="eq">=</span><span class="romaji">tsugi no</span><span class="eq">=</span><span class="meaning">Berikutnya / selanjutnya</span></li>
+      <li><span class="jp">普通 / ふつう</span><span class="eq">=</span><span class="romaji">futsuu</span><span class="eq">=</span><span class="meaning">Kereta lokal / biasa</span></li>
+      <li><span class="jp">急行 / きゅうこう</span><span class="eq">=</span><span class="romaji">kyuukou</span><span class="eq">=</span><span class="meaning">Kereta ekspres</span></li>
+      <li><span class="jp">特急 / とっきゅう</span><span class="eq">=</span><span class="romaji">tokkyuu</span><span class="eq">=</span><span class="meaning">Kereta super ekspres / <em>limited express</em></span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- POLA KALIMAT -->
+  <section>
+    <h2><span class="emoji-section">📖</span> Pola Kalimat &amp; Tata Bahasa</h2>
+
+    <!-- 1. Partikel e -->
+    <div class="grammar-card">
+      <h4>1. Menunjukkan Tempat Tujuan: Partikel へ (<em>e</em>)</h4>
+      <div class="formula">N (Tempat) へ 行きます / 来ます / 帰ります &nbsp; (N e ikimasu / kimasu / kaerimasu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Partikel <strong>へ</strong> berfungsi sebagai penunjuk arah atau tempat tujuan dari kata kerja gerak (<em>pergi ke, datang ke, pulang ke</em>).</p>
+      <p class="meaning-line"><strong>Catatan Pelafalan:</strong> Meskipun ditulis dengan huruf Hiragana <strong>へ (<em>he</em>)</strong>, partikel ini <strong>wajib dibaca "e"</strong>!</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">きょうとへ 行きます。</div>
+        <div class="romaji-line">(Kyouto e ikimasu.)</div>
+        <div class="translate">Saya pergi <strong>ke</strong> Kyoto.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">日本へ 来ました。</div>
+        <div class="romaji-line">(Nihon e kimashita.)</div>
+        <div class="translate">Saya sudah datang <strong>ke</strong> Jepang.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">うちへ 帰ります。</div>
+        <div class="romaji-line">(Uchi e kaerimasu.)</div>
+        <div class="translate">Saya pulang <strong>ke</strong> rumah.</div>
+      </div>
+    </div>
+
+    <!-- 2. Penyangkalan total -->
+    <div class="grammar-card">
+      <h4>2. Penyangkal Total: Kata Tanya + も + V Negatif</h4>
+      <div class="formula">どこ [へ] も 行きません / 行きませんでした &nbsp; (Doko [e] mo ikimasen / ikimasendeshita)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menyatakan penyangkalan menyeluruh ("tidak ke mana-mana", "tidak ada siapa pun", "tidak melakukan apa-apa").</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">にちようび どこへ 行きましたか。</div>
+        <div class="romaji-line">(Nichiyoubi doko e ikimashita ka?)</div>
+        <div class="translate">Hari Minggu kemarin kamu pergi ke mana?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ どこ[へ]も 行きませんでした。</div>
+        <div class="romaji-line">(Doko [e] mo ikimasen deshita.)</div>
+        <div class="translate">Tidak pergi ke mana-mana.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">だれも 来ませんでした。</div>
+        <div class="romaji-line">(Dare mo kimasen deshita.)</div>
+        <div class="translate">Tidak ada siapa pun yang datang.</div>
+      </div>
+    </div>
+
+    <!-- 3. Partikel de -->
+    <div class="grammar-card">
+      <h4>3. Menunjukkan Alat / Transportasi: Partikel で (<em>de</em>)</h4>
+      <div class="formula">N (Kendaraan) で 行きます / 来ます / 帰ります &nbsp; (N de ikimasu / kimasu / kaerimasu)</div>
+      <p class="meaning-line"><strong>Arti:</strong> Pergi / datang / pulang <strong>naik / dengan menggunakan</strong> [kendaraan].</p>
+      <p class="meaning-line"><strong>Fungsi:</strong> Partikel <strong>で</strong> berfungsi menunjukkan sarana atau alat transportasi yang digunakan untuk berpindah tempat.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">でんしゃで 行きます。</div>
+        <div class="romaji-line">(Densha de ikimasu.)</div>
+        <div class="translate">Saya pergi <strong>naik / dengan</strong> kereta listrik.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">タクシーで 来ました。</div>
+        <div class="romaji-line">(Takushii de kimashita.)</div>
+        <div class="translate">Saya tadi datang <strong>naik</strong> taksi.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">なんで とうきょうへ 行きますか。</div>
+        <div class="romaji-line">(Nan de Toukyou e ikimasu ka?)</div>
+        <div class="translate">Pergi ke Tokyo naik apa?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ しんかんせんで 行きます。</div>
+        <div class="romaji-line">(Shinkansen de ikimasu.)</div>
+        <div class="translate">Naik Shinkansen.</div>
+      </div>
+    </div>
+
+    <!-- 4. Partikel to -->
+    <div class="grammar-card">
+      <h4>4. Menunjukkan Teman / Partner: Partikel と (<em>to</em>)</h4>
+      <div class="formula">N (Orang / Hewan) と 行きます / 来ます / 帰ります &nbsp; (N to ikimasu / kimasu / kaerimasu)</div>
+      <p class="meaning-line"><strong>Arti:</strong> Melakukan aktivitas gerak <strong>bersama / dengan</strong> [orang/hewan].</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">かぞくと 日本へ 来ました。</div>
+        <div class="romaji-line">(Kazoku to Nihon e kimashita.)</div>
+        <div class="translate">Saya datang ke Jepang <strong>bersama</strong> keluarga.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">だれと とうきょうへ 行きますか。</div>
+        <div class="romaji-line">(Dare to Toukyou e ikimasu ka?)</div>
+        <div class="translate">Kamu pergi ke Tokyo bersama siapa?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ やまださんと 行きます。</div>
+        <div class="romaji-line">(Yamada-san to ikimasu.)</div>
+        <div class="translate">Pergi bersama Sdr. Yamada.</div>
+      </div>
+    </div>
+
+    <!-- 5. Itsu -->
+    <div class="grammar-card">
+      <h4>5. Menanyakan Waktu: いつ (<em>itsu</em>)</h4>
+      <div class="formula">いつ + V ... か &nbsp; (Itsu ... ka?)</div>
+      <p class="meaning-line"><strong>Arti:</strong> Kapan...?</p>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menanyakan waktu terjadinya suatu hal secara umum.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">いつ 日本へ 来ましたか。</div>
+        <div class="romaji-line">(Itsu Nihon e kimashita ka?)</div>
+        <div class="translate">Kapan kamu datang ke Jepang?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ 3がつ 25にちに 来ました。</div>
+        <div class="romaji-line">(San-gatsu nijuugo-nichi ni kimashita.)</div>
+        <div class="translate">Saya datang pada tanggal 25 Maret.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">たんじょうびは いつですか。</div>
+        <div class="romaji-line">(Tanjoubi wa itsu desu ka?)</div>
+        <div class="translate">Ulang tahunmu kapan?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ 6がつ 13にちです。</div>
+        <div class="romaji-line">(Roku-gatsu juu-san-nichi desu.)</div>
+        <div class="translate">Tanggal 13 Juni.</div>
+      </div>
+    </div>
+
+    <!-- 6. Partikel yo -->
+    <div class="grammar-card">
+      <h4>6. Partikel Penegas: よ (<em>yo</em>)</h4>
+      <div class="formula">Kalimat + よ &nbsp; (... yo)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Ditaruh di ujung kalimat untuk menyampaikan informasi atau fakta baru yang belum diketahui oleh lawan bicara, atau untuk memberikan penegasan/peringatan ramah (<em>"lho / lho ya"</em>).</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">この でんしゃは こうしえんへ 行きますか。</div>
+        <div class="romaji-line">(Kono densha wa Koushien e ikimasu ka?)</div>
+        <div class="translate">Apakah kereta ini menuju Koshien?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ いいえ、行きません。つぎの「ふつう」ですよ。</div>
+        <div class="romaji-line">(Iie, ikimasen. Tsugi no "futsuu" desu yo.)</div>
+        <div class="translate">Tidak, tidak ke sana. Kereta berikutnya yang lokal, lho!</div>
+      </div>
+    </div>
+
+    <!-- 7. Sou desu ka vs Sou desu ne -->
+    <div class="grammar-card">
+      <h4>7. Beda Respons: そうですか (<em>sou desu ka</em>) vs そうですね (<em>sou desu ne</em>)</h4>
+      <ul class="tip-list">
+        <li><strong>そうですか (<em>sou desu ka</em>):</strong> Intonasi turun, digunakan saat kita <strong>baru pertama kali mendengar</strong> suatu informasi dan menerimanya ("Oh, begitu...").</li>
+        <li><strong>そうですね (<em>sou desu ne</em>):</strong> Digunakan saat kita <strong>sudah tahu / sependapat / menyetujui</strong> ucapan lawan bicara ("Iya ya, betul juga").</li>
+      </ul>
+      <div class="example-block">
+        <div class="jp-line">A: あしたは にちようびですね。</div>
+        <div class="romaji-line">(Ashita wa nichiyoubi desu ne.)</div>
+        <div class="translate">Besok hari Minggu, ya.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">B: あ、そうですね。</div>
+        <div class="romaji-line">(A, sou desu ne.)</div>
+        <div class="translate">Ah, iya betul juga ya!</div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- CATATAN & JEBAKAN -->
+  <section>
+    <h2><span class="emoji-section">⚠️</span> Catatan &amp; Jebakan Pemula <span style="font-size:0.75em; color:var(--danger);">(Wajib Diingat!)</span></h2>
+
+    <div class="warning-box">
+      <h4>1. Jebakan "Jalan Kaki" (歩いて / <em>Aruite</em>)</h4>
+      <ul class="tip-list">
+        <li>Walaupun kendaraan memakai partikel で (<em>densha de, basu de</em>), jika kamu <strong>berjalan kaki</strong>, <strong>JANGAN tambahkan partikel で</strong>!</li>
+        <li><em>Aruite</em> sudah berstatus sebagai bentuk kata keterangan (<em>te-form</em>).</li>
+        <li>❌ <span class="wrong">Aruite de ikimasu.</span> (Salah besar)</li>
+        <li>✔️ <span class="right">歩いて 行きます (Aruite ikimasu)</span> (Benar).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>2. Jebakan "Sendirian" (一人で / <em>Hitori de</em>)</h4>
+      <ul class="tip-list">
+        <li>Bersama orang lain memakai partikel と (<em>tomodachi to, kazoku to</em>).</li>
+        <li>Tapi jika <strong>sendirian</strong>, kata yang dipakai adalah <strong>一人で (<em>hitori de</em>)</strong>, dan <strong>JANGAN pakai partikel と</strong>!</li>
+        <li>❌ <span class="wrong">Hitori to ikimasu.</span> (Salah besar)</li>
+        <li>✔️ <span class="right">一人で 行きます (Hitori de ikimasu)</span> (Benar).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>3. Kata Tanya いつ (<em>itsu</em>) HARAM Ditempel Partikel に (<em>ni</em>)!</h4>
+      <ul class="tip-list">
+        <li>Mengingat Bab 4: Waktu berangka memakai に (<em>6-ji ni</em>), sedangkan kata tanya jam memakai <em>nan-ji ni</em>.</li>
+        <li>Namun khusus kata tanya <strong>いつ (<em>itsu</em> = kapan)</strong>, <strong>TIDAK BOLEH</strong> ditempeli に!</li>
+        <li>❌ <span class="wrong">Itsu ni Nihon e kimashita ka?</span> (Salah)</li>
+        <li>✔️ <span class="right">いつ 日本へ 来ましたか (Itsu Nihon e kimashita ka?)</span> (Benar).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>4. Jebakan Mirip: Tanggal 4 (よっか) vs Tanggal 8 (ようか)</h4>
+      <ul class="tip-list">
+        <li>Tanggal 4 = <strong>よっか (<em>yokka</em>)</strong> ➔ ada konsonan ganda / jeda kecil (<em>tsu</em> kecil).</li>
+        <li>Tanggal 8 = <strong>ようか (<em>youka</em>)</strong> ➔ bunyi vokal "o" panjang (<em>ou</em>).</li>
+        <li>Tanggal 14 = <strong>じゅうよっか (<em>juuyokka</em>)</strong>.</li>
+        <li>Tanggal 24 = <strong>にじゅうよっか (<em>nijuuyokka</em>)</strong>.</li>
+        <li>Tanggal 20 = <strong>はつか (<em>hatsuka</em>)</strong> ➔ sama sekali tidak berakhiran <em>-nichi</em>!</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>5. Arah Gerak: Kapan 行きます (<em>ikimasu</em>) vs 来ます (<em>kimasu</em>)?</h4>
+      <ul class="tip-list">
+        <li><strong>行きます (<em>ikimasu</em>):</strong> Bergerak menjauhi posisi pembicara saat ini (pergi ke suatu tempat lain).</li>
+        <li><strong>来ます (<em>kimasu</em>):</strong> Bergerak mendekati posisi pembicara saat ini (datang ke tempat si pembicara berada sekarang).</li>
+        <li><em>Contoh:</em> Saat kamu sedang di Jepang dan bercerita tentang kedatanganmu, katakan: <em>Nihon e <strong>kimashita</strong></em> (Saya sudah <strong>datang</strong> ke Jepang).</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#d94f4f">
+<title>Catatan Belajar: Minna no Nihongo — Bab 4</title>
+<style>
+  :root {
+    --primary: #d94f4f;
+    --primary-dark: #b83838;
+    --accent: #2c7a7b;
+    --bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b6b6b;
+    --border: #eee2d3;
+    --highlight: #fff7e6;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    width: 100%;
+  }
+
+  header.title {
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header.title h1 {
+    font-size: 1.9em;
+    line-height: 1.3;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+    letter-spacing: 0.3px;
+  }
+  header.title .subtitle {
+    color: var(--muted);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    border-left: 6px solid var(--primary);
+    padding-left: 14px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  h3 {
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 1em;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .theme-box {
+    background: var(--highlight);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .theme-box ol { margin: 8px 0 0; padding-left: 22px; }
+  .theme-box ol li { margin-bottom: 6px; }
+
+  ul.vocab { list-style: none; padding: 0; margin: 0; }
+  ul.vocab li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 1.55;
+  }
+  ul.vocab li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 8px rgba(217, 79, 79, 0.08);
+  }
+
+  .jp {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.02em;
+    overflow-wrap: anywhere;
+  }
+  .romaji {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .meaning { color: var(--text); }
+  .eq { color: var(--muted); margin: 0 4px; }
+
+  .grammar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grammar-card h4 {
+    margin-top: 0;
+    font-size: 1.08em;
+    color: var(--primary-dark);
+  }
+
+  .formula {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meaning-line { margin: 6px 0; }
+  .meaning-line strong { color: var(--accent); }
+
+  .example-block {
+    background: #f6f8fa;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+    overflow-wrap: anywhere;
+  }
+  .example-block .jp-line {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  .example-block .romaji-line {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+  }
+  .example-block .translate {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .example-block .translate::before {
+    content: "👉 ";
+    display: inline;
+  }
+
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #f5d9b8;
+    border-left: 5px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .warning-box h4 { margin-top: 0; color: var(--danger); }
+  .warning-box .wrong { color: var(--danger); font-weight: 600; }
+  .warning-box .right { color: var(--success); font-weight: 600; }
+
+  .tip-list { padding-left: 20px; margin: 10px 0; }
+  .tip-list li { margin-bottom: 8px; }
+  .tip-list ul { margin-top: 6px; margin-bottom: 6px; }
+
+  .sub-q {
+    background: #f0f7f7;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+  .sub-q .label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+  .emoji-section { font-size: 1.2em; margin-right: 6px; }
+
+  .rule-box {
+    background: #eef7f7;
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .rule-box .rule-title {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+  .num-table, .conj-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.94em;
+  }
+  .num-table th, .num-table td,
+  .conj-table th, .conj-table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .num-table th, .conj-table thead th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .conj-table thead th {
+    background: linear-gradient(135deg, #d94f4f, #b83838);
+    color: white;
+    text-align: center;
+  }
+  .conj-table tbody th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: left;
+    width: 38%;
+  }
+  .num-table tr:nth-child(even) td { background: #fafafa; }
+  .conj-table td .form-item {
+    font-family: "Courier New", monospace;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conj-table td .ex-item {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .date-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .date-item .num {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 40px;
+  }
+
+  .time-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .time-group .tg-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .time-group .tg-item .label {
+    display: block;
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .time-group .tg-item .jp { display: block; font-size: 1.05em; }
+  .time-group .tg-item .romaji { display: block; font-size: 0.88em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    header.title h1 { font-size: 1.45em; }
+    header.title .subtitle { font-size: 0.88em; }
+    h2 { font-size: 1.18em; padding-left: 12px; }
+    h3 { font-size: 1.05em; }
+    .grammar-card { padding: 14px 14px; border-radius: 8px; }
+    .theme-box { padding: 14px 16px; }
+    ul.vocab li { padding: 9px 12px; font-size: 0.96em; }
+    .example-block { padding: 10px 12px; }
+    .formula { font-size: 0.92em; padding: 8px 12px; }
+    .num-table, .conj-table { font-size: 0.88em; min-width: 380px; }
+    .num-table th, .num-table td,
+    .conj-table th, .conj-table td { padding: 6px 8px; }
+    .conj-table tbody th { width: 42%; }
+    .date-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .time-group { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .container { padding: 18px 12px 50px; }
+    header.title h1 { font-size: 1.25em; }
+    h2 { font-size: 1.08em; }
+    ul.vocab li { font-size: 0.92em; }
+    .num-table, .conj-table { min-width: 320px; font-size: 0.82em; }
+    .date-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    ul.vocab li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="title">
+    <h1>📚 Catatan Belajar: Minna no Nihongo — Bab 4</h1>
+    <div class="subtitle">Waktu · Kata Kerja ~ます · Partikel に · から〜まで · と · ね</div>
+  </header>
+
+  <!-- TEMA & FOKUS -->
+  <section>
+    <h2><span class="emoji-section">📌</span> Tema &amp; Fokus Bab</h2>
+    <div class="theme-box">
+      <strong>Fokus Utama:</strong>
+      <ol>
+        <li>Menyebutkan dan menanyakan waktu (jam, menit, bagian hari).</li>
+        <li>Menyatakan rutinitas atau kegiatan sehari-hari menggunakan kata kerja bentuk dasar sopan (<em>~masu</em>).</li>
+        <li>Mengubah kata kerja ke bentuk negatif, lampau, dan tanya.</li>
+        <li>Menunjukkan titik waktu kegiatan (partikel <em>に</em>), rentang waktu/jadwal (<em>～から～まで</em>), serta menghubungkan benda (partikel <em>と</em>).</li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KOSAKATA -->
+  <section>
+    <h2><span class="emoji-section">📝</span> Kosakata Penting</h2>
+
+    <h3>1. Kata Kerja (Bentuk Sopan / ~ます)</h3>
+    <ul class="vocab">
+      <li><span class="jp">起きます / おきます</span><span class="eq">=</span><span class="romaji">okimasu</span><span class="eq">=</span><span class="meaning">Bangun tidur</span></li>
+      <li><span class="jp">寝ます / ねます</span><span class="eq">=</span><span class="romaji">nemasu</span><span class="eq">=</span><span class="meaning">Tidur</span></li>
+      <li><span class="jp">働きます / はたらきます</span><span class="eq">=</span><span class="romaji">hatarakimasu</span><span class="eq">=</span><span class="meaning">Bekerja</span></li>
+      <li><span class="jp">休みます / やすみます</span><span class="eq">=</span><span class="romaji">yasumimasu</span><span class="eq">=</span><span class="meaning">Beristirahat / libur</span></li>
+      <li><span class="jp">勉強します / べんきょうします</span><span class="eq">=</span><span class="romaji">benkyoushimasu</span><span class="eq">=</span><span class="meaning">Belajar</span></li>
+      <li><span class="jp">終わります / おわります</span><span class="eq">=</span><span class="romaji">owarimasu</span><span class="eq">=</span><span class="meaning">Selesai</span></li>
+    </ul>
+
+    <h3>2. Keterangan Waktu &amp; Jam</h3>
+    <ul class="vocab">
+      <li><span class="jp">今 / いま</span><span class="eq">=</span><span class="romaji">ima</span><span class="eq">=</span><span class="meaning">Sekarang</span></li>
+      <li><span class="jp">～時 / ～じ</span><span class="eq">=</span><span class="romaji">~ji</span><span class="eq">=</span><span class="meaning">Jam / pukul...</span></li>
+      <li><span class="jp">～分 / ～ふん・ぷん</span><span class="eq">=</span><span class="romaji">~fun / ~pun</span><span class="eq">=</span><span class="meaning">Menit</span></li>
+      <li><span class="jp">半 / はん</span><span class="eq">=</span><span class="romaji">han</span><span class="eq">=</span><span class="meaning">Setengah (lewat 30 menit)</span></li>
+      <li><span class="jp">何時 / なんじ</span><span class="eq">=</span><span class="romaji">nanji</span><span class="eq">=</span><span class="meaning">Jam berapa</span></li>
+      <li><span class="jp">何分 / なんぷん</span><span class="eq">=</span><span class="romaji">nanpun</span><span class="eq">=</span><span class="meaning">Menit ke berapa / berapa menit</span></li>
+      <li><span class="jp">午前 / ごぜん</span><span class="eq">=</span><span class="romaji">gozen</span><span class="eq">=</span><span class="meaning">A.M. (pagi / sebelum jam 12 siang)</span></li>
+      <li><span class="jp">午後 / ごご</span><span class="eq">=</span><span class="romaji">gogo</span><span class="eq">=</span><span class="meaning">P.M. (siang-malam / setelah jam 12 siang)</span></li>
+      <li><span class="jp">朝 / あさ</span><span class="eq">=</span><span class="romaji">asa</span><span class="eq">=</span><span class="meaning">Pagi</span></li>
+      <li><span class="jp">昼 / ひる</span><span class="eq">=</span><span class="romaji">hiru</span><span class="eq">=</span><span class="meaning">Siang</span></li>
+      <li><span class="jp">晩 / ばん</span> atau <span class="jp">夜 / よる</span><span class="eq">=</span><span class="romaji">ban / yoru</span><span class="eq">=</span><span class="meaning">Malam</span></li>
+    </ul>
+
+    <h3>3. Hari Relatif &amp; Rutinitas</h3>
+    <ul class="vocab">
+      <li><span class="jp">一昨日 / おととい</span><span class="eq">=</span><span class="romaji">ototoi</span><span class="eq">=</span><span class="meaning">Kemarin lusa</span></li>
+      <li><span class="jp">きのう</span><span class="eq">=</span><span class="romaji">kinou</span><span class="eq">=</span><span class="meaning">Kemarin</span></li>
+      <li><span class="jp">きょう</span><span class="eq">=</span><span class="romaji">kyou</span><span class="eq">=</span><span class="meaning">Hari ini</span></li>
+      <li><span class="jp">あした</span><span class="eq">=</span><span class="romaji">ashita</span><span class="eq">=</span><span class="meaning">Besok</span></li>
+      <li><span class="jp">あさって</span><span class="eq">=</span><span class="romaji">asatte</span><span class="eq">=</span><span class="meaning">Lusa</span></li>
+      <li><span class="jp">けさ</span><span class="eq">=</span><span class="romaji">kesa</span><span class="eq">=</span><span class="meaning">Tadi pagi / pagi ini</span></li>
+      <li><span class="jp">今晩 / こんばん</span><span class="eq">=</span><span class="romaji">konban</span><span class="eq">=</span><span class="meaning">Nanti malam / malam ini</span></li>
+      <li><span class="jp">毎朝 / まいあさ</span><span class="eq">=</span><span class="romaji">maiasa</span><span class="eq">=</span><span class="meaning">Setiap pagi</span></li>
+      <li><span class="jp">毎晩 / まいばん</span><span class="eq">=</span><span class="romaji">maiban</span><span class="eq">=</span><span class="meaning">Setiap malam</span></li>
+      <li><span class="jp">毎日 / まいにち</span><span class="eq">=</span><span class="romaji">mainichi</span><span class="eq">=</span><span class="meaning">Setiap hari</span></li>
+    </ul>
+
+    <h3>4. Nama-Nama Hari (曜日 / <em>Youbi</em>)</h3>
+    <ul class="vocab">
+      <li><span class="jp">月曜日 / げつようび</span><span class="eq">=</span><span class="romaji">getsuyoubi</span><span class="eq">=</span><span class="meaning">Senin</span></li>
+      <li><span class="jp">火曜日 / かようび</span><span class="eq">=</span><span class="romaji">kayoubi</span><span class="eq">=</span><span class="meaning">Selasa</span></li>
+      <li><span class="jp">水曜日 / すいようび</span><span class="eq">=</span><span class="romaji">suiyoubi</span><span class="eq">=</span><span class="meaning">Rabu</span></li>
+      <li><span class="jp">木曜日 / もくようび</span><span class="eq">=</span><span class="romaji">mokuyoubi</span><span class="eq">=</span><span class="meaning">Kamis</span></li>
+      <li><span class="jp">金曜日 / きんようび</span><span class="eq">=</span><span class="romaji">kinyoubi</span><span class="eq">=</span><span class="meaning">Jumat</span></li>
+      <li><span class="jp">土曜日 / どようび</span><span class="eq">=</span><span class="romaji">doyoubi</span><span class="eq">=</span><span class="meaning">Sabtu</span></li>
+      <li><span class="jp">日曜日 / にちようび</span><span class="eq">=</span><span class="romaji">nichiyoubi</span><span class="eq">=</span><span class="meaning">Minggu</span></li>
+      <li><span class="jp">何曜日 / なんようび</span><span class="eq">=</span><span class="romaji">nanyoubi</span><span class="eq">=</span><span class="meaning">Hari apa</span></li>
+    </ul>
+
+    <h3>5. Fasilitas, Acara, &amp; Ungkapan</h3>
+    <ul class="vocab">
+      <li><span class="jp">郵便局 / ゆうびんきょく</span><span class="eq">=</span><span class="romaji">yuubinkyoku</span><span class="eq">=</span><span class="meaning">Kantor pos</span></li>
+      <li><span class="jp">図書館 / としょかん</span><span class="eq">=</span><span class="romaji">toshokan</span><span class="eq">=</span><span class="meaning">Perpustakaan</span></li>
+      <li><span class="jp">美術館 / びじゅつかん</span><span class="eq">=</span><span class="romaji">bijutsukan</span><span class="eq">=</span><span class="meaning">Museum seni / galeri seni</span></li>
+      <li><span class="jp">休み / やすみ</span><span class="eq">=</span><span class="romaji">yasumi</span><span class="eq">=</span><span class="meaning">Libur / hari cuti</span></li>
+      <li><span class="jp">昼休み / ひるやすみ</span><span class="eq">=</span><span class="romaji">hiruyasumi</span><span class="eq">=</span><span class="meaning">Istirahat siang</span></li>
+      <li><span class="jp">試験 / しけん</span><span class="eq">=</span><span class="romaji">shiken</span><span class="eq">=</span><span class="meaning">Ujian</span></li>
+      <li><span class="jp">会議 / かいぎ</span><span class="eq">=</span><span class="romaji">kaigi</span><span class="eq">=</span><span class="meaning">Rapat</span></li>
+      <li><span class="jp">映画 / えいが</span><span class="eq">=</span><span class="romaji">eiga</span><span class="eq">=</span><span class="meaning">Film</span></li>
+      <li><span class="jp">番号 / ばんごう</span><span class="eq">=</span><span class="romaji">bangou</span><span class="eq">=</span><span class="meaning">Nomor</span></li>
+      <li><span class="jp">何番 / なんばん</span><span class="eq">=</span><span class="romaji">nanban</span><span class="eq">=</span><span class="meaning">Nomor berapa</span></li>
+      <li><span class="jp">大変ですね / たいへんですね</span><span class="eq">=</span><span class="romaji">taihen desu ne</span><span class="eq">=</span><span class="meaning">Wah, berat ya / repot juga ya (ungkapan simpati)</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- POLA KALIMAT -->
+  <section>
+    <h2><span class="emoji-section">📖</span> Pola Kalimat &amp; Tata Bahasa</h2>
+
+    <!-- 1. Jam -->
+    <div class="grammar-card">
+      <h4>1. Menyatakan Jam dan Menit</h4>
+      <div class="formula">今 [Jam]時 [Menit]分 です &nbsp; (Ima [Jam]-ji [Menit]-fun/pun desu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menyatakan waktu/jam saat ini.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">いま 4じ 5ふんです。</div>
+        <div class="romaji-line">(Ima yo-ji go-fun desu.)</div>
+        <div class="translate">Sekarang pukul 04.05.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">いま なんじですか。</div>
+        <div class="romaji-line">(Ima nan-ji desu ka?)</div>
+        <div class="translate">Sekarang jam berapa?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ ごぜん 9じはんです。</div>
+        <div class="romaji-line">(Gozen ku-ji han desu.)</div>
+        <div class="translate">Pukul 09.30 pagi (han = 30 menit / setengah).</div>
+      </div>
+    </div>
+
+    <!-- 2. Konjugasi kata kerja -->
+    <div class="grammar-card">
+      <h4>2. Perubahan Bentuk Kata Kerja Sopan (Bentuk ます)</h4>
+      <p class="meaning-line">Kata kerja bahasa Jepang tidak berubah karena subjek orangnya (saya/kamu/dia tetap sama), melainkan berubah berdasarkan <strong>waktu (lampau / non-lampau)</strong> dan <strong>sifat (positif / negatif)</strong>:</p>
+
+      <div class="table-wrap">
+        <table class="conj-table">
+          <thead>
+            <tr>
+              <th>Waktu</th>
+              <th>Positif</th>
+              <th>Negatif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Non-Lampau<br><span style="font-weight:400; color:var(--muted); font-size:0.9em;">(Sekarang / Rutinitas / Masa Depan)</span></th>
+              <td>
+                <span class="form-item">～ます (~masu)</span>
+                <span class="ex-item">Contoh: おきます (bangun)</span>
+              </td>
+              <td>
+                <span class="form-item">～ません (~masen)</span>
+                <span class="ex-item">Contoh: おきません (tidak bangun)</span>
+              </td>
+            </tr>
+            <tr>
+              <th>Lampau<br><span style="font-weight:400; color:var(--muted); font-size:0.9em;">(Sudah Terjadi)</span></th>
+              <td>
+                <span class="form-item">～ました (~mashita)</span>
+                <span class="ex-item">Contoh: おきました (tadi bangun)</span>
+              </td>
+              <td>
+                <span class="form-item">～ませんでした (~masen deshita)</span>
+                <span class="ex-item">Contoh: おきませんでした (tadi tidak bangun)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">わたしは まいにち べんきょうします。</div>
+        <div class="romaji-line">(Watashi wa mainichi benkyou shimasu.)</div>
+        <div class="translate">Saya belajar setiap hari.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">きのう べんきょうしましたか。</div>
+        <div class="romaji-line">(Kinou benkyou shimashita ka?)</div>
+        <div class="translate">Apakah kemarin kamu belajar?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ はい、べんきょうしました。</div>
+        <div class="romaji-line">(Hai, benkyou shimashita.)</div>
+        <div class="translate">Ya, saya belajar.</div>
+        <div class="jp-line" style="margin-top:8px;">↳ いいえ、べんきょうしませんでした。</div>
+        <div class="romaji-line">(Iie, benkyou shimasen deshita.)</div>
+        <div class="translate">Tidak, saya tidak belajar.</div>
+      </div>
+    </div>
+
+    <!-- 3. Partikel ni -->
+    <div class="grammar-card">
+      <h4>3. Titik Waktu Terjadinya Kegiatan: Partikel に (<em>ni</em>)</h4>
+      <div class="formula">N (Waktu Berangka) に V &nbsp; (N ni V)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Partikel <strong>に (ni)</strong> ditempelkan di belakang keterangan waktu untuk menandai waktu spesifik dilakukannya sebuah aktivitas.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">まいあさ 6じに おきます。</div>
+        <div class="romaji-line">(Maiasa roku-ji ni okimasu.)</div>
+        <div class="translate">Setiap pagi saya bangun pada pukul 06.00.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">11じはんに ねます。</div>
+        <div class="romaji-line">(Juu-ichi-ji han ni nemasu.)</div>
+        <div class="translate">Saya tidur pada pukul 11.30.</div>
+      </div>
+    </div>
+
+    <!-- 4. Kara / made -->
+    <div class="grammar-card">
+      <h4>4. Titik Awal &amp; Titik Akhir: から (<em>kara</em>) &amp; まで (<em>made</em>)</h4>
+      <div class="formula">N1 から N2 まで &nbsp; (N1 kara N2 made)</div>
+      <p class="meaning-line"><strong>Arti:</strong> Dari N1 sampai N2</p>
+      <p class="meaning-line"><strong>Fungsi:</strong></p>
+      <ul class="tip-list">
+        <li>Menyatakan batas awal (<strong>から = dari</strong>) dan batas akhir (<strong>まで = sampai</strong>) suatu waktu atau tempat.</li>
+        <li>Bisa dipakai berpasangan, bisa juga berdiri sendiri.</li>
+        <li>Jika menerangkan jadwal suatu tempat, bisa langsung diakhiri <strong>です (desu)</strong>.</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">9じから 5じまで べんきょうします。</div>
+        <div class="romaji-line">(Ku-ji kara go-ji made benkyou shimasu.)</div>
+        <div class="translate">Belajar dari jam 9 sampai jam 5.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">ぎんこうは 9じから 3じまでです。</div>
+        <div class="romaji-line">(Ginkou wa ku-ji kara san-ji made desu.)</div>
+        <div class="translate">Bank buka dari jam 9 sampai jam 3.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">ひるやすみは 12じからです。</div>
+        <div class="romaji-line">(Hiruyasumi wa juu-ni-ji kara desu.)</div>
+        <div class="translate">Istirahat siang mulai dari jam 12.</div>
+      </div>
+    </div>
+
+    <!-- 5. Partikel to -->
+    <div class="grammar-card">
+      <h4>5. Menggabungkan Kata Benda: Partikel と (<em>to</em>)</h4>
+      <div class="formula">N1 と N2 &nbsp; (N1 to N2)</div>
+      <p class="meaning-line"><strong>Arti:</strong> N1 dan N2</p>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menyambung dua kata benda (atau lebih) secara setara.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">ぎんこうの やすみは どようびと にちようびです。</div>
+        <div class="romaji-line">(Ginkou no yasumi wa doyoubi to nichiyoubi desu.)</div>
+        <div class="translate">Libur bank adalah hari Sabtu <strong>dan</strong> hari Minggu.</div>
+      </div>
+    </div>
+
+    <!-- 6. Partikel ne -->
+    <div class="grammar-card">
+      <h4>6. Partikel Akhir ね (<em>ne</em>)</h4>
+      <div class="formula">Kalimat + ね &nbsp; (... ne)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Diletakkan di akhir kalimat untuk mencari persetujuan, meminta penegasan, atau mengekspresikan empati kepada lawan bicara (mirip kata "ya/kan?" dalam bahasa Indonesia).</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">まいにち 10じまで べんきょうします。</div>
+        <div class="romaji-line">(Mainichi juu-ji made benkyou shimasu.)</div>
+        <div class="translate">Setiap hari saya belajar sampai jam 10.</div>
+        <div class="jp-line" style="margin-top:8px;">↳ たいへんですね。</div>
+        <div class="romaji-line">(Taihen desu ne.)</div>
+        <div class="translate">Wah, berat juga ya / capek ya.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- CATATAN & JEBAKAN -->
+  <section>
+    <h2><span class="emoji-section">⚠️</span> Catatan &amp; Jebakan Pemula <span style="font-size:0.75em; color:var(--danger);">(Wajib Diingat!)</span></h2>
+
+    <div class="warning-box">
+      <h4>1. Jam-Jam Khusus yang Sering Salah Baca</h4>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Jam</th><th>Benar ✔️</th><th>Salah ❌</th></tr>
+          <tr><td>Jam 4</td><td class="jp">よじ (yo-ji)</td><td class="jp" style="color:var(--danger);">yon-ji / shi-ji</td></tr>
+          <tr><td>Jam 7</td><td class="jp">しちじ (shichi-ji)</td><td class="jp" style="color:var(--danger);">nana-ji</td></tr>
+          <tr><td>Jam 9</td><td class="jp">くじ (ku-ji)</td><td class="jp" style="color:var(--danger);">kyuu-ji</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>2. Perubahan Bunyi Menit (分): Kapan ふん (<em>fun</em>) vs ぷん (<em>pun</em>)?</h4>
+
+      <p style="margin:6px 0;"><strong>Berakhiran ぷん (<em>pun</em>):</strong></p>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Menit</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>1 menit</td><td class="jp">いっぷん</td><td class="romaji">ippun</td></tr>
+          <tr><td>3 menit</td><td class="jp">さんぷん</td><td class="romaji">sanpun</td></tr>
+          <tr><td>4 menit</td><td class="jp">よんぷん</td><td class="romaji">yonpun</td></tr>
+          <tr><td>6 menit</td><td class="jp">ろっぷん</td><td class="romaji">roppun</td></tr>
+          <tr><td>8 menit</td><td class="jp">はっぷん</td><td class="romaji">happun</td></tr>
+          <tr><td>10 menit</td><td class="jp">じゅっぷん / じっぷん</td><td class="romaji">juppun / jippun</td></tr>
+          <tr><td>Berapa menit?</td><td class="jp">なんぷん</td><td class="romaji">nanpun</td></tr>
+        </table>
+      </div>
+
+      <p style="margin:12px 0 6px;"><strong>Berakhiran ふん (<em>fun</em>):</strong></p>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Menit</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>2 menit</td><td class="jp">にふん</td><td class="romaji">nifun</td></tr>
+          <tr><td>5 menit</td><td class="jp">ごふん</td><td class="romaji">gofun</td></tr>
+          <tr><td>7 menit</td><td class="jp">ななふん</td><td class="romaji">nanafun</td></tr>
+          <tr><td>9 menit</td><td class="jp">きゅうふん</td><td class="romaji">kyuufun</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>3. Aturan Tegas Penggunaan Partikel に (<em>ni</em>) untuk Waktu</h4>
+      <ul class="tip-list">
+        <li><strong>WAJIB pakai に:</strong> Waktu yang memiliki <strong>angka pasti</strong> (tanggal, jam, menit).
+          <ul><li>✔️ <em>6-ji <strong>ni</strong> okimasu.</em></li></ul>
+        </li>
+        <li><strong>HARAM pakai に:</strong> Keterangan waktu relatif / yang tidak ada angkanya (<em>kyou, ashita, kinou, ototoi, kesa, konban, ima, mainichi, maiasa, maiban</em>).
+          <ul>
+            <li>❌ <span class="wrong">Ashita ni benkyou shimasu.</span> (Salah)</li>
+            <li>✔️ <span class="right">Ashita benkyou shimasu.</span> (Benar)</li>
+          </ul>
+        </li>
+        <li><strong>Boleh pakai / boleh tidak:</strong> Nama hari (<em>~youbi</em>), serta bagian hari (<em>asa, hiru, ban/yoru</em>).
+          <ul><li>✔️ <em>Nichiyoubi [ni] Nara e ikimasu.</em></li></ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>4. Jangan Jawab Pertanyaan Kata Kerja dengan "Sou desu / Chigaimasu"!</h4>
+      <ul class="tip-list">
+        <li>Di Bab 2, pertanyaan benda dijawab dengan <em>Hai, sou desu</em> atau <em>Iie, chigaimasu</em>.</li>
+        <li>Di Bab 4, untuk kalimat verba/aktivitas, kamu <strong>WAJIB mengulang kata kerjanya</strong>!</li>
+        <li>Tanya: <em>Kinou benkyou shimashita ka?</em> (Kemarin belajar?)</li>
+        <li>❌ <span class="wrong">Iie, chigaimasu.</span> (Salah)</li>
+        <li>✔️ <span class="right">いいえ、勉強しませんでした (Iie, benkyou shimasen deshita).</span></li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>5. Partikel と (<em>to</em>) Hanya untuk Kata Benda</h4>
+      <ul class="tip-list">
+        <li>Partikel と hanya berfungsi sebagai "dan" untuk <strong>menghubungkan kata benda dengan kata benda</strong> (<em>doyoubi to nichiyoubi</em>).</li>
+        <li>Jangan gunakan と untuk menyambung dua anak kalimat atau dua kata kerja.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

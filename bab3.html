@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#d94f4f">
+<title>Catatan Belajar: Minna no Nihongo — Bab 3</title>
+<style>
+  :root {
+    --primary: #d94f4f;
+    --primary-dark: #b83838;
+    --accent: #2c7a7b;
+    --bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b6b6b;
+    --border: #eee2d3;
+    --highlight: #fff7e6;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    width: 100%;
+  }
+
+  header.title {
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header.title h1 {
+    font-size: 1.9em;
+    line-height: 1.3;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+    letter-spacing: 0.3px;
+  }
+  header.title .subtitle {
+    color: var(--muted);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    border-left: 6px solid var(--primary);
+    padding-left: 14px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  h3 {
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 1em;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  .theme-box {
+    background: var(--highlight);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .theme-box ol { margin: 8px 0 0; padding-left: 22px; }
+  .theme-box ol li { margin-bottom: 6px; }
+
+  ul.vocab { list-style: none; padding: 0; margin: 0; }
+  ul.vocab li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 1.55;
+  }
+  ul.vocab li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 8px rgba(217, 79, 79, 0.08);
+  }
+
+  .jp {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.02em;
+    overflow-wrap: anywhere;
+  }
+  .romaji {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .meaning { color: var(--text); }
+  .eq { color: var(--muted); margin: 0 4px; }
+
+  .grammar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grammar-card h4 {
+    margin-top: 0;
+    font-size: 1.08em;
+    color: var(--primary-dark);
+  }
+
+  .formula {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meaning-line { margin: 6px 0; }
+  .meaning-line strong { color: var(--accent); }
+
+  .example-block {
+    background: #f6f8fa;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+    overflow-wrap: anywhere;
+  }
+  .example-block .jp-line {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  .example-block .romaji-line {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+  }
+  .example-block .translate {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .example-block .translate::before {
+    content: "👉 ";
+    display: inline;
+  }
+
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #f5d9b8;
+    border-left: 5px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .warning-box h4 { margin-top: 0; color: var(--danger); }
+  .warning-box .wrong { color: var(--danger); font-weight: 600; }
+  .warning-box .right { color: var(--success); font-weight: 600; }
+
+  .tip-list { padding-left: 20px; margin: 10px 0; }
+  .tip-list li { margin-bottom: 8px; }
+  .tip-list ul { margin-top: 6px; margin-bottom: 6px; }
+
+  .sub-q {
+    background: #f0f7f7;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+  .sub-q .label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+  .emoji-section { font-size: 1.2em; margin-right: 6px; }
+
+  .rule-box {
+    background: #eef7f7;
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .rule-box .rule-title {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+  .num-table, .conj-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.94em;
+  }
+  .num-table th, .num-table td,
+  .conj-table th, .conj-table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .num-table th, .conj-table thead th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .conj-table thead th {
+    background: linear-gradient(135deg, #d94f4f, #b83838);
+    color: white;
+    text-align: center;
+  }
+  .conj-table tbody th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: left;
+  }
+  .num-table tr:nth-child(even) td { background: #fafafa; }
+  .conj-table td .form-item {
+    font-family: "Courier New", monospace;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conj-table td .ex-item {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .date-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .date-item .num {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 40px;
+  }
+
+  .time-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .time-group .tg-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .time-group .tg-item .label {
+    display: block;
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .time-group .tg-item .jp { display: block; font-size: 1.05em; }
+  .time-group .tg-item .romaji { display: block; font-size: 0.88em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    header.title h1 { font-size: 1.45em; }
+    header.title .subtitle { font-size: 0.88em; }
+    h2 { font-size: 1.18em; padding-left: 12px; }
+    h3 { font-size: 1.05em; }
+    .grammar-card { padding: 14px 14px; border-radius: 8px; }
+    .theme-box { padding: 14px 16px; }
+    ul.vocab li { padding: 9px 12px; font-size: 0.96em; }
+    .example-block { padding: 10px 12px; }
+    .formula { font-size: 0.92em; padding: 8px 12px; }
+    .num-table, .conj-table { font-size: 0.88em; min-width: 380px; }
+    .num-table th, .num-table td,
+    .conj-table th, .conj-table td { padding: 6px 8px; }
+    .date-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .time-group { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .container { padding: 18px 12px 50px; }
+    header.title h1 { font-size: 1.25em; }
+    h2 { font-size: 1.08em; }
+    ul.vocab li { font-size: 0.92em; }
+    .num-table, .conj-table { min-width: 320px; font-size: 0.82em; }
+    .date-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    ul.vocab li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="title">
+    <h1>📚 Catatan Belajar: Minna no Nihongo — Bab 3</h1>
+    <div class="subtitle">Koko · Soko · Asoko · Letak Tempat · Belanja · Angka &amp; Uang</div>
+  </header>
+
+  <!-- TEMA & FOKUS -->
+  <section>
+    <h2><span class="emoji-section">📌</span> Tema &amp; Fokus Bab</h2>
+    <div class="theme-box">
+      <strong>Fokus Utama:</strong>
+      <ol>
+        <li>Menanyakan dan menunjukkan posisi/keberadaan tempat, fasilitas, maupun orang (di sini, di sana, di lantai berapa).</li>
+        <li>Menanyakan asal negara, instansi/tempat kerja, serta merk/negara pembuat suatu barang.</li>
+        <li>Percakapan belanja sederhana: menanyakan konter barang, bertanya harga, dan transaksi pembelian.</li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KOSAKATA -->
+  <section>
+    <h2><span class="emoji-section">📝</span> Kosakata Penting</h2>
+
+    <h3>1. Kata Tunjuk Tempat &amp; Arah (<em>Ko-So-A-Do</em>)</h3>
+    <ul class="vocab">
+      <li><span class="jp">ここ</span><span class="eq">=</span><span class="romaji">koko</span><span class="eq">=</span><span class="meaning">Sini (tempat pembicara berada)</span></li>
+      <li><span class="jp">そこ</span><span class="eq">=</span><span class="romaji">soko</span><span class="eq">=</span><span class="meaning">Situ (tempat lawan bicara berada / agak dekat)</span></li>
+      <li><span class="jp">あそこ</span><span class="eq">=</span><span class="romaji">asoko</span><span class="eq">=</span><span class="meaning">Sana (tempat yang jauh dari kedua pembicara)</span></li>
+      <li><span class="jp">どこ</span><span class="eq">=</span><span class="romaji">doko</span><span class="eq">=</span><span class="meaning">Di mana (kata tanya tempat biasa)</span></li>
+      <li><span class="jp">こちら</span><span class="eq">=</span><span class="romaji">kochira</span><span class="eq">=</span><span class="meaning">Sebelah sini / di sini (bentuk sopan &amp; penunjuk arah)</span></li>
+      <li><span class="jp">そちら</span><span class="eq">=</span><span class="romaji">sochira</span><span class="eq">=</span><span class="meaning">Sebelah situ / di situ (bentuk sopan &amp; penunjuk arah)</span></li>
+      <li><span class="jp">あちら</span><span class="eq">=</span><span class="romaji">achira</span><span class="eq">=</span><span class="meaning">Sebelah sana / di sana (bentuk sopan &amp; penunjuk arah)</span></li>
+      <li><span class="jp">どちら</span><span class="eq">=</span><span class="romaji">dochira</span><span class="eq">=</span><span class="meaning">Di sebelah mana / di mana (kata tanya bentuk sopan)</span></li>
+    </ul>
+
+    <h3>2. Fasilitas, Ruangan, &amp; Bangunan</h3>
+    <ul class="vocab">
+      <li><span class="jp">教室 / きょうしつ</span><span class="eq">=</span><span class="romaji">kyoushitsu</span><span class="eq">=</span><span class="meaning">Ruang kelas</span></li>
+      <li><span class="jp">食堂 / しょくどう</span><span class="eq">=</span><span class="romaji">shokudou</span><span class="eq">=</span><span class="meaning">Kantin / ruang makan</span></li>
+      <li><span class="jp">事務所 / じむしょ</span><span class="eq">=</span><span class="romaji">jimusho</span><span class="eq">=</span><span class="meaning">Kantor</span></li>
+      <li><span class="jp">会議室 / かいぎしつ</span><span class="eq">=</span><span class="romaji">kaigishitsu</span><span class="eq">=</span><span class="meaning">Ruang rapat</span></li>
+      <li><span class="jp">受付 / うけつけ</span><span class="eq">=</span><span class="romaji">uketsuke</span><span class="eq">=</span><span class="meaning">Meja informasi / resepsionis</span></li>
+      <li><span class="jp">ロビー</span><span class="eq">=</span><span class="romaji">robii</span><span class="eq">=</span><span class="meaning">Lobi / ruang tunggu</span></li>
+      <li><span class="jp">部屋 / へや</span><span class="eq">=</span><span class="romaji">heya</span><span class="eq">=</span><span class="meaning">Kamar / ruangan</span></li>
+      <li><span class="jp">トイレ</span> / <span class="jp">お手洗い / おてあらい</span><span class="eq">=</span><span class="romaji">toire / o-tearai</span><span class="eq">=</span><span class="meaning">Toilet / kamar kecil</span></li>
+      <li><span class="jp">階段 / かいだん</span><span class="eq">=</span><span class="romaji">kaidan</span><span class="eq">=</span><span class="meaning">Tangga</span></li>
+      <li><span class="jp">エレベーター</span><span class="eq">=</span><span class="romaji">erebeetaa</span><span class="eq">=</span><span class="meaning">Lift</span></li>
+      <li><span class="jp">エスカレーター</span><span class="eq">=</span><span class="romaji">esukareetaa</span><span class="eq">=</span><span class="meaning">Eskalator</span></li>
+      <li><span class="jp">自動販売機 / じどうはんばいき</span><span class="eq">=</span><span class="romaji">jidouhanbaiki</span><span class="eq">=</span><span class="meaning">Mesin penjual otomatis (<em>vending machine</em>)</span></li>
+      <li><span class="jp">会社 / かいしゃ</span><span class="eq">=</span><span class="romaji">kaisha</span><span class="eq">=</span><span class="meaning">Perusahaan / kantor kerja</span></li>
+      <li><span class="jp">うち</span><span class="eq">=</span><span class="romaji">uchi</span><span class="eq">=</span><span class="meaning">Rumah</span></li>
+      <li><span class="jp">[お]国 / [お]くに</span><span class="eq">=</span><span class="romaji">[o]kuni</span><span class="eq">=</span><span class="meaning">Negara / kampung halaman</span></li>
+    </ul>
+
+    <h3>3. Benda &amp; Belanja di Toserba (<em>Depaato</em>)</h3>
+    <ul class="vocab">
+      <li><span class="jp">売り場 / うりば</span><span class="eq">=</span><span class="romaji">uriba</span><span class="eq">=</span><span class="meaning">Tempat penjualan / kounter barang</span></li>
+      <li><span class="jp">地下 / ちか</span><span class="eq">=</span><span class="romaji">chika</span><span class="eq">=</span><span class="meaning">Bawah tanah (<em>basement</em>)</span></li>
+      <li><span class="jp">～階 / ～かい・がい</span><span class="eq">=</span><span class="romaji">~kai / ~gai</span><span class="eq">=</span><span class="meaning">Lantai... / tingkat...</span></li>
+      <li><span class="jp">何階 / なんがい</span><span class="eq">=</span><span class="romaji">nangai</span><span class="eq">=</span><span class="meaning">Lantai berapa?</span></li>
+      <li><span class="jp">靴 / くつ</span><span class="eq">=</span><span class="romaji">kutsu</span><span class="eq">=</span><span class="meaning">Sepatu</span></li>
+      <li><span class="jp">ネクタイ</span><span class="eq">=</span><span class="romaji">nekutai</span><span class="eq">=</span><span class="meaning">Dasi</span></li>
+      <li><span class="jp">ワイン</span><span class="eq">=</span><span class="romaji">wain</span><span class="eq">=</span><span class="meaning">Minuman anggur / <em>wine</em></span></li>
+      <li><span class="jp">電話 / でんわ</span><span class="eq">=</span><span class="romaji">denwa</span><span class="eq">=</span><span class="meaning">Telepon</span></li>
+    </ul>
+
+    <h3>4. Angka &amp; Uang</h3>
+    <ul class="vocab">
+      <li><span class="jp">～円 / ～えん</span><span class="eq">=</span><span class="romaji">~en</span><span class="eq">=</span><span class="meaning">Yen (mata uang Jepang)</span></li>
+      <li><span class="jp">いくら</span><span class="eq">=</span><span class="romaji">ikura</span><span class="eq">=</span><span class="meaning">Berapa harga</span></li>
+      <li><span class="jp">百 / ひゃく</span><span class="eq">=</span><span class="romaji">hyaku</span><span class="eq">=</span><span class="meaning">Ratus / 100</span></li>
+      <li><span class="jp">千 / せん</span><span class="eq">=</span><span class="romaji">sen</span><span class="eq">=</span><span class="meaning">Ribu / 1.000</span></li>
+      <li><span class="jp">万 / まん</span><span class="eq">=</span><span class="romaji">man</span><span class="eq">=</span><span class="meaning">Puluh ribu / 10.000</span></li>
+    </ul>
+
+    <h3>5. Ungkapan Penting Percakapan</h3>
+    <ul class="vocab">
+      <li><span class="jp">いらっしゃいませ</span><span class="eq">=</span><span class="romaji">irasshaimase</span><span class="eq">=</span><span class="meaning">Selamat datang! (sapaan pramuniaga saat tamu masuk toko)</span></li>
+      <li><span class="jp">すみません</span><span class="eq">=</span><span class="romaji">sumimasen</span><span class="eq">=</span><span class="meaning">Permisi / Maaf</span></li>
+      <li><span class="jp">どうも</span><span class="eq">=</span><span class="romaji">doumo</span><span class="eq">=</span><span class="meaning">Terima kasih / Halo</span></li>
+      <li><span class="jp">[～を] 見せてください / みせてください</span><span class="eq">=</span><span class="romaji">[~o] misete kudasai</span><span class="eq">=</span><span class="meaning">Tolong perlihatkan [~]</span></li>
+      <li><span class="jp">[～を] ください</span><span class="eq">=</span><span class="romaji">[~o] kudasai</span><span class="eq">=</span><span class="meaning">Tolong berikan [~] / Saya minta [~]</span></li>
+      <li><span class="jp">じゃ</span><span class="eq">=</span><span class="romaji">ja</span><span class="eq">=</span><span class="meaning">Kalau begitu...</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- POLA KALIMAT -->
+  <section>
+    <h2><span class="emoji-section">📖</span> Pola Kalimat &amp; Tata Bahasa</h2>
+
+    <!-- 1. Letak benda -->
+    <div class="grammar-card">
+      <h4>1. Menunjukkan Letak Benda / Orang / Fasilitas</h4>
+      <div class="formula">N は [Tempat] です &nbsp; (N wa [tempat] desu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menyatakan letak/posisi di mana kata benda (N) itu berada. N bisa berupa fasilitas, benda, maupun orang.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">おてあらいは あそこです。</div>
+        <div class="romaji-line">(Otearai wa asoko desu.)</div>
+        <div class="translate">Kamar kecil ada di sebelah sana.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">でんわは 2かいです。</div>
+        <div class="romaji-line">(Denwa wa ni-kai desu.)</div>
+        <div class="translate">Telepon berada di lantai 2.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">やまださんは じむしょです。</div>
+        <div class="romaji-line">(Yamada-san wa jimusho desu.)</div>
+        <div class="translate">Sdr. Yamada berada di kantor.</div>
+      </div>
+    </div>
+
+    <!-- 2. Menanyakan letak -->
+    <div class="grammar-card">
+      <h4>2. Menanyakan Letak Tempat (Di Mana?)</h4>
+      <div class="formula">N は どこ / どちら ですか &nbsp; (N wa doko / dochira desu ka?)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menanyakan keberadaan suatu tempat/orang.</p>
+      <ul class="tip-list">
+        <li><strong>どこ (doko)</strong> = Lebih santai/kasual.</li>
+        <li><strong>どちら (dochira)</strong> = Jauh lebih sopan (sangat disarankan saat berbicara dengan pelanggan/atasan).</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">おてあらいは どこですか。</div>
+        <div class="romaji-line">(Otearai wa doko desu ka?)</div>
+        <div class="translate">Di mana toilet?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ あそこです。</div>
+        <div class="romaji-line">(Asoko desu.)</div>
+        <div class="translate">Di sebelah sana.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">エレベーターは どちらですか。</div>
+        <div class="romaji-line">(Erebeetaa wa dochira desu ka?)</div>
+        <div class="translate">Lift ada di sebelah mana?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ あちらです。</div>
+        <div class="romaji-line">(Achira desu.)</div>
+        <div class="translate">Di sebelah sana.</div>
+      </div>
+    </div>
+
+    <!-- 3. Asal organisasi -->
+    <div class="grammar-card">
+      <h4>3. Menanyakan Asal Sekolah / Perusahaan / Negara</h4>
+      <div class="formula">[Organisasi/Negara] は どこ / どちら ですか</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menanyakan asal instansi seseorang atau negara asal.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">[お]くには どちらですか。</div>
+        <div class="romaji-line">([O]kuni wa dochira desu ka?)</div>
+        <div class="translate">Berasal dari negara mana? / Kampung halamannya di mana?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ インドネシアです。</div>
+        <div class="romaji-line">(Indoneshia desu.)</div>
+        <div class="translate">Indonesia.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">かいしゃは どちらですか。</div>
+        <div class="romaji-line">(Kaisha wa dochira desu ka?)</div>
+        <div class="translate">Perusahaan tempat kerja Anda apa/di mana?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ パワーでんきです。</div>
+        <div class="romaji-line">(Pawaa Denki desu.)</div>
+        <div class="translate">Power Denki.</div>
+      </div>
+    </div>
+
+    <!-- 4. Buatan mana -->
+    <div class="grammar-card">
+      <h4>4. Menanyakan Buatan Mana / Merk Apa</h4>
+      <div class="formula">どこの N ですか &nbsp; (Doko no N desu ka?)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong></p>
+      <ul class="tip-list">
+        <li>Menanyakan negara pembuat (<em>Made in...</em>).</li>
+        <li>Menanyakan perusahaan/merk pembuat barang tersebut.</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">これは どこの コンピューターですか。</div>
+        <div class="romaji-line">(Kore wa doko no konpyuutaa desu ka?)</div>
+        <div class="translate">Ini komputer buatan mana / merk apa?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ にほんの コンピューターです。</div>
+        <div class="romaji-line">(Nihon no konpyuutaa desu.)</div>
+        <div class="translate">Komputer buatan Jepang.</div>
+        <div class="jp-line" style="margin-top:8px;">↳ IMCの コンピューターです。</div>
+        <div class="romaji-line">(IMC no konpyuutaa desu.)</div>
+        <div class="translate">Komputer merk/buatan perusahaan IMC.</div>
+      </div>
+    </div>
+
+    <!-- 5. Harga -->
+    <div class="grammar-card">
+      <h4>5. Menanyakan Harga Barang</h4>
+      <div class="formula">[N は] いくらですか &nbsp; ([N wa] ikura desu ka?)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menanyakan berapa harga sebuah barang.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">この とけいは いくらですか。</div>
+        <div class="romaji-line">(Kono tokei wa ikura desu ka?)</div>
+        <div class="translate">Berapa harga jam tangan ini?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ 18,600えんです。</div>
+        <div class="romaji-line">(Ichi-man hassen roppyaku-en desu.)</div>
+        <div class="translate">Harganya ¥18.600.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">じゃ、これを ください。</div>
+        <div class="romaji-line">(Ja, kore o kudasai.)</div>
+        <div class="translate">Kalau begitu, saya minta/beli yang ini.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- CATATAN & JEBAKAN -->
+  <section>
+    <h2><span class="emoji-section">⚠️</span> Catatan &amp; Jebakan Pemula <span style="font-size:0.75em; color:var(--danger);">(Wajib Diingat!)</span></h2>
+
+    <div class="warning-box">
+      <h4>1. JANGAN Gunakan 何 (<em>nan/nani</em>) untuk Menanyakan Sekolah/Kantor/Negara!</h4>
+      <ul class="tip-list">
+        <li>Di bahasa Indonesia kita biasa bertanya: <em>"Apa nama kampusmu?"</em> atau <em>"Apa kantormu?"</em></li>
+        <li>Dalam bahasa Jepang, pantang menggunakan <em>nan</em> (<span class="wrong">Kaisha wa nan desu ka</span> ❌).</li>
+        <li><strong>Wajib gunakan どこ (<em>doko</em>)</strong> atau bentuk sopannya <strong>どちら (<em>dochira</em>)</strong> ✔️!</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>2. Perubahan Bunyi Lantai (階 / <em>kai</em>) yang Sering Menjebak</h4>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Lantai</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>Lantai 1</td><td class="jp">いっかい</td><td class="romaji">ikkai</td></tr>
+          <tr><td>Lantai 3</td><td class="jp">さんがい</td><td class="romaji">sangai</td></tr>
+          <tr><td>Lantai 6</td><td class="jp">ろっかい</td><td class="romaji">rokkai</td></tr>
+          <tr><td>Lantai 8</td><td class="jp">はっかい</td><td class="romaji">hakkai</td></tr>
+          <tr><td>Lantai 10</td><td class="jp">じゅっかい / じっかい</td><td class="romaji">jukkai / jikkai</td></tr>
+          <tr><td>Bawah tanah 1</td><td class="jp">ちかいっかい</td><td class="romaji">chika ikkai</td></tr>
+          <tr><td>Lantai berapa?</td><td class="jp">なんがい</td><td class="romaji">nangai</td></tr>
+        </table>
+      </div>
+      <p style="margin:8px 0 0; font-size:0.9em; color:var(--muted);">⚠️ Perhatikan: lantai 3 dan <em>nangai</em> berbunyi <strong>g</strong>, bukan <em>k</em>.</p>
+    </div>
+
+    <div class="warning-box">
+      <h4>3. Perubahan Bunyi Ratusan &amp; Ribuan (Waspada Angka Unik!)</h4>
+
+      <p style="margin:6px 0;"><strong>Ratusan (百 / <em>hyaku</em>):</strong></p>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Angka</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>300</td><td class="jp">さんびゃく</td><td class="romaji">sanbyaku</td></tr>
+          <tr><td>600</td><td class="jp">ろっぴゃく</td><td class="romaji">roppyaku</td></tr>
+          <tr><td>800</td><td class="jp">はっぴゃく</td><td class="romaji">happyaku</td></tr>
+        </table>
+      </div>
+
+      <p style="margin:12px 0 6px;"><strong>Ribuan (千 / <em>sen</em>):</strong></p>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Angka</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>3.000</td><td class="jp">さんぜん</td><td class="romaji">sanzen</td></tr>
+          <tr><td>8.000</td><td class="jp">はっせん</td><td class="romaji">hassen</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>4. Konsep Satuan 万 (<em>man</em>) = 10.000 (Kelipatan 4 Nol)</h4>
+      <ul class="tip-list">
+        <li>Berbeda dengan rupiah/sistem internasional yang memotong angka per 3 digit ribuan, bahasa Jepang membaca kelipatan per 4 digit nol (<em>man</em>):</li>
+      </ul>
+      <div class="table-wrap">
+        <table class="num-table">
+          <tr><th>Angka</th><th>Penulisan</th><th>Romaji</th></tr>
+          <tr><td>10.000</td><td class="jp">一万</td><td class="romaji">ichi-man</td></tr>
+          <tr><td>50.000</td><td class="jp">五万</td><td class="romaji">go-man</td></tr>
+          <tr><td>100.000</td><td class="jp">十万</td><td class="romaji">juu-man</td></tr>
+          <tr><td>1.000.000</td><td class="jp">百万</td><td class="romaji">hyaku-man</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>5. Multifungsi Kata こちら (<em>kochira</em>)</h4>
+      <ul class="tip-list">
+        <li>Jangan bingung jika menemukan kata <em>kochira</em> dalam banyak situasi:
+          <ul>
+            <li>Menunjuk arah: <em>"Sebelah sini"</em> (<em>Kochira desu</em>)</li>
+            <li>Tempat sopan: <em>"Di sini"</em> (menggantikan <em>koko</em>)</li>
+            <li>Memperkenalkan orang lain (Bab 1): <em>"Ini adalah Sdr. Miller"</em> (<em>Kochira wa Miraa-san desu</em>).</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

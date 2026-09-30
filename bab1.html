@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#d94f4f">
+<title>Catatan Belajar: Minna no Nihongo — Bab 1</title>
+<style>
+  :root {
+    --primary: #d94f4f;
+    --primary-dark: #b83838;
+    --accent: #2c7a7b;
+    --bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b6b6b;
+    --border: #eee2d3;
+    --highlight: #fff7e6;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    width: 100%;
+  }
+
+  /* ---------- Header ---------- */
+  header.title {
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header.title h1 {
+    font-size: 1.9em;
+    line-height: 1.3;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+    letter-spacing: 0.3px;
+  }
+  header.title .subtitle {
+    color: var(--muted);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  /* ---------- Headings ---------- */
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    border-left: 6px solid var(--primary);
+    padding-left: 14px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  h3 {
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 1em;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  /* ---------- Theme box ---------- */
+  .theme-box {
+    background: var(--highlight);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .theme-box ol { margin: 8px 0 0; padding-left: 22px; }
+  .theme-box ol li { margin-bottom: 6px; }
+
+  /* ---------- Vocabulary list ---------- */
+  ul.vocab { list-style: none; padding: 0; margin: 0; }
+  ul.vocab li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 1.55;
+  }
+  ul.vocab li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 8px rgba(217, 79, 79, 0.08);
+  }
+
+  .jp {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.02em;
+    overflow-wrap: anywhere;
+  }
+  .romaji {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .meaning { color: var(--text); }
+  .eq { color: var(--muted); margin: 0 4px; }
+
+  /* ---------- Grammar cards ---------- */
+  .grammar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grammar-card h4 {
+    margin-top: 0;
+    font-size: 1.08em;
+    color: var(--primary-dark);
+  }
+
+  .formula {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meaning-line { margin: 6px 0; }
+  .meaning-line strong { color: var(--accent); }
+
+  /* ---------- Example blocks ---------- */
+  .example-block {
+    background: #f6f8fa;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+    overflow-wrap: anywhere;
+  }
+  .example-block .jp-line {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  .example-block .romaji-line {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+  }
+  .example-block .translate {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .example-block .translate::before {
+    content: "👉 ";
+    display: inline;
+  }
+
+  /* ---------- Warning boxes ---------- */
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #f5d9b8;
+    border-left: 5px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .warning-box h4 { margin-top: 0; color: var(--danger); }
+  .warning-box .wrong { color: var(--danger); font-weight: 600; }
+  .warning-box .right { color: var(--success); font-weight: 600; }
+
+  .tip-list { padding-left: 20px; margin: 10px 0; }
+  .tip-list li { margin-bottom: 8px; }
+  .tip-list ul { margin-top: 6px; margin-bottom: 6px; }
+
+  /* ---------- Sub-question ---------- */
+  .sub-q {
+    background: #f0f7f7;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+  .sub-q .label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+  .emoji-section { font-size: 1.2em; margin-right: 6px; }
+
+  /* ---------- Rule box ---------- */
+  .rule-box {
+    background: #eef7f7;
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .rule-box .rule-title {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Tables (responsive scroll) ---------- */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+  .num-table, .conj-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.94em;
+  }
+  .num-table th, .num-table td,
+  .conj-table th, .conj-table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .num-table th, .conj-table thead th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .conj-table thead th {
+    background: linear-gradient(135deg, #d94f4f, #b83838);
+    color: white;
+    text-align: center;
+  }
+  .conj-table tbody th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: left;
+  }
+  .num-table tr:nth-child(even) td { background: #fafafa; }
+  .conj-table td .form-item {
+    font-family: "Courier New", monospace;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conj-table td .ex-item {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+
+  /* ---------- Date grid (Bab 5) ---------- */
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .date-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .date-item .num {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 40px;
+  }
+
+  /* ---------- Time group (Bab 5) ---------- */
+  .time-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .time-group .tg-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .time-group .tg-item .label {
+    display: block;
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .time-group .tg-item .jp { display: block; font-size: 1.05em; }
+  .time-group .tg-item .romaji { display: block; font-size: 0.88em; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    header.title h1 { font-size: 1.45em; }
+    header.title .subtitle { font-size: 0.88em; }
+    h2 { font-size: 1.18em; padding-left: 12px; }
+    h3 { font-size: 1.05em; }
+    .grammar-card { padding: 14px 14px; border-radius: 8px; }
+    .theme-box { padding: 14px 16px; }
+    ul.vocab li { padding: 9px 12px; font-size: 0.96em; }
+    .example-block { padding: 10px 12px; }
+    .formula { font-size: 0.92em; padding: 8px 12px; }
+    .num-table, .conj-table { font-size: 0.88em; min-width: 380px; }
+    .num-table th, .num-table td,
+    .conj-table th, .conj-table td { padding: 6px 8px; }
+    .date-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .time-group { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .container { padding: 18px 12px 50px; }
+    header.title h1 { font-size: 1.25em; }
+    h2 { font-size: 1.08em; }
+    ul.vocab li { font-size: 0.92em; }
+    .num-table, .conj-table { min-width: 320px; font-size: 0.82em; }
+    .date-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    ul.vocab li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="title">
+    <h1>📚 Catatan Belajar: Minna no Nihongo — Bab 1</h1>
+    <div class="subtitle">Jikoshoukai · Identitas Dasar · Tata Bahasa Awal</div>
+  </header>
+
+  <!-- TEMA & FOKUS -->
+  <section>
+    <h2><span class="emoji-section">📌</span> Tema &amp; Fokus Bab</h2>
+    <div class="theme-box">
+      <strong>Fokus Utama:</strong> Perkenalan diri (<em>Jikoshoukai</em>), menyebutkan identitas dasar (nama, asal negara, profesi, umur), serta menanyakan identitas orang lain secara sopan.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KOSAKATA -->
+  <section>
+    <h2><span class="emoji-section">📝</span> Kosakata Penting</h2>
+
+    <h3>1. Kata Ganti Orang &amp; Panggilan</h3>
+    <ul class="vocab">
+      <li><span class="jp">私 / わたし</span><span class="eq">=</span><span class="romaji">watashi</span><span class="eq">=</span><span class="meaning">Saya</span></li>
+      <li><span class="jp">あなた</span><span class="eq">=</span><span class="romaji">anata</span><span class="eq">=</span><span class="meaning">Anda / Kamu</span></li>
+      <li><span class="jp">あの人 / あのひと</span><span class="eq">=</span><span class="romaji">ano hito</span><span class="eq">=</span><span class="meaning">Orang itu</span></li>
+      <li><span class="jp">あの方 / あのかた</span><span class="eq">=</span><span class="romaji">ano kata</span><span class="eq">=</span><span class="meaning">Orang itu / Beliau (versi lebih sopan dari <em>ano hito</em>)</span></li>
+      <li><span class="jp">～さん</span><span class="eq">=</span><span class="romaji">~san</span><span class="eq">=</span><span class="meaning">Tuan / Nyonya / Nona / Sdr. (panggilan sopan di belakang nama orang)</span></li>
+      <li><span class="jp">～ちゃん</span><span class="eq">=</span><span class="romaji">~chan</span><span class="eq">=</span><span class="meaning">Panggilan akrab/sayang untuk anak kecil atau teman dekat</span></li>
+    </ul>
+
+    <h3>2. Profesi &amp; Status</h3>
+    <ul class="vocab">
+      <li><span class="jp">先生 / せんせい</span><span class="eq">=</span><span class="romaji">sensei</span><span class="eq">=</span><span class="meaning">Guru / Dosen (panggilan hormat untuk orang lain)</span></li>
+      <li><span class="jp">教師 / きょうし</span><span class="eq">=</span><span class="romaji">kyoushi</span><span class="eq">=</span><span class="meaning">Guru / Pengajar (dipakai saat menyebut profesi diri sendiri)</span></li>
+      <li><span class="jp">学生 / がくせい</span><span class="eq">=</span><span class="romaji">gakusei</span><span class="eq">=</span><span class="meaning">Pelajar / Mahasiswa</span></li>
+      <li><span class="jp">会社員 / かいしゃいん</span><span class="eq">=</span><span class="romaji">kaishain</span><span class="eq">=</span><span class="meaning">Karyawan swasta / pegawai perusahaan (secara umum)</span></li>
+      <li><span class="jp">社員 / しゃいん</span><span class="eq">=</span><span class="romaji">shain</span><span class="eq">=</span><span class="meaning">Pegawai perusahaan... (dipakai bersama nama instansi, misal: <em>IMC no shain</em>)</span></li>
+      <li><span class="jp">銀行員 / ぎんこういん</span><span class="eq">=</span><span class="romaji">ginkouin</span><span class="eq">=</span><span class="meaning">Pegawai bank</span></li>
+      <li><span class="jp">医者 / いしゃ</span><span class="eq">=</span><span class="romaji">isha</span><span class="eq">=</span><span class="meaning">Dokter</span></li>
+      <li><span class="jp">研究者 / けんきゅうしゃ</span><span class="eq">=</span><span class="romaji">kenkyuusha</span><span class="eq">=</span><span class="meaning">Peneliti</span></li>
+    </ul>
+
+    <h3>3. Tempat &amp; Lembaga</h3>
+    <ul class="vocab">
+      <li><span class="jp">大学 / だいがく</span><span class="eq">=</span><span class="romaji">daigaku</span><span class="eq">=</span><span class="meaning">Universitas / Perguruan tinggi</span></li>
+      <li><span class="jp">病院 / びょういん</span><span class="eq">=</span><span class="romaji">byouin</span><span class="eq">=</span><span class="meaning">Rumah sakit</span></li>
+    </ul>
+
+    <h3>4. Kata Tanya &amp; Umur</h3>
+    <ul class="vocab">
+      <li><span class="jp">だれ</span><span class="eq">=</span><span class="romaji">dare</span><span class="eq">=</span><span class="meaning">Siapa</span></li>
+      <li><span class="jp">どなた</span><span class="eq">=</span><span class="romaji">donata</span><span class="eq">=</span><span class="meaning">Siapa (bentuk sopan)</span></li>
+      <li><span class="jp">～歳 / ～さい</span><span class="eq">=</span><span class="romaji">~sai</span><span class="eq">=</span><span class="meaning">... tahun (satuan umur)</span></li>
+      <li><span class="jp">何歳 / なんさい</span><span class="eq">=</span><span class="romaji">nansai</span><span class="eq">=</span><span class="meaning">Berapa umur / Berapa usia</span></li>
+      <li><span class="jp">おいくつ</span><span class="eq">=</span><span class="romaji">oikutsu</span><span class="eq">=</span><span class="meaning">Berapa umur (bentuk sopan)</span></li>
+    </ul>
+
+    <h3>5. Ungkapan Salam &amp; Perkenalan Diri (<em>Jikoshoukai</em>)</h3>
+    <ul class="vocab">
+      <li><span class="jp">はい</span><span class="eq">=</span><span class="romaji">hai</span><span class="eq">=</span><span class="meaning">Ya</span></li>
+      <li><span class="jp">いいえ</span><span class="eq">=</span><span class="romaji">iie</span><span class="eq">=</span><span class="meaning">Tidak / Bukan</span></li>
+      <li><span class="jp">初めまして / はじめまして</span><span class="eq">=</span><span class="romaji">hajimemashite</span><span class="eq">=</span><span class="meaning">Salam kenal / Perkenalkan (diucapkan pertama kali saat baru bertemu)</span></li>
+      <li><span class="jp">～から来ました / ～からきました</span><span class="eq">=</span><span class="romaji">~kara kimashita</span><span class="eq">=</span><span class="meaning">Saya datang / berasal dari [nama tempat/negara]</span></li>
+      <li><span class="jp">[どうぞ] よろしく [お願いします]</span><span class="eq">=</span><span class="romaji">[douzo] yoroshiku [onegaishimasu]</span><span class="eq">=</span><span class="meaning">Senang berkenalan dengan Anda / Mohon bimbingannya (penutup perkenalan)</span></li>
+      <li><span class="jp">失礼ですが / しつれいですが</span><span class="eq">=</span><span class="romaji">shitsurei desu ga</span><span class="eq">=</span><span class="meaning">Permisi / Maaf sebelumnya (diucapkan sebelum menanyakan hal pribadi seperti nama atau umur)</span></li>
+      <li><span class="jp">お名前は？ / おなまえは？</span><span class="eq">=</span><span class="romaji">o-namae wa?</span><span class="eq">=</span><span class="meaning">Siapa nama Anda?</span></li>
+      <li><span class="jp">こちらは～さんです</span><span class="eq">=</span><span class="romaji">kochira wa ~san desu</span><span class="eq">=</span><span class="meaning">Ini adalah Sdr./Bpk./Ibu... (digunakan untuk mengenalkan orang lain)</span></li>
+    </ul>
+
+    <h3>6. Rumus Negara, Warga Negara, &amp; Bahasa</h3>
+
+    <div class="rule-box">
+      <div class="rule-title">🌏 Nama Negara + 人 (じん / <em>jin</em>) = Warga negara</div>
+      <ul class="vocab">
+        <li><span class="jp">日本</span> <span class="romaji">(Nihon)</span> <span class="eq">➔</span> <span class="jp">日本人</span> <span class="romaji">(Nihon-jin = Orang Jepang)</span></li>
+        <li><span class="jp">インドネシア</span> <span class="romaji">(Indoneshia)</span> <span class="eq">➔</span> <span class="jp">インドネシア人</span> <span class="romaji">(Indoneshia-jin = Orang Indonesia)</span></li>
+      </ul>
+    </div>
+
+    <div class="rule-box">
+      <div class="rule-title">🗣️ Nama Negara + 語 (ご / <em>go</em>) = Bahasa</div>
+      <ul class="vocab">
+        <li><span class="jp">日本</span> <span class="romaji">(Nihon)</span> <span class="eq">➔</span> <span class="jp">日本語</span> <span class="romaji">(Nihon-go = Bahasa Jepang)</span></li>
+        <li><span class="jp">インドネシア</span> <span class="romaji">(Indoneshia)</span> <span class="eq">➔</span> <span class="jp">インドネシア語</span> <span class="romaji">(Indoneshia-go = Bahasa Indonesia)</span></li>
+      </ul>
+      <p style="margin: 10px 0 0; font-size: 0.95em;"><strong>Catatan khusus:</strong> Bahasa Inggris = <span class="jp">英語 / えいご</span> (<span class="romaji">eigo</span>).</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- POLA KALIMAT -->
+  <section>
+    <h2><span class="emoji-section">📖</span> Pola Kalimat &amp; Tata Bahasa</h2>
+
+    <!-- 1. Positif -->
+    <div class="grammar-card">
+      <h4>1. Menyatakan Identitas / Kalimat Positif</h4>
+      <div class="formula">N1 は N2 です &nbsp; (N1 wa N2 desu)</div>
+      <p class="meaning-line"><strong>Arti:</strong> N1 adalah N2</p>
+      <p class="meaning-line"><strong>Penjelasan:</strong></p>
+      <ul class="tip-list">
+        <li>Partikel <strong>は</strong> berfungsi sebagai penanda topik kalimat (hal yang sedang dibahas). Meskipun ditulis dengan huruf Hiragana <em>ha</em>, saat berfungsi sebagai partikel wajib dibaca <strong>wa</strong>.</li>
+        <li><strong>です (desu)</strong> diletakkan di akhir kalimat predikat kata benda untuk menyatakan kepastian dan memberi kesan sopan. Huruf <em>u</em> di ujungnya diucapkan samar (terdengar seperti <em>des</em>).</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">わたしは マイク・ミラーです。</div>
+        <div class="romaji-line">(Watashi wa Maiku Miraa desu.)</div>
+        <div class="translate">Saya adalah Mike Miller.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">わたしは かいしゃいんです。</div>
+        <div class="romaji-line">(Watashi wa kaishain desu.)</div>
+        <div class="translate">Saya adalah karyawan perusahaan.</div>
+      </div>
+    </div>
+
+    <!-- 2. Negatif -->
+    <div class="grammar-card">
+      <h4>2. Menyangkal Identitas / Kalimat Negatif</h4>
+      <div class="formula">N1 は N2 じゃ ありません / では ありません &nbsp; (N1 wa N2 ja arimasen / dewa arimasen)</div>
+      <p class="meaning-line"><strong>Arti:</strong> N1 bukan / bukanlah N2</p>
+      <p class="meaning-line"><strong>Penjelasan:</strong></p>
+      <ul class="tip-list">
+        <li>Ini adalah bentuk negatif dari <strong>です</strong>.</li>
+        <li><strong>じゃ ありません (ja arimasen)</strong> umum dipakai dalam percakapan sehari-hari.</li>
+        <li><strong>では ありません (dewa arimasen)</strong> lebih formal dan biasa dipakai dalam situasi resmi atau bahasa tulis (huruf <em>ha</em> pada <em>dewa</em> juga dibaca <em>wa</em>).</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">サントスさんは がくせいじゃ ありません。</div>
+        <div class="romaji-line">(Santosu-san wa gakusei ja arimasen.)</div>
+        <div class="translate">Sdr. Santos bukan mahasiswa.</div>
+      </div>
+    </div>
+
+    <!-- 3. Tanya -->
+    <div class="grammar-card">
+      <h4>3. Kalimat Tanya (Interogatif)</h4>
+      <div class="formula">Kalimat + か &nbsp; (... ka?)</div>
+      <p class="meaning-line"><strong>Penjelasan:</strong> Partikel <strong>か (ka)</strong> di akhir kalimat berfungsi layaknya tanda tanya (?). Dibaca dengan intonasi naik di ujung kata.</p>
+
+      <div class="sub-q">
+        <span class="label">Tipe A</span><strong>Pertanyaan Ya/Tidak</strong>
+        <div class="example-block">
+          <div class="jp-line">ミラーさんは アメリカじんですか。</div>
+          <div class="romaji-line">(Miraa-san wa amerika-jin desu ka?)</div>
+          <div class="translate">Apakah Sdr. Miller orang Amerika?</div>
+        </div>
+        <div class="example-block">
+          <div class="jp-line">はい、アメリカじんです。</div>
+          <div class="romaji-line">(Hai, amerika-jin desu.)</div>
+          <div class="translate">Ya, orang Amerika.</div>
+        </div>
+        <div class="example-block">
+          <div class="jp-line">いいえ、アメリカじんじゃ ありません。</div>
+          <div class="romaji-line">(Iie, amerika-jin ja arimasen.)</div>
+          <div class="translate">Bukan, bukan orang Amerika.</div>
+        </div>
+      </div>
+
+      <div class="sub-q">
+        <span class="label">Tipe B</span><strong>Pertanyaan Menggunakan Kata Tanya (<em>Dare / Donata / Nansai</em>)</strong>
+        <div class="example-block">
+          <div class="jp-line">あのかたは どなたですか。</div>
+          <div class="romaji-line">(Ano kata wa donata desu ka?)</div>
+          <div class="translate">Beliau itu siapa?</div>
+          <div class="jp-line" style="margin-top:8px;">↳ [あのかたは] ミラーさんです。</div>
+          <div class="romaji-line">([Ano kata wa] Miraa-san desu.)</div>
+          <div class="translate">[Beliau] adalah Sdr. Miller.</div>
+        </div>
+        <div class="example-block">
+          <div class="jp-line">テレサちゃんは なんさいですか。</div>
+          <div class="romaji-line">(Teresa-chan wa nan-sai desu ka?)</div>
+          <div class="translate">Teresa umurnya berapa tahun?</div>
+          <div class="jp-line" style="margin-top:8px;">↳ 9さいです。</div>
+          <div class="romaji-line">(Kyuu-sai desu.)</div>
+          <div class="translate">9 tahun.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Mo -->
+    <div class="grammar-card">
+      <h4>4. Menyatakan Kesamaan Predikat ("Juga / Pun")</h4>
+      <div class="formula">N も ... &nbsp; (N mo ...)</div>
+      <p class="meaning-line"><strong>Arti:</strong> N juga...</p>
+      <p class="meaning-line"><strong>Penjelasan:</strong> Partikel <strong>も (mo)</strong> dipakai untuk menggantikan partikel <strong>は (wa)</strong> jika informasi/predikat yang dibicarakan sama dengan kalimat sebelumnya.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">ミラーさんは かいしゃいんです。グプタさんも かいしゃいんです。</div>
+        <div class="romaji-line">(Miraa-san wa kaishain desu. Guta-san mo kaishain desu.)</div>
+        <div class="translate">Sdr. Miller adalah karyawan kantor. Sdr. Gupta <strong>juga</strong> karyawan kantor.</div>
+      </div>
+    </div>
+
+    <!-- 5. No -->
+    <div class="grammar-card">
+      <h4>5. Menghubungkan Dua Kata Benda (Kepemilikan / Afiliasi)</h4>
+      <div class="formula">N1 の N2 &nbsp; (N1 no N2)</div>
+      <p class="meaning-line"><strong>Penjelasan:</strong></p>
+      <ul class="tip-list">
+        <li>Partikel <strong>の (no)</strong> menyambungkan dua kata benda, di mana <strong>N1 menerangkan N2</strong>.</li>
+        <li>Di Bab 1, pola ini dipakai untuk menunjukkan afiliasi atau tempat seseorang bernaung (organisasi, perusahaan, atau universitas tempat ia berada).</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">ミラーさんは IMCの しゃいんです。</div>
+        <div class="romaji-line">(Miraa-san wa IMC no shain desu.)</div>
+        <div class="translate">Sdr. Miller adalah karyawan <strong>dari</strong> perusahaan IMC.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">さくらだいがくの せんせい。</div>
+        <div class="romaji-line">(Sakura daigaku no sensei.)</div>
+        <div class="translate">Dosen <strong>dari</strong> Universitas Sakura.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- CATATAN & JEBAKAN -->
+  <section>
+    <h2><span class="emoji-section">⚠️</span> Catatan &amp; Jebakan Pemula <span style="font-size:0.75em; color:var(--danger);">(Wajib Diingat!)</span></h2>
+
+    <div class="warning-box">
+      <h4>1. Partikel は Ditulis "ha", Dibaca "wa"</h4>
+      <p>Saat menjadi partikel penanda topik, gunakan huruf Hiragana <span class="jp">は</span> (<em>ha</em>), tetapi lidah kita wajib mengucapkannya sebagai <strong>wa</strong>.</p>
+    </div>
+
+    <div class="warning-box">
+      <h4>2. Jangan Pasang ～さん (<em>-san</em>) untuk Diri Sendiri!</h4>
+      <ul class="tip-list">
+        <li>Akhiran <em>-san</em> adalah bentuk penghormatan kepada orang lain.</li>
+        <li>❌ <span class="wrong">Watashi wa Adam-san desu</span> (Salah dan terdengar arogan).</li>
+        <li>✔️ <span class="right">Watashi wa Adam desu</span> (Benar).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>3. Hindari Terlalu Sering Menggunakan あなた (<em>anata</em>)</h4>
+      <ul class="tip-list">
+        <li>Meskipun artinya "Anda/Kamu", dalam budaya Jepang menyebut <em>anata</em> kepada orang yang belum akrab atau orang yang lebih tua/atasan terkesan berjarak atau kurang sopan.</li>
+        <li>Jika sudah tahu namanya, panggil langsung: <strong>[Nama] + さん</strong> (Contoh: <em>Miraa-san wa gakusei desu ka?</em>).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>4. Beda 先生 (<em>sensei</em>) vs 教師 (<em>kyoushi</em>)</h4>
+      <ul class="tip-list">
+        <li><em>Sensei</em>: Panggilan/sapaan hormat untuk profesi guru, dokter, politisi, atau orang berilmu.</li>
+        <li><em>Kyoushi</em>: Murni nama profesi kependidikan. Jika kamu seorang guru dan ditanya pekerjaanmu, jawab: <em>Watashi wa kyoushi desu</em> (bukan <em>watashi wa sensei desu</em>).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>5. Beda 会社員 (<em>kaishain</em>) vs 社員 (<em>shain</em>)</h4>
+      <ul class="tip-list">
+        <li><em>Kaishain</em>: Dipakai sendirian untuk menyatakan profesi umum ("Saya orang kantoran/karyawan swasta").</li>
+        <li><em>Shain</em>: Wajib menempel pada nama perusahaan pemiliknya menggunakan partikel <em>no</em> (Contoh: <em>Toyota no shain</em>, <em>IMC no shain</em>).</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

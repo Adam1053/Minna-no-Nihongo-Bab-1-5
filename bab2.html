@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#d94f4f">
+<title>Catatan Belajar: Minna no Nihongo — Bab 2</title>
+<style>
+  :root {
+    --primary: #d94f4f;
+    --primary-dark: #b83838;
+    --accent: #2c7a7b;
+    --bg: #fdfaf6;
+    --card-bg: #ffffff;
+    --text: #2d2d2d;
+    --muted: #6b6b6b;
+    --border: #eee2d3;
+    --highlight: #fff7e6;
+    --danger: #c0392b;
+    --success: #27ae60;
+  }
+
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", "Noto Sans JP", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    width: 100%;
+  }
+
+  /* ---------- Header ---------- */
+  header.title {
+    text-align: center;
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header.title h1 {
+    font-size: 1.9em;
+    line-height: 1.3;
+    color: var(--primary-dark);
+    margin: 0 0 8px;
+    letter-spacing: 0.3px;
+  }
+  header.title .subtitle {
+    color: var(--muted);
+    font-size: 0.95em;
+    font-style: italic;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px dashed var(--border);
+    margin: 36px 0;
+  }
+
+  /* ---------- Headings ---------- */
+  h2 {
+    font-size: 1.35em;
+    line-height: 1.35;
+    color: var(--primary-dark);
+    border-left: 6px solid var(--primary);
+    padding-left: 14px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+    scroll-margin-top: 16px;
+  }
+  h3 {
+    font-size: 1.12em;
+    color: var(--accent);
+    margin-top: 28px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  h4 {
+    font-size: 1em;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  /* ---------- Theme box ---------- */
+  .theme-box {
+    background: var(--highlight);
+    border-left: 5px solid var(--primary);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .theme-box ol { margin: 8px 0 0; padding-left: 22px; }
+  .theme-box ol li { margin-bottom: 6px; }
+
+  /* ---------- Vocabulary list ---------- */
+  ul.vocab { list-style: none; padding: 0; margin: 0; }
+  ul.vocab li {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 4px 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    line-height: 1.55;
+  }
+  ul.vocab li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 8px rgba(217, 79, 79, 0.08);
+  }
+
+  .jp {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", sans-serif;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.02em;
+    overflow-wrap: anywhere;
+  }
+  .romaji {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+  }
+  .meaning { color: var(--text); }
+  .eq { color: var(--muted); margin: 0 4px; }
+
+  /* ---------- Grammar cards ---------- */
+  .grammar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grammar-card h4 {
+    margin-top: 0;
+    font-size: 1.08em;
+    color: var(--primary-dark);
+  }
+
+  .formula {
+    background: linear-gradient(135deg, #fff5f5, #ffeaea);
+    border-left: 4px solid var(--primary);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 10px 0 14px;
+    font-family: "Courier New", ui-monospace, monospace;
+    font-size: 0.98em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .meaning-line { margin: 6px 0; }
+  .meaning-line strong { color: var(--accent); }
+
+  /* ---------- Example blocks ---------- */
+  .example-block {
+    background: #f6f8fa;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 10px 0;
+    border-left: 3px solid var(--accent);
+    overflow-wrap: anywhere;
+  }
+  .example-block .jp-line {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-size: 1.02em;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+    line-height: 1.5;
+  }
+  .example-block .romaji-line {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+  }
+  .example-block .translate {
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .example-block .translate::before {
+    content: "👉 ";
+    display: inline;
+  }
+
+  /* ---------- Warning boxes ---------- */
+  .warning-box {
+    background: #fff8f0;
+    border: 1px solid #f5d9b8;
+    border-left: 5px solid var(--danger);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+  }
+  .warning-box h4 { margin-top: 0; color: var(--danger); }
+  .warning-box .wrong { color: var(--danger); font-weight: 600; }
+  .warning-box .right { color: var(--success); font-weight: 600; }
+
+  .tip-list { padding-left: 20px; margin: 10px 0; }
+  .tip-list li { margin-bottom: 8px; }
+  .tip-list ul { margin-top: 6px; margin-bottom: 6px; }
+
+  /* ---------- Sub-question ---------- */
+  .sub-q {
+    background: #f0f7f7;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin: 10px 0;
+  }
+  .sub-q .label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 0.78em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: middle;
+    font-weight: 600;
+  }
+
+  .emoji-section { font-size: 1.2em; margin-right: 6px; }
+
+  /* ---------- Rule box ---------- */
+  .rule-box {
+    background: #eef7f7;
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .rule-box .rule-title {
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Tables (responsive scroll) ---------- */
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 12px 0;
+    border-radius: 8px;
+  }
+  .num-table, .conj-table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.94em;
+  }
+  .num-table th, .num-table td,
+  .conj-table th, .conj-table td {
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .num-table th, .conj-table thead th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .conj-table thead th {
+    background: linear-gradient(135deg, #d94f4f, #b83838);
+    color: white;
+    text-align: center;
+  }
+  .conj-table tbody th {
+    background: #f0f7f7;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: left;
+  }
+  .num-table tr:nth-child(even) td { background: #fafafa; }
+  .conj-table td .form-item {
+    font-family: "Courier New", monospace;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .conj-table td .ex-item {
+    display: block;
+    color: var(--muted);
+    font-size: 0.9em;
+  }
+
+  /* ---------- Date grid (Bab 5) ---------- */
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .date-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 0.95em;
+  }
+  .date-item .num {
+    font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+    font-weight: 700;
+    color: var(--primary-dark);
+    min-width: 40px;
+  }
+
+  /* ---------- Time group (Bab 5) ---------- */
+  .time-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .time-group .tg-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .time-group .tg-item .label {
+    display: block;
+    font-size: 0.78em;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .time-group .tg-item .jp { display: block; font-size: 1.05em; }
+  .time-group .tg-item .romaji { display: block; font-size: 0.88em; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px) {
+    .container { padding: 24px 16px 60px; }
+    header.title h1 { font-size: 1.45em; }
+    header.title .subtitle { font-size: 0.88em; }
+    h2 { font-size: 1.18em; padding-left: 12px; }
+    h3 { font-size: 1.05em; }
+    .grammar-card { padding: 14px 14px; border-radius: 8px; }
+    .theme-box { padding: 14px 16px; }
+    ul.vocab li { padding: 9px 12px; font-size: 0.96em; }
+    .example-block { padding: 10px 12px; }
+    .formula { font-size: 0.92em; padding: 8px 12px; }
+    .num-table, .conj-table { font-size: 0.88em; min-width: 380px; }
+    .num-table th, .num-table td,
+    .conj-table th, .conj-table td { padding: 6px 8px; }
+    .date-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+    .time-group { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .container { padding: 18px 12px 50px; }
+    header.title h1 { font-size: 1.25em; }
+    h2 { font-size: 1.08em; }
+    ul.vocab li { font-size: 0.92em; }
+    .num-table, .conj-table { min-width: 320px; font-size: 0.82em; }
+    .date-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+    ul.vocab li:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="title">
+    <h1>📚 Catatan Belajar: Minna no Nihongo — Bab 2</h1>
+    <div class="subtitle">Kore · Sore · Are · Kono · Sono · Ano · Partikel の</div>
+  </header>
+
+  <!-- TEMA & FOKUS -->
+  <section>
+    <h2><span class="emoji-section">📌</span> Tema &amp; Fokus Bab</h2>
+    <div class="theme-box">
+      <strong>Fokus Utama:</strong> Menunjuk benda di sekitar berdasarkan jarak (ini/itu), menanyakan nama benda, menanyakan isi/topik benda, serta kepemilikan benda ("punya siapa").
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KOSAKATA -->
+  <section>
+    <h2><span class="emoji-section">📝</span> Kosakata Penting</h2>
+
+    <h3>1. Kata Tunjuk Benda (Kore - Sore - Are)</h3>
+    <ul class="vocab">
+      <li><span class="jp">これ</span><span class="eq">=</span><span class="romaji">kore</span><span class="eq">=</span><span class="meaning">Ini (benda berada dekat dengan si pembicara)</span></li>
+      <li><span class="jp">それ</span><span class="eq">=</span><span class="romaji">sore</span><span class="eq">=</span><span class="meaning">Itu (benda berada dekat dengan lawan bicara)</span></li>
+      <li><span class="jp">あれ</span><span class="eq">=</span><span class="romaji">are</span><span class="eq">=</span><span class="meaning">Itu (benda berada jauh dari pembicara maupun lawan bicara)</span></li>
+      <li><span class="jp">この + N</span><span class="eq">=</span><span class="romaji">kono...</span><span class="eq">=</span><span class="meaning">... ini (wajib menempel langsung di depan kata benda)</span></li>
+      <li><span class="jp">その + N</span><span class="eq">=</span><span class="romaji">sono...</span><span class="eq">=</span><span class="meaning">... itu (menempel di depan kata benda; dekat lawan bicara)</span></li>
+      <li><span class="jp">あの + N</span><span class="eq">=</span><span class="romaji">ano...</span><span class="eq">=</span><span class="meaning">... itu (menempel di depan kata benda; jauh dari keduanya)</span></li>
+    </ul>
+
+    <h3>2. Alat Tulis, Buku, &amp; Dokumen</h3>
+    <ul class="vocab">
+      <li><span class="jp">本 / ほん</span><span class="eq">=</span><span class="romaji">hon</span><span class="eq">=</span><span class="meaning">Buku</span></li>
+      <li><span class="jp">辞書 / じしょ</span><span class="eq">=</span><span class="romaji">jisho</span><span class="eq">=</span><span class="meaning">Kamus</span></li>
+      <li><span class="jp">雑誌 / ざっし</span><span class="eq">=</span><span class="romaji">zasshi</span><span class="eq">=</span><span class="meaning">Majalah</span></li>
+      <li><span class="jp">新聞 / しんぶん</span><span class="eq">=</span><span class="romaji">shinbun</span><span class="eq">=</span><span class="meaning">Koran / surat kabar</span></li>
+      <li><span class="jp">ノート</span><span class="eq">=</span><span class="romaji">nooto</span><span class="eq">=</span><span class="meaning">Buku tulis / buku catatan</span></li>
+      <li><span class="jp">手帳 / てちょう</span><span class="eq">=</span><span class="romaji">techou</span><span class="eq">=</span><span class="meaning">Buku agenda / buku saku</span></li>
+      <li><span class="jp">名刺 / めいし</span><span class="eq">=</span><span class="romaji">meishi</span><span class="eq">=</span><span class="meaning">Kartu nama</span></li>
+      <li><span class="jp">カード</span><span class="eq">=</span><span class="romaji">kaado</span><span class="eq">=</span><span class="meaning">Kartu (kartu kredit, ID card, dll.)</span></li>
+      <li><span class="jp">鉛筆 / えんぴつ</span><span class="eq">=</span><span class="romaji">enpitsu</span><span class="eq">=</span><span class="meaning">Pensil</span></li>
+      <li><span class="jp">ボールペン</span><span class="eq">=</span><span class="romaji">boorupen</span><span class="eq">=</span><span class="meaning">Bolpoin</span></li>
+      <li><span class="jp">シャープペンシル</span><span class="eq">=</span><span class="romaji">shaapu penshiru</span><span class="eq">=</span><span class="meaning">Pensil mekanik</span></li>
+    </ul>
+
+    <h3>3. Benda Sehari-hari, Elektronik, &amp; Perabot</h3>
+    <ul class="vocab">
+      <li><span class="jp">かぎ</span><span class="eq">=</span><span class="romaji">kagi</span><span class="eq">=</span><span class="meaning">Kunci</span></li>
+      <li><span class="jp">時計 / とけい</span><span class="eq">=</span><span class="romaji">tokei</span><span class="eq">=</span><span class="meaning">Jam / arloji</span></li>
+      <li><span class="jp">傘 / かさ</span><span class="eq">=</span><span class="romaji">kasa</span><span class="eq">=</span><span class="meaning">Payung</span></li>
+      <li><span class="jp">かばん</span><span class="eq">=</span><span class="romaji">kaban</span><span class="eq">=</span><span class="meaning">Tas</span></li>
+      <li><span class="jp">テレビ</span><span class="eq">=</span><span class="romaji">terebi</span><span class="eq">=</span><span class="meaning">Televisi</span></li>
+      <li><span class="jp">ラジオ</span><span class="eq">=</span><span class="romaji">rajio</span><span class="eq">=</span><span class="meaning">Radio</span></li>
+      <li><span class="jp">カメラ</span><span class="eq">=</span><span class="romaji">kamera</span><span class="eq">=</span><span class="meaning">Kamera</span></li>
+      <li><span class="jp">コンピューター</span><span class="eq">=</span><span class="romaji">konpyuutaa</span><span class="eq">=</span><span class="meaning">Komputer / PC</span></li>
+      <li><span class="jp">車 / くるま</span><span class="eq">=</span><span class="romaji">kuruma</span><span class="eq">=</span><span class="meaning">Mobil</span></li>
+      <li><span class="jp">机 / つくえ</span><span class="eq">=</span><span class="romaji">tsukue</span><span class="eq">=</span><span class="meaning">Meja</span></li>
+      <li><span class="jp">いす</span><span class="eq">=</span><span class="romaji">isu</span><span class="eq">=</span><span class="meaning">Kursi</span></li>
+      <li><span class="jp">CD</span><span class="eq">=</span><span class="romaji">shiidii</span><span class="eq">=</span><span class="meaning">CD</span></li>
+    </ul>
+
+    <h3>4. Makanan &amp; Oleh-oleh</h3>
+    <ul class="vocab">
+      <li><span class="jp">チョコレート</span><span class="eq">=</span><span class="romaji">chokoreeto</span><span class="eq">=</span><span class="meaning">Cokelat</span></li>
+      <li><span class="jp">コーヒー</span><span class="eq">=</span><span class="romaji">koohii</span><span class="eq">=</span><span class="meaning">Kopi</span></li>
+      <li><span class="jp">[お]土産 / [お]みやげ</span><span class="eq">=</span><span class="romaji">[o]miyage</span><span class="eq">=</span><span class="meaning">Oleh-oleh / cenderamata</span></li>
+    </ul>
+
+    <h3>5. Kata Tanya &amp; Ungkapan Sehari-hari</h3>
+    <ul class="vocab">
+      <li><span class="jp">何 / なん</span><span class="eq">=</span><span class="romaji">nan</span><span class="eq">=</span><span class="meaning">Apa</span></li>
+      <li><span class="jp">そう</span><span class="eq">=</span><span class="romaji">sou</span><span class="eq">=</span><span class="meaning">Begitu</span></li>
+      <li><span class="jp">違います / ちがいます</span><span class="eq">=</span><span class="romaji">chigaimasu</span><span class="eq">=</span><span class="meaning">Bukan / Salah / Berbeda</span></li>
+      <li><span class="jp">そうですか</span><span class="eq">=</span><span class="romaji">sou desu ka</span><span class="eq">=</span><span class="meaning">Oh, begitu... (diucapkan datar/turun saat menerima info baru)</span></li>
+      <li><span class="jp">あのう</span><span class="eq">=</span><span class="romaji">anou</span><span class="eq">=</span><span class="meaning">Ee... / Maaf (ungkapan ragu-ragu sebelum menyapa seseorang)</span></li>
+      <li><span class="jp">えっ</span><span class="eq">=</span><span class="romaji">e'</span><span class="eq">=</span><span class="meaning">Eh?! (kaget saat mendengar hal di luar dugaan)</span></li>
+      <li><span class="jp">どうぞ</span><span class="eq">=</span><span class="romaji">douzo</span><span class="eq">=</span><span class="meaning">Silakan (saat memberikan barang atau menawarkan sesuatu)</span></li>
+      <li><span class="jp">[どうも] ありがとう [ございます]</span><span class="eq">=</span><span class="romaji">[doumo] arigatou [gozaimasu]</span><span class="eq">=</span><span class="meaning">Terima kasih [banyak]</span></li>
+      <li><span class="jp">これからお世話になります / これからおせわになります</span><span class="eq">=</span><span class="romaji">kore kara osewa ni narimasu</span><span class="eq">=</span><span class="meaning">Mulai sekarang saya mohon bantuannya / arahannya</span></li>
+      <li><span class="jp">こちらこそ よろしく [お願いします]</span><span class="eq">=</span><span class="romaji">kochira koso yoroshiku [onegaishimasu]</span><span class="eq">=</span><span class="meaning">Sama-sama, saya juga mohon bantuannya</span></li>
+    </ul>
+  </section>
+
+  <hr class="divider">
+
+  <!-- POLA KALIMAT -->
+  <section>
+    <h2><span class="emoji-section">📖</span> Pola Kalimat &amp; Tata Bahasa</h2>
+
+    <!-- 1. Kore / Sore / Are -->
+    <div class="grammar-card">
+      <h4>1. Menunjuk Benda (Ini / Itu adalah...)</h4>
+      <div class="formula">これ / それ / あれ は N です &nbsp; (Kore / Sore / Are wa N desu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Menyebutkan nama benda berdasarkan posisinya terhadap pembicara dan lawan bicara.</p>
+      <ul class="tip-list">
+        <li><strong>これ (kore)</strong> = barang di tangan / dekat pembicara.</li>
+        <li><strong>それ (sore)</strong> = barang di tangan / dekat lawan bicara.</li>
+        <li><strong>あれ (are)</strong> = barang jauh dari kedua orang yang sedang ngobrol.</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">これは じしょです。</div>
+        <div class="romaji-line">(Kore wa jisho desu.)</div>
+        <div class="translate">Ini adalah kamus.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">それは わたしのかさです。</div>
+        <div class="romaji-line">(Sore wa watashi no kasa desu.)</div>
+        <div class="translate">Itu adalah payung saya.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">あれは なんですか。</div>
+        <div class="romaji-line">(Are wa nan desu ka?)</div>
+        <div class="translate">Yang di sebelah sana itu apa?</div>
+      </div>
+    </div>
+
+    <!-- 2. Kono / Sono / Ano + N -->
+    <div class="grammar-card">
+      <h4>2. Menerangkan Benda Secara Spesifik (Benda ini / Benda itu...)</h4>
+      <div class="formula">この / その / あの + N は ... です &nbsp; (Kono / Sono / Ano + N wa ... desu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Jika kamu mau menyebutkan bendanya terlebih dahulu sebelum memberikan penjelasan, gunakan rangkaian <em>Kono/Sono/Ano + Kata Benda</em>.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">この ほんは わたしのです。</div>
+        <div class="romaji-line">(Kono hon wa watashi no desu.)</div>
+        <div class="translate">Buku ini adalah milik saya.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">その かばんは だれのですか。</div>
+        <div class="romaji-line">(Sono kaban wa dare no desu ka?)</div>
+        <div class="translate">Tas itu kepunyaan siapa?</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">あの かたは どなたですか。</div>
+        <div class="romaji-line">(Ano kata wa donata desu ka?)</div>
+        <div class="translate">Beliau itu siapa?</div>
+      </div>
+    </div>
+
+    <!-- 3. Sou desu / Chigaimasu -->
+    <div class="grammar-card">
+      <h4>3. Mengonfirmasi Tebakan Benda: そうです &amp; 違います</h4>
+      <p class="meaning-line"><strong>Fungsi:</strong> Saat seseorang menebak suatu benda dengan kalimat tanya, gunakan respons praktis ini tanpa perlu mengulang nama bendanya panjang-panjang:</p>
+      <ul class="tip-list">
+        <li>Jika tebakan <strong>Benar</strong>: <span class="jp">はい、そうです</span> (<em>Hai, sou desu</em>) = Ya, benar.</li>
+        <li>Jika tebakan <strong>Salah</strong>: <span class="jp">いいえ、ちがいます</span> (<em>Iie, chigaimasu</em>) = Bukan/salah. Lalu boleh disusul dengan menyebut benda yang benar.</li>
+      </ul>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">Pertanyaan: それは じしょですか。</div>
+        <div class="romaji-line">(Sore wa jisho desu ka?)</div>
+        <div class="translate">Apakah itu kamus?</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">Jawaban Benar: はい、そうです。</div>
+        <div class="romaji-line">(Hai, sou desu.)</div>
+        <div class="translate">Ya, benar.</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">Jawaban Salah: いいえ、ちがいます。ノートです。</div>
+        <div class="romaji-line">(Iie, chigaimasu. Nooto desu.)</div>
+        <div class="translate">Bukan/salah. Ini buku catatan.</div>
+      </div>
+    </div>
+
+    <!-- 4. Pertanyaan pilihan -->
+    <div class="grammar-card">
+      <h4>4. Kalimat Tanya Pilihan (Pilih A atau B)</h4>
+      <div class="formula">Kalimat A か、Kalimat B か &nbsp; (... ka, ... ka?)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Digunakan saat pembicara ragu antara dua opsi (atau lebih) dan meminta lawan bicara memilih yang benar.</p>
+      <p class="meaning-line"><strong>Aturan Khusus:</strong> Jangan menjawab dengan <em>hai</em> (ya) atau <em>iie</em> (bukan), melainkan <strong>langsung sebutkan pilihan yang benar</strong>!</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">Pertanyaan: これは 「9」ですか、「7」ですか。</div>
+        <div class="romaji-line">(Kore wa "kyuu" desu ka, "nana" desu ka?)</div>
+        <div class="translate">Ini angka "9" atau "7"?</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">Jawaban: 「9」です。</div>
+        <div class="romaji-line">("Kyuu" desu.)</div>
+        <div class="translate">Angka "9".</div>
+      </div>
+    </div>
+
+    <!-- 5. Partikel no: isi & kepemilikan -->
+    <div class="grammar-card">
+      <h4>5. Perluasan Fungsi Partikel の (<em>no</em>): Isi &amp; Kepemilikan</h4>
+      <div class="formula">N1 の N2 &nbsp; (N1 no N2)</div>
+
+      <div class="sub-q">
+        <span class="label">Fungsi 1</span><strong>Isi / Topik bahasan:</strong> N1 menjelaskan isi atau topik dari N2.
+        <div class="example-block">
+          <div class="jp-line">これは コンピューターの ほんです。</div>
+          <div class="romaji-line">(Kore wa konpyuutaa no hon desu.)</div>
+          <div class="translate">Ini adalah buku (tentang) komputer.</div>
+        </div>
+        <div class="example-block">
+          <div class="jp-line">これは なんの ざっしですか。</div>
+          <div class="romaji-line">(Kore wa nan no zasshi desu ka?)</div>
+          <div class="translate">Ini majalah (tentang) apa?</div>
+        </div>
+      </div>
+
+      <div class="sub-q">
+        <span class="label">Fungsi 2</span><strong>Kepemilikan:</strong> N1 adalah pemilik dari N2.
+        <div class="example-block">
+          <div class="jp-line">これは わたしの ほんです。</div>
+          <div class="romaji-line">(Kore wa watashi no hon desu.)</div>
+          <div class="translate">Ini adalah buku saya.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Partikel no sebagai pengganti benda -->
+    <div class="grammar-card">
+      <h4>6. Partikel の sebagai Kata Pengganti Benda ("Milik / Kepunyaan")</h4>
+      <div class="formula">[Pemilik] の です &nbsp; (... no desu)</div>
+      <p class="meaning-line"><strong>Fungsi:</strong> Untuk menghindari pengulangan kata benda yang sudah jelas dibahas, kata bendanya cukup dihilangkan dan disisakan partikel <strong>の (no)</strong> yang artinya menjadi <strong>"milik/kepunyaan..."</strong>.</p>
+      <p class="meaning-line"><strong>Contoh Kalimat:</strong></p>
+      <div class="example-block">
+        <div class="jp-line">あれは だれの かばんですか。</div>
+        <div class="romaji-line">(Are wa dare no kaban desu ka?)</div>
+        <div class="translate">Itu tas milik siapa?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ さとうさんのです。</div>
+        <div class="romaji-line">(Satou-san no desu.)</div>
+        <div class="translate">Milik Sdr. Sato (singkatan dari <em>Satou-san no kaban desu</em>).</div>
+      </div>
+      <div class="example-block">
+        <div class="jp-line">この かさは あなたのですか。</div>
+        <div class="romaji-line">(Kono kasa wa anata no desu ka?)</div>
+        <div class="translate">Apakah payung ini kepunyaan Anda?</div>
+        <div class="jp-line" style="margin-top:8px;">↳ いいえ、わたしのじゃ ありません。</div>
+        <div class="romaji-line">(Iie, watashi no ja arimasen.)</div>
+        <div class="translate">Bukan, bukan milik saya.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <hr class="divider">
+
+  <!-- CATATAN & JEBAKAN -->
+  <section>
+    <h2><span class="emoji-section">⚠️</span> Catatan &amp; Jebakan Pemula <span style="font-size:0.75em; color:var(--danger);">(Wajib Diingat!)</span></h2>
+
+    <div class="warning-box">
+      <h4>1. Jebakan Kore (これ) vs Kono (この)</h4>
+      <ul class="tip-list">
+        <li><strong>これ (kore)</strong> sudah berupa kata benda seutuhnya. Dia <strong>berdiri sendiri</strong> dan langsung ditempel partikel (biasanya <em>wa</em>).
+          <ul>
+            <li>✔️ <em>Kore wa hon desu.</em></li>
+            <li>❌ <span class="wrong">Kore hon wa...</span> (Salah besar).</li>
+          </ul>
+        </li>
+        <li><strong>この (kono)</strong> sifatnya kata penunjuk penerang. Dia <strong>haram berdiri sendiri</strong> dan WAJIB menempel ke kata benda di belakangnya!
+          <ul>
+            <li>✔️ <em>Kono hon wa watashi no desu.</em></li>
+            <li>❌ <span class="wrong">Kono wa hon desu.</span> (Salah besar).</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>2. Perubahan Sudut Pandang Penunjuk (Kore ⇄ Sore)</h4>
+      <ul class="tip-list">
+        <li>Ingat perspektif lawan bicara!</li>
+        <li>Jika penanya memegang barang dan bertanya memakai <strong>これ (kore = ini)</strong>, maka kamu yang menjawab harus memakai <strong>それ (sore = itu)</strong> karena barang itu berada di sisi lawan bicaramu.</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>3. Cara Menolak Tebakan Benda</h4>
+      <ul class="tip-list">
+        <li>Saat ditanya <em>"Apakah ini kamus?"</em> dan ternyata bukan kamus:</li>
+        <li>Hindari menjawab dengan: ❌ <span class="wrong">Iie, sou ja arimasen.</span> (Kurang alami untuk tebakan benda).</li>
+        <li>Gunakanlah: ✔️ <span class="right">いいえ、違います (Iie, chigaimasu)</span> atau langsung koreksi bendanya: ✔️ <span class="right">いいえ、ノートです (Iie, nooto desu)</span>.</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>4. Partikel の Pengganti Benda TIDAK BISA Menggantikan Orang!</h4>
+      <ul class="tip-list">
+        <li>Penggantian kata menggunakan <strong>の</strong> hanya berlaku untuk benda mati, <strong>bukan manusia/jabatan</strong>.</li>
+        <li>Pertanyaan: <em>Miraa-san wa IMC no shain desu ka?</em> (Apakah Sdr. Miller karyawan IMC?)</li>
+        <li>✔️ <span class="right">Hai, IMC no shain desu.</span> (Ya, karyawan IMC).</li>
+        <li>❌ <span class="wrong">Hai, IMC no desu.</span> (SALAH, karena mereduksi manusia seolah menjadi barang kepunyaan).</li>
+      </ul>
+    </div>
+
+    <div class="warning-box">
+      <h4>5. Intonasi そうですか (<em>sou desu ka</em>)</h4>
+      <ul class="tip-list">
+        <li>Bila dibaca dengan <strong>intonasi turun</strong> ➔ artinya <em>"Oh, begitu..."</em> (tanda paham/menerima info baru).</li>
+        <li>Bila dibaca dengan <strong>intonasi naik</strong> layaknya pertanyaan biasa ➔ artinya <em>"Benarkah?!"</em> / <em>"Masa sih?"</em> (mengekspresikan keraguan). Di bab ini, gunakan intonasi turun.</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
